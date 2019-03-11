@@ -8,14 +8,14 @@
     <h1>Registration</h1>
     <form>
         Fullname:<br>
-        <input type="text" name="fullname">
+        <input type="text" name="fullname" pattern="[A-Za-z ]{1,32}" required>
         <br>
         E-mail adress:<br>
-        <input type="text" name="email">
+        <input type="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" value="simple@example.com" required>
         <br>
         <br><br>
-        <input type="radio" name="position" value="student">Student<br>
-        <input type="radio" name="position" value="mentor">Mentor<br>
+        <input type="radio" name="position" value="student" required>Student<br>
+        <input type="radio" name="position" value="mentor" required>Mentor<br>
         <input type="submit" value="Submit">
     </form>
 </body>
