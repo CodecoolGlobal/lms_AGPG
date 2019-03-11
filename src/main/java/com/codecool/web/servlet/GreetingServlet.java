@@ -25,7 +25,7 @@ public class GreetingServlet extends HttpServlet {
         if (jstl) {
             req.getRequestDispatcher("greeting-jstl.jsp").forward(req, resp);
         } else {
-            req.getRequestDispatcher("login.jsp").forward(req, resp);
+            req.getRequestDispatcher("logi.jsp").forward(req, resp);
         }
     }
 }
