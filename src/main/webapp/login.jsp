@@ -15,7 +15,7 @@
       <form method="post" action="index.html">
         <p><input type="email" name="login" value="" placeholder="Email" required></p>
         <p><input type="password" name="password" value="" placeholder="Password" required></p>
-        <a href="index.html"><p class="submit"><input type="button" value="Register"></p></a>
+        <a href="registration.jsp"><p class="submit"><input type="button" value="Register"></p></a>
         <p class="submit"><input type="submit" name="commit" value="Login"></p>
       </form>
     </div>
