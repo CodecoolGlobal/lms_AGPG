@@ -6,22 +6,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Greeting</title>
+    <title>Password reset</title>
 </head>
 <body>
 <section class="container">
     <div class="login">
-      <h1>Login to Web App</h1>
+      <h1>Write your email address here to recover your password</h1>
       <form method="post" action="index.html">
         <p><input type="email" name="login" value="" placeholder="Email" required></p>
-        <p><input type="password" name="password" value="" placeholder="Password" required></p>
-        <a href="index.html"><p class="submit"><input type="button" value="Register"></p></a>
-        <p class="submit"><input type="submit" name="commit" value="Login"></p>
+        <a href="index.html"><p class="submit"><input type="submit" name="commit" value="Submit"></p></a>
       </form>
-    </div>
-
-    <div class="login-help">
-      <p>Forgot your password? <a href="forgotten-password.jsp">Click here to reset it</a>.</p>
     </div>
   </section>
 </body>
