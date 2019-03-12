@@ -28,7 +28,7 @@ public class RegServlet extends HttpServlet {
         String user_email = request.getParameter("email");
         String user_pass = request.getParameter("psw");
 
-        Boolean position = false;
+        boolean position = false;
         if (request.getParameter("position").equals("mentor")) {
             position = true;
         }
