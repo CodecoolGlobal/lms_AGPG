@@ -33,7 +33,7 @@ public class LoginServlet extends HttpServlet {
         if (ServletHelper.isRegistered(user_email, user_pass, asd)) {
             LoggedInUser loggedInUser = new LoggedInUser();
             loggedInUser.setEmailAddress(user_email);
-            response.sendRedirect("index.html");
+            response.sendRedirect("index.jsp");
         } else {
 
             response.sendRedirect("login.html");

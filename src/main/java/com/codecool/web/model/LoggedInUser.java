@@ -1,6 +1,6 @@
 package com.codecool.web.model;
 
-public class LoggedInUser {
+public class LoggedInUser{
     private static String emailAddress;
 
     public String getEmailAddress() {
