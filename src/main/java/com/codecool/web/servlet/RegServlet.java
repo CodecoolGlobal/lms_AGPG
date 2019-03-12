@@ -42,6 +42,6 @@ public class RegServlet extends HttpServlet {
         User u = new User(user_name, user_email, user_pass,position );
         XMLparser.write(u, asd);
 
-        response.sendRedirect("login.jsp");
+        response.sendRedirect("login.html");
     }
 }
