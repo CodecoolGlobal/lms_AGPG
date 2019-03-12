@@ -18,18 +18,7 @@ public class GreetingServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<Greeting> greetings = service.getGreetings();
-        req.setAttribute("greetings", greetings);
+         req.getRequestDispatcher("login.html").forward(req, resp);
 
-        boolean jstl = Boolean.valueOf(req.getParameter("jstl"));
-        if (jstl) {
-            req.getRequestDispatcher("greeting-jstl.jsp").forward(req, resp);
-        } else {
-<<<<<<< HEAD
-            req.getRequestDispatcher("logi.jsp").forward(req, resp);
-=======
-            req.getRequestDispatcher("login.jsp").forward(req, resp);
->>>>>>> 6a539644e3956eef7957b7728c0c73ae337f1f7f
-        }
     }
 }
