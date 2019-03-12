@@ -9,7 +9,7 @@
 </head>
 <body>
     <h1>Registration</h1>
-    <form action = "handleinput.jsp" method = "post">
+        <form action="reg" method = "post">
         Fullname:<br>
         <input type="text" name="fullname" pattern="[A-Za-z ]{1,32}" required>
         <br>
