@@ -17,16 +17,9 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.util.List;
 
-@WebServlet({"", "/greeting"})
-public class GreetingServlet extends HttpServlet {
+@WebServlet("/reg")
+public class RegServlet extends HttpServlet {
 
-    private final GreetingService service = new GreetingService();
-
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-         req.getRequestDispatcher("login.html").forward(req, resp);
-
-    }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -34,11 +27,21 @@ public class GreetingServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
 
+        String asd = request.getServletContext().getRealPath("data.xml");
+
         String user_name = request.getParameter("fullname");
         String user_email = request.getParameter("email");
         String user_pass = request.getParameter("psw");
-        Boolean position = Boolean.valueOf(request.getParameter("position"));
 
-        User u = new User(user_name, user_email, user_pass, position);
+        Boolean position = false;
+        if (request.getParameter("position").equals("mentor")){
+            position = true;
+        }
+
+
+        User u = new User(user_name, user_email, user_pass,position );
+        XMLparser.write(u, asd);
+
+        response.sendRedirect("login.html");
     }
 }

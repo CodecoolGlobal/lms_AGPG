@@ -23,8 +23,8 @@ public class XMLparser {
     private static File xmlFile;
 
     // Creating Document type obj.
-    private static Document createDocument() {
-        xmlFile = new File("data.xml");
+    private static Document createDocument(String path) {
+        xmlFile = new File(path);
         Document document = null;
         DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
         try {
@@ -40,12 +40,12 @@ public class XMLparser {
 
 
     // Write the document to the XMl
-    private static void save(Document document) {
+    private static void save(Document document, String path) {
         TransformerFactory factory = TransformerFactory.newInstance();
 
         Document documentClean = removeEmptyNodes(document);
         DOMSource domSource = new DOMSource(documentClean);
-        StreamResult streamResult = new StreamResult(new File("data.xml"));
+        StreamResult streamResult = new StreamResult(new File(path));
         try {
             Transformer transformer = factory.newTransformer();
             transformer.setOutputProperty(OutputKeys.INDENT, "yes");
@@ -61,35 +61,27 @@ public class XMLparser {
 
 
 
-//    //Read Xml & return with it's items
-//    public static Consumable[] read(String category) {
-//        Document document = createDocument(category);
-//        String node = category.equals("food") ? "Food" : "Drink";
-//        ConsumableType type = category.equals("food") ? ConsumableType.FOOD : ConsumableType.DRINK;
-//        NodeList nList = document.getElementsByTagName(node);
-//        Consumable[] consumables = new Consumable[nList.getLength()];
-//
-//        for (int i = 0; i < nList.getLength(); i++) {
-//            String name = document.getElementsByTagName("name").item(i).getTextContent();
-//            String bestBefore = document.getElementsByTagName("bestbefore").item(i).getTextContent();
-//            int calories = Integer.valueOf(document.getElementsByTagName("calories").item(i).getTextContent());
-//            if (node.equals("Food")) {
-//                boolean isSpicy = Boolean.parseBoolean(document.getElementsByTagName("isspicy").item(i).getTextContent());
-//                Food food = new Food(name, bestBefore, calories, type, isSpicy);
-//                consumables[i] = food;
-//            } else {
-//                boolean isalcoholic = Boolean.parseBoolean(document.getElementsByTagName("isalcoholic").item(i).getTextContent());
-//                boolean isFizzy = Boolean.parseBoolean(document.getElementsByTagName("isfizzy").item(i).getTextContent());
-//                Drink drink = new Drink(name, bestBefore, calories, type, isalcoholic, isFizzy);
-//                consumables[i] = drink;
-//            }
-//        }
-//        return consumables;
-//    }
+    //Read Xml & return with it's items
+    public static User[] read(String path) {
+        Document document = createDocument(path);
+        NodeList nList = document.getElementsByTagName("user");
+        User[] users = new User[nList.getLength()];
+
+        for (int i = 0; i < nList.getLength(); i++) {
+            String fullname = document.getElementsByTagName("fullname").item(i).getTextContent();
+            String email = document.getElementsByTagName("email").item(i).getTextContent();
+            String psw = document.getElementsByTagName("psw").item(i).getTextContent();
+            String position = document.getElementsByTagName("position").item(i).getTextContent();
+
+            User new_user = new User(fullname,email,psw,Boolean.valueOf(position));
+            users[i] = new_user;
+        }
+        return users;
+    }
 
     //Write to Xml
-    public static void write(User user) {
-        Document document = createDocument();
+    public static void write(User user, String path) {
+        Document document = createDocument(path);
 
         Element root = document.getDocumentElement();
 
@@ -113,7 +105,7 @@ public class XMLparser {
         attributes.appendChild(psw);
         attributes.appendChild(position);
 
-        save(document);
+        save(document,path);
     }
 
     private static Document removeEmptyNodes(Document document) {

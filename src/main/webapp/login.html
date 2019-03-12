@@ -11,15 +11,18 @@
   <div class="wrapper animated bounce">
     <h1>Codecool LMS Login Form</h1>
     <hr>
-    <form>
+    <form class="login" method="post" action="login">
       <label id="icon" for="username"><i class="fa fa-user"></i></label>
-      <input type="text" placeholder="Email address" id="username" required>
+      <input type="text" placeholder="Email address" id="username" name="email" required>
       <label id="icon" for="password"><i class="fa fa-key"></i></label>
-      <input type="password" placeholder="Password" id="password" required>
-      <a href="curriculum.html"><input type="submit" value="Sign In"></a>
-      <hr>
-      <div class="crtacc"><a href="registration.html">Create Account</a></div>
+      <input type="password" placeholder="Password" id="password" name="psw" required>
+      <input type="submit" value="Sign In">
     </form>
+    <hr>
+    <form class="createacc" action="registration.html" method="get">
+        <div class="crtacc"><a href="registration.html">Create Account</a></div>
+    </form>
+
   </div>
 </body>
 </html>
