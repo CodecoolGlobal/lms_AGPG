@@ -16,6 +16,7 @@ public class ServletHelper {
         }
         return true;
     }
+
     public static boolean isRegistered(String user_email, String user_pass ,String path){
         User[] users = XMLparser.read(path);
 
