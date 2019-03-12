@@ -1,0 +1,89 @@
+*{
+margin: 0;
+padding: 0;
+
+
+}
+h1.header{
+    color:white;
+    font-size: 125px;
+    font-variant: small-caps;
+    vertical-align: top;
+    text-align: center;
+    background: transparent;
+
+}
+
+p {
+  color: orange;
+  text-align: left center justify;
+  font-size: 50px;
+  text-decoration: underline;
+}
+table.table{
+  color: white;
+  text-align: left center justify;
+  text-decoration: blink;
+  font-size: 50px;
+
+}
+
+body{
+  background-color:#292931;
+ background:url(https://i0.imgpile.com/2016/09/14/7861aab59aa07c9499278339f41522c3.jpg)  no-repeat center center fixed;
+ -webkit-background-size: cover;
+ -moz-background-size: cover;
+ -o-background-size: cover;
+ background-size: cover;
+}
+/* The sidepanel menu */
+.sidepanel {
+  height: 250px; /* Specify a height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: auto;
+  left: 0;
+  background-color: transparent; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidepanel */
+}
+
+/* The sidepanel links */
+.sidepanel a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidepanel a:hover {
+  color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidepanel .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+/* Style the button that is used to open the sidepanel */
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: transparent;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+}
+
+.openbtn:hover {
+  background-color: #444;
+}
