@@ -47,11 +47,5 @@ public class GreetingServlet extends HttpServlet {
         Boolean position = Boolean.valueOf(request.getParameter("position"));
 
         User u = new User(user_name, user_email, user_pass, position);
-        XMLparser.write(u);
-
-
-
-
-
     }
 }
