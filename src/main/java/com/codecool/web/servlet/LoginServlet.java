@@ -1,5 +1,6 @@
 package com.codecool.web.servlet;
 
+import com.codecool.web.model.LoggedInUser;
 import com.codecool.web.model.User;
 import com.codecool.web.service.ServletHelper;
 import com.codecool.web.service.XMLparser;
@@ -30,8 +31,11 @@ public class LoginServlet extends HttpServlet {
 
 
         if (ServletHelper.isRegistered(user_email, user_pass, asd)) {
+            LoggedInUser loggedInUser = new LoggedInUser();
+            loggedInUser.setEmailAddress(user_email);
             response.sendRedirect("index.html");
         } else {
+
             response.sendRedirect("login.html");
         }
     }
