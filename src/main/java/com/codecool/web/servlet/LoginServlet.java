@@ -1,6 +1,7 @@
 package com.codecool.web.servlet;
 
 import com.codecool.web.model.User;
+import com.codecool.web.service.ServletHelper;
 import com.codecool.web.service.XMLparser;
 
 import javax.servlet.ServletException;
@@ -27,17 +28,10 @@ public class LoginServlet extends HttpServlet {
 
         User[] users = XMLparser.read(asd);
 
-        boolean isFind = false;
-        for (User user : users) {
-            if (user.getEmail().equals(user_email) && user.getPw().equals(user_pass)) {
-                isFind = true;
-            }
-        }
 
-        if (isFind){
+        if (ServletHelper.isRegistered(user_email, user_pass, asd)) {
             response.sendRedirect("index.html");
-        }
-        else {
+        } else {
             response.sendRedirect("login.html");
         }
     }
