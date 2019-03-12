@@ -1,13 +1,15 @@
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page import="java.util.List" %>
+<%@ page import="com.codecool.web.model.Greeting" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="register.css">
     <title>Registration</title>
 </head>
 <body>
     <h1>Registration</h1>
-    <form action = "handleinput.jsp" method = "post">
+    <form action = "handleinput.jsp" method = "get">
         Fullname:<br>
         <input type="text" name="fullname" pattern="[A-Za-z ]{1,32}" required>
         <br>
@@ -20,7 +22,7 @@
         <br><br>
         <input type="radio" name="position" value="student" required>Student<br>
         <input type="radio" name="position" value="mentor" required>Mentor<br>
-        <a href="login.html"><input type="submit" value="Submit"></a>
+        <input type="submit" value="Submit">
     </form>
 </body>
 </html>
