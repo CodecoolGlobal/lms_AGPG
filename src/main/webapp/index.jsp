@@ -8,6 +8,13 @@
   <body>
     <h1>My First Heading ${email} </h1>
     <div align="center">
+
+    <form class="userprof" action="profile" method="post">
+        <div class="userprof"><a href="userprofile.jsp">List users
+        <input type="submit" value="Sign In">
+        </a>
+        </div>
+    </form>
   </div>
 
   </body>
