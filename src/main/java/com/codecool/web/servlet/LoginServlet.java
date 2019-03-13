@@ -2,6 +2,7 @@ package com.codecool.web.servlet;
 
 import com.codecool.web.model.LoggedInUser;
 import com.codecool.web.model.User;
+import com.codecool.web.model.Users;
 import com.codecool.web.service.ServletHelper;
 import com.codecool.web.service.XMLparser;
 
@@ -33,6 +34,10 @@ public class LoginServlet extends HttpServlet {
             LoggedInUser loggedInUser = new LoggedInUser();
             loggedInUser.setEmailAddress(user_email);
             request.setAttribute("email",user_email);
+
+            User[] userss = XMLparser.read(asd);
+            Users u = new Users();
+            u.setUsers(userss);
 
             request.getRequestDispatcher("index.jsp").forward(request, response);
 
