@@ -74,6 +74,9 @@ input[type=submit]:hover{
   cursor:pointer;
 
 }
+
+
+
 #icon{
   background-color:#F4F4F4;
   color:#625864;
@@ -114,4 +117,33 @@ input[type=submit]:hover{
 }
 .crtacc{
   margin-left:75px;
+}
+input[type=radio]{
+    font-family: FontAwesome;
+    display: inline-block;
+    content: "\f1db";
+    font-size: 1.2em;
+    color: #535353;
+    width: 1.4em;
+    text-align: center;
+}
+
+input[type=radio]{
+    content: "\f00c";
+    font-size: 1.2em;
+    color: darkgreen;
+}
+
+input[type=radio]
+{
+    color: green;
+}
+label[name=rbutton]{
+  color: white;
+  text-align: center;
+  margin: 5px 5px 5px auto;
+}
+input[name=position]
+{
+  margin-left: 15px;
 }
