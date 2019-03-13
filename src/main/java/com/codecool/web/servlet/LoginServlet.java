@@ -29,11 +29,14 @@ public class LoginServlet extends HttpServlet {
 
         User[] users = XMLparser.read(asd);
 
-
         if (ServletHelper.isRegistered(user_email, user_pass, asd)) {
             LoggedInUser loggedInUser = new LoggedInUser();
             loggedInUser.setEmailAddress(user_email);
-            response.sendRedirect("index.jsp");
+            request.setAttribute("email",user_email);
+
+            request.getRequestDispatcher("index.jsp").forward(request, response);
+
+            //response.sendRedirect("index.jsp");
         } else {
 
             response.sendRedirect("login.html");
