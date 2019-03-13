@@ -59,7 +59,23 @@ public class XMLparser {
         }
     }
 
+    //Update
+    public static void update(String path, String oldName, String newName, String newPassword) {
+        Document document = createDocument(path);
 
+        NodeList nList = document.getElementsByTagName("user");
+        for (int i = 0; i < nList.getLength(); i++) {
+            Element consumable = (Element) nList.item(i);
+            Element name = (Element) consumable.getElementsByTagName("fullname").item(0);
+            String currentName = name.getTextContent();
+            if (currentName.equals(oldName)) {
+
+                consumable.getElementsByTagName("fullname").item(0).setTextContent(newName);
+                consumable.getElementsByTagName("psw").item(0).setTextContent(newPassword);
+            }
+        }
+        save(document, path);
+    }
 
     //Read Xml & return with it's items
     public static User[] read(String path) {
