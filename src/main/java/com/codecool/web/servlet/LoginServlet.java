@@ -39,7 +39,7 @@ public class LoginServlet extends HttpServlet {
             Users u = new Users();
             u.setUsers(userss);
 
-            request.getRequestDispatcher("index.jsp").forward(request, response);
+            request.getRequestDispatcher("curriculum.html").forward(request, response);
 
             //response.sendRedirect("index.jsp");
         } else {
