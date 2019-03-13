@@ -10,9 +10,7 @@
     <table width="59%" border="1">
         <tbody>
             <%! Users usr = new Users();  %>
-            <table style="width:50%" border = "1">
             <% for (User u : usr.getUsers()) { %>
-
               <tr>
                 <th><% out.print(u.getfName()); %> </th>
                 <th><% out.print(u.getEmail()); %> </th>
