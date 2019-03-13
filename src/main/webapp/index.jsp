@@ -6,11 +6,8 @@
     <link rel="stylesheet" type="text/css" href="login.css">
   </head>
   <body>
-  ${email}
-    <h1>My First Heading </h1>
+    <h1>My First Heading ${email} </h1>
     <div align="center">
-    <%! LoggedInUser usr = new LoggedInUser();  %>
-    <% out.print( usr.getEmailAddress());  %>
   </div>
 
   </body>
