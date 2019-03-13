@@ -33,17 +33,20 @@ public class LoginServlet extends HttpServlet {
         if (ServletHelper.isRegistered(user_email, user_pass, asd)) {
             LoggedInUser loggedInUser = new LoggedInUser();
             loggedInUser.setEmailAddress(user_email);
-            request.setAttribute("email",user_email);
+
+            request.setAttribute("name", ServletHelper.showUserName(user_email,asd));
+
+            String name = ServletHelper.showUserName(user_email,asd);
+            LoggedInUser.setLoggedInUserName(name);
 
             User[] userss = XMLparser.read(asd);
             Users u = new Users();
             u.setUsers(userss);
 
-            request.getRequestDispatcher("curriculum.html").forward(request, response);
+            request.getRequestDispatcher("curriculum.jsp").forward(request, response);
 
             //response.sendRedirect("index.jsp");
         } else {
-
             response.sendRedirect("login.html");
         }
     }
