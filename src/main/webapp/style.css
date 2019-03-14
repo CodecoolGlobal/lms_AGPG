@@ -20,12 +20,32 @@ p {
   font-size: 50px;
   text-decoration: underline;
 }
-table.table{
-  color: white;
-  text-align: left center justify;
-  text-decoration: blink;
-  font-size: 50px;
 
+table.users-list{
+  border-collapse: collapse;
+  margin: 200px auto;
+  text-align:left center justify;
+  text-decoration: none;
+  width:800px;
+  border: 10px;
+  background-color: black;
+
+
+}
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  border-color: white;
+  border-style: solid;
+  font-size: 20px;
+  color: white;
+}
+
+tr:hover, td:hover{
+  background-color:green;
+  color: black;
+  border: 1px solid #777;
 }
 
 body{
@@ -85,5 +105,5 @@ body{
 }
 
 .openbtn:hover {
-  background-color: #444;
+  border: 1px solid #777;
 }
