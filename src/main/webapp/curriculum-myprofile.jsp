@@ -8,7 +8,7 @@
         <title>My Profile</title>
     </head>
     <body>
-      <form class="modify" method="post" action="modify">
+      <form class="modify" method="post" action="showname">
         <input type="text" placeholder="Full name" id="username" name="fullname" pattern="[A-Za-z ]{1,32}" required>
         <input type="password" placeholder="Password" id="password" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
         <a href="login.html"><input type="submit" value="Submit"></a>
