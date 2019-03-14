@@ -23,19 +23,39 @@ public class ProfileServlet extends HttpServlet {
 
         String user_name = request.getParameter("fullname");
         String user_pass = request.getParameter("psw");
+        String user_roleS = request.getParameter("position");
+        LoggedInUser.setIsMentor(ServletHelper.isMenorold(LoggedInUser.getEmailAddress(), asd)); // old role
+        Boolean role = LoggedInUser.getIsMentor();
         String oldName = LoggedInUser.getLoggedInUserName();
+
+        if (user_roleS != null){
+            role = user_roleS.equals("mentor") ? true : false;
+
+        }
+
+
+
+        if (user_pass.length() == 0) {
+            LoggedInUser.setOldPassw(ServletHelper.getOldPw(LoggedInUser.getEmailAddress(), asd));
+            user_pass = LoggedInUser.getOldPassw();
+        }
+
+        if (user_name.length() == 0){
+            user_name = LoggedInUser.getLoggedInUserName();
+        }
 
         LoggedInUser.setLoggedInUserName(user_name);
 
-        XMLparser.update(asd, oldName,user_name,user_pass);
+        XMLparser.update(asd, oldName, user_name, user_pass, role);
         response.sendRedirect("curriculum-myprofile.jsp");
 
     }
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String asd = req.getServletContext().getRealPath("data.xml");
 
-        req.setAttribute("name", ServletHelper.showUserName(LoggedInUser.getEmailAddress(),asd));
+        req.setAttribute("name", ServletHelper.showUserName(LoggedInUser.getEmailAddress(), asd));
 
         req.getRequestDispatcher("curriculum-myprofile.jsp").forward(req, resp);
 

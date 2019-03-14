@@ -39,4 +39,28 @@ public class ServletHelper {
         }
         return null;
     }
+
+    public static String getOldPw(String user_email, String path){
+        User[] users = XMLparser.read(path);
+
+        for (User user : users) {
+            if (user.getEmail().equals(user_email)) {
+                return user.getPw();
+            }
+        }
+        return null;
+
+    }
+
+    public static Boolean isMenorold(String user_email, String path){
+        User[] users = XMLparser.read(path);
+
+        for (User user : users) {
+            if (user.getEmail().equals(user_email)) {
+                return (user.isMentor());
+            }
+        }
+        return null;
+
+    }
 }
