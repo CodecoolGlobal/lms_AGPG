@@ -60,7 +60,7 @@ public class XMLparser {
     }
 
     //Update
-    public static void update(String path, String oldName, String newName, String newPassword) {
+    public static void update(String path, String oldName, String newName, String newPassword, Boolean newPosition) {
         Document document = createDocument(path);
 
         NodeList nList = document.getElementsByTagName("user");
@@ -72,6 +72,7 @@ public class XMLparser {
 
                 consumable.getElementsByTagName("fullname").item(0).setTextContent(newName);
                 consumable.getElementsByTagName("psw").item(0).setTextContent(newPassword);
+                consumable.getElementsByTagName("position").item(0).setTextContent(String.valueOf(newPosition));
             }
         }
         save(document, path);
