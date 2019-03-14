@@ -28,7 +28,6 @@ table.users-list{
   text-decoration: none;
   width:800px;
   border: 10px;
-  background-color: black;
 
 
 }
@@ -44,7 +43,6 @@ th, td {
 
 tr:hover, td:hover{
   background-color:green;
-  color: black;
   border: 1px solid #777;
 }
 

@@ -13,12 +13,18 @@
 <body>
 <html lang="en">
   <table class="users-list">
+      <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Is Mentor</th>
+      </tr>
       <%! Users usr = new Users();  %>
       <% for (User u : usr.getUsers()) { %>
-      <tr >
-          <th><strong><% out.print(u.getfName()); %> </strong></th>
-          <th><% out.print(u.getEmail()); %> </th>
-          <th><% out.print(String.valueOf(u.isMentor())); }%> </th>
+
+      <tr>
+          <td><% out.print(u.getfName()); %> </strong></td>
+          <td><% out.print(u.getEmail()); %> </td>
+          <td><% out.print(String.valueOf(u.isMentor())); }%> </td>
       </tr>
   </table>
 
