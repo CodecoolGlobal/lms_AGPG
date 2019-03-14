@@ -49,6 +49,8 @@ public class ProfileServlet extends HttpServlet {
         XMLparser.update(asd, oldName, user_name, user_pass, role);
         response.sendRedirect("curriculum-myprofile.jsp");
 
+        Users.setUsers(XMLparser.read(asd));
+
     }
 
     @Override
