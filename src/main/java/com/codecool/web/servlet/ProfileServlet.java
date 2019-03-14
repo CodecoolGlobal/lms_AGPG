@@ -23,7 +23,16 @@ public class ProfileServlet extends HttpServlet {
 
         String user_name = request.getParameter("fullname");
         String user_pass = request.getParameter("psw");
+        String user_roleS = request.getParameter("position");
+        LoggedInUser.setIsMentor(ServletHelper.isMenorold(LoggedInUser.getEmailAddress(), asd)); // old role
+        Boolean role = LoggedInUser.getIsMentor();
         String oldName = LoggedInUser.getLoggedInUserName();
+
+        if (user_roleS != null){
+            role = user_roleS.equals("mentor") ? true : false;
+
+        }
+
 
 
         if (user_pass.length() == 0) {
@@ -37,7 +46,7 @@ public class ProfileServlet extends HttpServlet {
 
         LoggedInUser.setLoggedInUserName(user_name);
 
-        XMLparser.update(asd, oldName, user_name, user_pass);
+        XMLparser.update(asd, oldName, user_name, user_pass, role);
         response.sendRedirect("curriculum-myprofile.jsp");
 
     }
