@@ -6,22 +6,21 @@
 
 <!DOCTYPE html>
  <head>
-        <link rel="stylesheet" type="text/css" href="style.css">
-        <meta charset="UTF-8">
-        <title>My Profile</title>
-    </head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="UTF-8">
+    <title>My Profile</title>
+</head>
 <body>
 <html lang="en">
-<table width="59%" border="1">
-    <tbody>
-    <%! Users usr = new Users();  %>
-    <% for (User u : usr.getUsers()) { %>
-    <tr>
-        <th><% out.print(u.getfName()); %> </th>
-        <th><% out.print(u.getEmail()); %> </th>
-        <th><% out.print(String.valueOf(u.isMentor())); }%> </th>
-    </tr>
-    </tbody>
-</table>
+  <table class="users-list">
+      <%! Users usr = new Users();  %>
+      <% for (User u : usr.getUsers()) { %>
+      <tr >
+          <th><strong><% out.print(u.getfName()); %> </strong></th>
+          <th><% out.print(u.getEmail()); %> </th>
+          <th><% out.print(String.valueOf(u.isMentor())); }%> </th>
+      </tr>
+  </table>
+
       <a href="curriculum.jsp">Back to menu</a>
 </body>
