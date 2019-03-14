@@ -6,15 +6,17 @@
 
 </head>
 <body>
+
       <br>
       <title>Curriculum</title>
       <h1 class="header">Curriculum</h1>
+      <h2>Welcome ${name}</h2>
 
       <div id="mySidepanel" class="sidepanel">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="curriculum-mentor-modify-assignment.html">Mentor Modify</a>
-        <a href="curriculum-myprofile.html">My Profile</a>
-        <a href="curriculum-user-list.html">User List</a>
+        <a href="curriculum-myprofile.jsp" methods="get" action="showname" >My Profile</a>
+        <a href="curriculum-user-list.jsp">User List</a>
         <a href="curriculum-view-assignment.html">View Assignment</a>
       </div>
 
@@ -31,6 +33,7 @@
         document.getElementById("mySidepanel").style.width = "0";
         }
     </script>
+
 
 </body>
 </html>

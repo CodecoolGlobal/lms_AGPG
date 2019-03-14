@@ -28,4 +28,15 @@ public class ServletHelper {
         }
         return isFind;
     }
+
+    public static String showUserName(String email, String path){
+        User[] users = XMLparser.read(path);
+
+        for (User user : users) {
+            if (user.getEmail().equals(email)) {
+                return user.getfName();
+            }
+        }
+        return null;
+    }
 }
