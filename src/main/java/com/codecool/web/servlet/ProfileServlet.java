@@ -24,6 +24,8 @@ public class ProfileServlet extends HttpServlet {
         String user_name = request.getParameter("fullname");
         String user_pass = request.getParameter("psw");
 
+        LoggedInUser.setLoggedInUserName(user_name);
+
         XMLparser.update(asd, "mentor",user_name,user_pass);
         response.sendRedirect("curriculum-myprofile.jsp");
 

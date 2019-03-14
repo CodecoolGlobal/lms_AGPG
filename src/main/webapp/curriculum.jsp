@@ -1,3 +1,5 @@
+<%@ page import="com.codecool.web.model.LoggedInUser" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +12,9 @@
       <br>
       <title>Curriculum</title>
       <h1 class="header">Curriculum</h1>
-      <h2>Welcome ${name}</h2>
+      <%! LoggedInUser usr = new LoggedInUser();  %>
+
+      <h2><% out.print(usr.getLoggedInUserName()); %></h2>
 
       <div id="mySidepanel" class="sidepanel">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
