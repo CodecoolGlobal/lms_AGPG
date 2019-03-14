@@ -3,41 +3,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="curriculum.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <meta charset="UTF-8">
+      <title>Curriculum</title>
 
 </head>
 <body>
-
+  <%! LoggedInUser usr = new LoggedInUser();  %>
+  <header>
+    <h1>Curriculum</h1>
+  <h2>Welcome <% out.print(usr.getLoggedInUserName()); %>!</h2>
+  </header>
       <br>
-      <title>Curriculum</title>
-      <h1 class="header">Curriculum</h1>
-      <%! LoggedInUser usr = new LoggedInUser();  %>
+      <div class="wrapper animated bounce">
+          <div class="options">
 
-      <h2><% out.print(usr.getLoggedInUserName()); %></h2>
-
-      <div id="mySidepanel" class="sidepanel">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="curriculum-mentor-modify-assignment.html">Mentor Modify</a>
-        <a href="curriculum-myprofile.jsp" methods="get" action="showname" >My Profile</a>
-        <a href="curriculum-user-list.jsp">User List</a>
-        <a href="curriculum-view-assignment.html">View Assignment</a>
+          <a href="curriculum-mentor-modify-assignment.html">Mentor Modify</a><br>
+          <a href="curriculum-myprofile.jsp" methods="get" action="showname" >My Profile</a><br>
+          <a href="curriculum-user-list.jsp">User List</a><br>
+          <a href="curriculum-view-assignment.html">View Assignment</a>
+        </div>
       </div>
-
-    <button class="openbtn" onclick="openNav()">&#9776; </button>
-
-    <script>
-        /* Set the width of the sidebar to 250px (show it) */
-        function openNav() {
-        document.getElementById("mySidepanel").style.width = "250px";
-        }
-
-        /* Set the width of the sidebar to 0 (hide it) */
-        function closeNav() {
-        document.getElementById("mySidepanel").style.width = "0";
-        }
-    </script>
-
 
 </body>
 </html>
