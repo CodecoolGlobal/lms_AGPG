@@ -14,9 +14,17 @@
         <jstl.version>1.2</jstl.version>
         <junit.jupiter.version>5.0.1</junit.jupiter.version>
         <junit.platform.version>1.0.3</junit.platform.version>
+        <postgresql.jdbc.version>42.2.2</postgresql.jdbc.version>
+
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>${postgresql.jdbc.version}</version>
+            <scope>runtime</scope>
+        </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
