@@ -1,5 +1,7 @@
 package com.codecool.web.servlet;
 
+import com.codecool.web.dao.Dao;
+import com.codecool.web.exception.ServiceException;
 import com.codecool.web.model.LoggedInUser;
 import com.codecool.web.model.User;
 import com.codecool.web.model.Users;
@@ -13,15 +15,63 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.SQLException;
+
+import static java.sql.DriverManager.getConnection;
 
 @WebServlet({"","/login"})
-public class LoginServlet extends HttpServlet {
+public class LoginServlet extends AbstractServlet {
 
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        //mycode starts
+            try (Connection connection = getConnection(request.getServletContext())) {
+            /*CouponDao couponDao = new DatabaseCouponDao(connection);
+
+            ShopDao shopDao = new DatabaseShopDao(connection);
+            CouponService couponService = new SimpleCouponService(couponDao, shopDao);*/
+               String ans =  Dao.getDao(connection);
+               String z = "u";
+            } catch (SQLException ex) {
+            throw new ServletException(ex);
+        } /*catch (ServiceException ex) {
+            request.setAttribute("error", ex.getMessage());
+        }*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //mycode ends
 
         String asd = request.getServletContext().getRealPath("data.xml");
 
