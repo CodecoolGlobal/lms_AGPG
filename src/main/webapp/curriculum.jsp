@@ -14,17 +14,18 @@
   <header>
     <h1>Curriculum</h1>
   <h2>Welcome <% out.print(usr.getLoggedInUserName()); %>!</h2>
-  </header>
-      <br>
-      <div class="wrapper animated bounce">
-          <div class="options">
+  <br>
+  <div class="wrapper animated bounce">
+      <div class="options">
 
-          <a href="curriculum-mentor-modify-assignment.html">Mentor Modify</a><br>
-          <a href="curriculum-myprofile.jsp" methods="get" action="showname" >My Profile</a><br>
-          <a href="curriculum-user-list.jsp">User List</a><br>
-          <a href="curriculum-view-assignment.html">View Assignment</a>
-        </div>
-      </div>
+      <a href="curriculum-mentor-modify-assignment.html">Mentor Modify</a><br>
+      <a href="curriculum-myprofile.jsp" methods="get" action="showname" >My Profile</a><br>
+      <a href="curriculum-user-list.jsp">User List</a><br>
+      <a href="curriculum-view-assignment.html">View Assignment</a>
+    </div>
+  </div>
+  </header>
+
 
 </body>
 </html>
