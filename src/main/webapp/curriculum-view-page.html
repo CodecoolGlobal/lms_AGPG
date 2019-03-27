@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="UTF-8">
+
+</head>
+<body>
+      <br>
+      <title>Curriculum</title>
+      <h1 class="header">Curriculum</h1>
+
+      <div id="mySidepanel" class="sidepanel">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Clients</a>
+        <a href="#">Contact</a>
+      </div>
+
+    <button class="openbtn" onclick="openNav()">&#9776; </button>
+
+    <script>
+        /* Set the width of the sidebar to 250px (show it) */
+        function openNav() {
+        document.getElementById("mySidepanel").style.width = "250px";
+        }
+
+        /* Set the width of the sidebar to 0 (hide it) */
+        function closeNav() {
+        document.getElementById("mySidepanel").style.width = "0";
+        }
+    </script>
+
+</body>
+</html>
