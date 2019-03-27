@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 @WebServlet("/reg")
 public class RegServlet extends HttpServlet {
@@ -33,7 +32,7 @@ public class RegServlet extends HttpServlet {
         }
 
         if(ServletHelper.isValidEmail(user_email, asd)){
-            User u = new User(user_name, user_email, user_pass, position);
+            User u = new User(1, user_name, user_email, user_pass, position);
             XMLparser.write(u, asd);
             response.sendRedirect("login.html");
         }

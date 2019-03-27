@@ -24,7 +24,7 @@ public class UserUtil {
                 String email = resultSet.getString("email");
                 String userPassword = resultSet.getString("user_password");
                 String isMentor = String.valueOf(resultSet.getBoolean("ismentor"));
-                users.add(new User(userName, email, userPassword, Boolean.valueOf(isMentor)));
+                users.add(new User(Integer.valueOf(id), userName, email, userPassword, Boolean.valueOf(isMentor)));
             }
         }
         return users;

@@ -23,6 +23,9 @@
             <c:forEach items="${userList}" var="user">
                 <tr>
                     <td>
+                        ${user.id}<br>
+                    </td>
+                    <td>
                         ${user.fName}<br>
                     </td>
                     <td>

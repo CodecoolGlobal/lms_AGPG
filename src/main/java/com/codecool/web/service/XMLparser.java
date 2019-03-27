@@ -90,7 +90,7 @@ public class XMLparser {
             String psw = document.getElementsByTagName("psw").item(i).getTextContent();
             String position = document.getElementsByTagName("position").item(i).getTextContent();
 
-            User new_user = new User(fullname,email,psw,Boolean.valueOf(position));
+            User new_user = new User(1, fullname, email, psw, Boolean.valueOf(position));
             users[i] = new_user;
         }
         return users;

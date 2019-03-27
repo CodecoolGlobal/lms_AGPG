@@ -7,12 +7,17 @@ public class User {
     private boolean isMentor;
     private int id;
 
-    public User(String fName, String email, String pw, boolean isMentor) {
+    public User(int id, String fName, String email, String pw, boolean isMentor) {
+        this.id = id;
         this.fName = fName;
         this.email = email;
         this.pw = pw;
         this.isMentor = isMentor;
         //id = user table length + 1;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getfName() {
