@@ -13,21 +13,30 @@
 </head>
 <body>
 <html lang="en">
-  <table class="users-list">
-      <tr>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Is Mentor</th>
-      </tr>
-      <%! Users usr = new Users();  %>
-      <% for (User u : usr.getUsers()) { %>
-
-      <tr>
-          <td><% out.print(u.getfName()); %> </strong></td>
-          <td><% out.print(u.getEmail()); %> </td>
-          <td><% out.print(String.valueOf(u.isMentor())); }%> </td>
-      </tr>
-  </table>
+<table border="1">
+            <tr>
+                <th>ID</th>
+                <th>Poster</th>
+                <th>Content</th>
+                <th>Date</th>
+            </tr>
+            <c:forEach items="${userList}" var="user">
+                <tr>
+                    <td>
+                        ${user.fName}<br>
+                    </td>
+                    <td>
+                        ${user.email}<br>
+                    </td>
+                    <td>
+                        ${user.pw}<br>
+                    </td>
+                    <td>
+                        ${user.fName}<br>
+                    </td>
+                </tr>
+            </c:forEach>
+        </table>
 
       <a href="curriculum.jsp">Back to menu</a>
 </body>
