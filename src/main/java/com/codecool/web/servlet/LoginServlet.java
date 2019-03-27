@@ -1,11 +1,13 @@
 package com.codecool.web.servlet;
 
 import com.codecool.web.dao.Dao;
+import com.codecool.web.model.Assignment;
 import com.codecool.web.model.LoggedInUser;
 import com.codecool.web.model.User;
 import com.codecool.web.model.Users;
 import com.codecool.web.service.ServletHelper;
 import com.codecool.web.service.XMLparser;
+import com.codecool.web.util.AssignmentUtil;
 import com.codecool.web.util.UserUtil;
 
 import javax.servlet.ServletException;
@@ -28,8 +30,6 @@ public class LoginServlet extends AbstractServlet {
         //mycode starts
         try (Connection connection = getConnection(request.getServletContext())) {
 
-            String ans = Dao.getDao(connection);
-            String z = "keksz";
             List<User> users = UserUtil.getUsers(connection);
         } catch (SQLException ex) {
             //throw new ServletException(ex);
@@ -58,9 +58,9 @@ public class LoginServlet extends AbstractServlet {
             Users u = new Users();
             Users.setUsers(userss);
 
-            request.getRequestDispatcher("curriculum.jsp").forward(request, response);
+            //request.getRequestDispatcher("view").forward(request, response);
 
-            //response.sendRedirect("index.jsp");
+            response.sendRedirect("view");
         } else {
             response.sendRedirect("login.html");
         }

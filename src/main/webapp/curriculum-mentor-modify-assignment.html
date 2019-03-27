@@ -6,6 +6,49 @@
         <title>Modify assignment</title>
     </head>
     <body>
-      <a href="curriculum.jsp">Back to menu</a>
+    <div class="navbar" name="screen">
+        <a class="active" href="login.html"> Login </a>
+        <a href="curriculum-myprofile.jsp">My profile</a>
+        <a href="index.jsp">Mentor</a>
+        <a href="curriculum-mentor-modify-assignment.html">Modify assignments</a>
+        <a href="#">Student</a>
+        <a href="curriculum-view-assignment.html">Assignments</a>
+        <a href="#">View page</a>
+        <a href="curriculum-user-list.jsp">List users</a>
+        <br>
+        <h1>Modified Assignment</h1>
+
+    </div>
     </body>
 </html>
+<style media="screen">
+
+.navbar {
+  width: 100%;
+  overflow: auto;
+}
+
+.navbar a {
+  float: left;
+  padding: 12px;
+  color: white;
+  text-decoration: none;
+  width: auto;
+  font-size: 17px;
+}
+
+.navbar a:hover {
+  background-color: #1a8cff;
+}
+
+.active {
+  background-color: #4CAF50;
+}
+
+@media screen and (max-width: 500px) {
+  .navbar a {
+    float: none;
+    display: block;
+  }
+}
+</style>

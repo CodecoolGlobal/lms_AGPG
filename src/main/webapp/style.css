@@ -1,7 +1,37 @@
+@import 'https://fonts.googleapis.com/css?family=Open+Sans';
+@import 'https://fonts.googleapis.com/css?family=Galada';
 *{
 margin: 0;
 padding: 0;
 
+.navbar {
+  width: 100%;
+  overflow: auto;
+}
+
+.navbar a {
+  float: left;
+  padding: 12px;
+  color: white;
+  text-decoration: none;
+  width: auto;
+  font-size: 17px;
+}
+
+.navbar a:hover {
+  background-color: #1a8cff;
+}
+
+.active {
+  background-color: #4CAF50;
+}
+
+@media screen and (max-width: 500px) {
+  .navbar a {
+    float: none;
+    display: block;
+  }
+}
 
 }
 h1.header{
@@ -12,6 +42,19 @@ h1.header{
     text-align: center;
     background: transparent;
 
+}
+body,input{
+  font-family:'Open sans',sans-serif;
+  font-size:18px;
+  color:#4c4c4c;
+}
+body{
+  background-color:#292931;
+  background:url(https://i0.imgpile.com/2016/09/14/7861aab59aa07c9499278339f41522c3.jpg)  no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 p {
@@ -42,19 +85,10 @@ th, td {
 }
 
 tr:hover, td:hover{
-  background-color:green;
+  background-color:#1a8cff;
   border: 1px solid #777;
 }
 
-body{
-  background-color:#292931;
-  color: white;
- background:url(https://i0.imgpile.com/2016/09/14/7861aab59aa07c9499278339f41522c3.jpg)  no-repeat center center fixed;
- -webkit-background-size: cover;
- -moz-background-size: cover;
- -o-background-size: cover;
- background-size: cover;
-}
 <<<<<<< HEAD
 =======
 /* The sidepanel menu */
