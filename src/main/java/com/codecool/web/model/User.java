@@ -4,7 +4,7 @@ public class User {
     private String fName;
     private String email;
     private String pw;
-    private boolean isMentor;
+    private boolean mentor;
     private int id;
 
     public User(int id, String fName, String email, String pw, boolean isMentor) {
@@ -12,7 +12,7 @@ public class User {
         this.fName = fName;
         this.email = email;
         this.pw = pw;
-        this.isMentor = isMentor;
+        this.mentor = isMentor;
         //id = user table length + 1;
     }
 
@@ -33,6 +33,6 @@ public class User {
     }
 
     public boolean isMentor() {
-        return isMentor;
+        return mentor;
     }
 }

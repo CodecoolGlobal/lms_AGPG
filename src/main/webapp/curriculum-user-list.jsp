@@ -16,9 +16,9 @@
 <table border="1">
             <tr>
                 <th>ID</th>
-                <th>Poster</th>
-                <th>Content</th>
-                <th>Date</th>
+                <th>User</th>
+                <th>Email</th>
+                <th>isMentor</th>
             </tr>
             <c:forEach items="${userList}" var="user">
                 <tr>
@@ -32,10 +32,7 @@
                         ${user.email}<br>
                     </td>
                     <td>
-                        ${user.pw}<br>
-                    </td>
-                    <td>
-                        ${user.fName}<br>
+                        ${user.mentor}<br>
                     </td>
                 </tr>
             </c:forEach>
