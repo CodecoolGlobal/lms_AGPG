@@ -17,7 +17,7 @@ public class AnswerUtil {
         String s = "";
         try (Statement statement = connection.createStatement();
         ) {
-            statement.executeQuery(sql);
+            statement.execute(sql);
             //ResultSet resultSet = statement.executeQuery(sql)) {
            /* while (resultSet.next()) {
                 s = resultSet.getString("name");
