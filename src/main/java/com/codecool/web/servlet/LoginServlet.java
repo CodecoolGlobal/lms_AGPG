@@ -31,14 +31,11 @@ public class LoginServlet extends AbstractServlet {
         response.setContentType("text/html;charset=UTF-8");
         //mycode starts
             try (Connection connection = getConnection(request.getServletContext())) {
-            /*CouponDao couponDao = new DatabaseCouponDao(connection);
 
-            ShopDao shopDao = new DatabaseShopDao(connection);
-            CouponService couponService = new SimpleCouponService(couponDao, shopDao);*/
                String ans =  Dao.getDao(connection);
-               String z = "u";
+               String z = "keksz";
             } catch (SQLException ex) {
-            throw new ServletException(ex);
+            //throw new ServletException(ex);
         } /*catch (ServiceException ex) {
             request.setAttribute("error", ex.getMessage());
         }*/
