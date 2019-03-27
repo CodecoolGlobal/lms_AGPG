@@ -35,8 +35,8 @@ public class LoginServlet extends AbstractServlet {
         try (Connection connection = getConnection(request.getServletContext())) {
 
             //String ans =  Dao.getDao(connection);
-            //AnswerUtil.insertName(connection);
-            //AssignmentUtil.addAssignment(connection);
+            AnswerUtil.insertName(connection);
+            
 
         } catch (SQLException ex) {
             throw new ServletException(ex);
