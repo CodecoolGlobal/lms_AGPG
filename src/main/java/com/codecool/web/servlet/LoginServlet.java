@@ -8,6 +8,7 @@ import com.codecool.web.model.Users;
 import com.codecool.web.service.ServletHelper;
 import com.codecool.web.service.XMLparser;
 import com.codecool.web.util.AnswerUtil;
+import com.codecool.web.util.AssignmentUtil;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,7 +23,7 @@ import java.sql.SQLException;
 
 import static java.sql.DriverManager.getConnection;
 
-@WebServlet({"","/login"})
+@WebServlet({"", "/login"})
 public class LoginServlet extends AbstractServlet {
 
 
@@ -31,44 +32,15 @@ public class LoginServlet extends AbstractServlet {
         throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         //mycode starts
-            try (Connection connection = getConnection(request.getServletContext())) {
+        try (Connection connection = getConnection(request.getServletContext())) {
 
-               //String ans =  Dao.getDao(connection);
-                AnswerUtil.insertName(connection);
+            //String ans =  Dao.getDao(connection);
+            //AnswerUtil.insertName(connection);
+            //AssignmentUtil.addAssignment(connection);
 
-            } catch (SQLException ex) {
-            //throw new ServletException(ex);
-        } /*catch (ServiceException ex) {
-            request.setAttribute("error", ex.getMessage());
-        }*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        } catch (SQLException ex) {
+            throw new ServletException(ex);
+        }
 
         //mycode ends
 
@@ -83,9 +55,9 @@ public class LoginServlet extends AbstractServlet {
             LoggedInUser loggedInUser = new LoggedInUser();
             loggedInUser.setEmailAddress(user_email);
 
-            request.setAttribute("name", ServletHelper.showUserName(user_email,asd));
+            request.setAttribute("name", ServletHelper.showUserName(user_email, asd));
 
-            String name = ServletHelper.showUserName(user_email,asd);
+            String name = ServletHelper.showUserName(user_email, asd);
             LoggedInUser.setLoggedInUserName(name);
 
             User[] userss = XMLparser.read(asd);
@@ -99,6 +71,7 @@ public class LoginServlet extends AbstractServlet {
             response.sendRedirect("login.html");
         }
     }
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getRequestDispatcher("login.html").forward(req, resp);
