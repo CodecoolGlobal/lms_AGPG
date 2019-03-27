@@ -1,10 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8">
+    <title>Add new assignment for the students!</title>
 </head>
 <body>
-
+<form class="" action="assignment" method="post">
+    <input type="text" name="question" value="" placeholder="What's the question?">
+    <br>
+    <select name="maxpoints" size="1">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
+    <br>
+    <select name="published" size="2">
+        <option value="true">published</option>
+        <option value="false">unpublished</option>
+    </select>
+    <br>
+    <input type="date" name="date">
+    <br>
+    <select name="mentorid" size="2">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+    </select>
+    <input type="submit" name="submit" value="Submit">
+</form>
 </body>
 </html>
+
