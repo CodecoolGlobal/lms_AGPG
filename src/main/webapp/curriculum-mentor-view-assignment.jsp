@@ -13,18 +13,19 @@
         <title>View Assignment</title>
     </head>
     <body>
-      <div class="navbar">
-        <a href="showname">My profile</a>
-        <a href="index.jsp">Mentor</a>
-        <a href="#">Modify assignments</a>
-        <a href="view">Mentor View Asgn.</a>
-        <a href="#">Student View Asgn.</a>
-        <a href="#">View page</a>
-        <a href="userlist">List users</a>
+        <div class="navbar">
+            <a href="showname">My profile</a>
+            <a href="index.jsp">Mentor</a>
+            <a href="#">Modify assignments</a>
+            <a href="view">Mentor View Asgn.</a>
+            <a href="#">Student View Asgn.</a>
+            <a href="#">View page</a>
+            <a href="userlist">List users</a>
         </div>
         <br>
+        <h1>Assignments</h1>
         <div class="assignments">
-            <h1>Assignments</h1>
+
             <table border="1" border-color="white">
                 <tr>
                     <th>id</th>
