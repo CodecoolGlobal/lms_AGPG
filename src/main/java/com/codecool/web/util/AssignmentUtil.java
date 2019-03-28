@@ -1,6 +1,7 @@
 package com.codecool.web.util;
 
 import com.codecool.web.model.Assignment;
+import com.codecool.web.model.LoggedInUser;
 import com.codecool.web.model.User;
 
 import java.sql.*;
