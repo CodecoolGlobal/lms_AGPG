@@ -15,7 +15,7 @@
         <div class="navbar">
             <a href="showname">My profile</a>
             <a href="index.jsp">Mentor</a>
-            <a href="#">Modify assignments</a>
+            <a href="add_assignment.html">Modify assignments</a>
             <a href="view">Mentor View Asgn.</a>
             <a href="#">Student View Asgn.</a>
             <a href="#">View page</a>
