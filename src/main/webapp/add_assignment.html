@@ -3,12 +3,14 @@
 <head>
     <meta charset="utf-8">
     <title>Add new assignment for the students!</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 <form class="" action="assignment" method="post">
-    <input type="text" name="question" value="" placeholder="What's the question?">
+    <h1>Add an assignment</h1>
+    <input size="50" type="text" name="question" value="" placeholder="What's the question?">
     <br>
-    <select name="maxpoints" size="1">
+    <select name="maxpoints" size="1" style="width: 195px !important; min-width: 195px; max-width: 195px;">
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -16,14 +18,14 @@
         <option value="5">5</option>
     </select>
     <br>
-    <select name="published" size="2">
+    <select name="published" size="1" style="width: 195px !important; min-width: 195px; max-width: 195px;">
         <option value="true">published</option>
         <option value="false">unpublished</option>
     </select>
     <br>
     <input type="date" name="date">
     <br>
-    <input type="submit" name="submit" value="Submit">
+    <input type="submit" name="submit" value="Submit" style="width: 195px !important; min-width: 195px; max-width: 195px;">
 </form>
 </body>
 </html>
