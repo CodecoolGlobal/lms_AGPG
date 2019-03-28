@@ -1,5 +1,6 @@
 package com.codecool.web.servlet;
 
+import com.codecool.web.model.LoggedInUser;
 import com.codecool.web.util.AssignmentUtil;
 
 import javax.servlet.ServletException;
@@ -16,6 +17,7 @@ public class ViewServlet extends AbstractServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try (Connection connection = getConnection(req.getServletContext())) {
+            //req.setAttribute("email", LoggedInUser.getLoggedInUser().getEmail());
             req.setAttribute("assignment", AssignmentUtil.getAssignments(connection));
         } catch (SQLException ex) {
             ex.getMessage();
