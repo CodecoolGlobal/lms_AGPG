@@ -6,18 +6,20 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+
 public class AssignmentUtil {
-
-    public static List<Assignment> getAssignmentsList(Connection connection) throws SQLException {
-        String sql = "SELECT * FROM assignments";
+    //Inserts Name to users table
+    public static List<Assignment> getAssId(Connection connection) throws SQLException {
         List<Assignment> assignmentList = new ArrayList<>();
+        String sql = "SELECT COUNT(assignment_id) FROM assignment";
+        String s = "";
+        try (Statement statement = connection.createStatement()) {
 
-        try (Statement statement = connection.createStatement()
-        ) {
             statement.executeQuery(sql);
             ResultSet resultSet = statement.executeQuery(sql);
 

@@ -14,7 +14,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.List;
 
 @WebServlet({"", "/login"})
 public class LoginServlet extends AbstractServlet {
@@ -42,6 +41,8 @@ public class LoginServlet extends AbstractServlet {
         String user_email = request.getParameter("email");
         String user_pass = request.getParameter("psw");
 
+        User[] users = XMLparser.read(asd);
+
         if (ServletHelper.isRegistered(user_email, user_pass, asd)) {
             LoggedInUser loggedInUser = new LoggedInUser();
             loggedInUser.setEmailAddress(user_email);
@@ -53,7 +54,7 @@ public class LoginServlet extends AbstractServlet {
 
             User[] userss = XMLparser.read(asd);
             Users u = new Users();
-            Users.setUsers(userss);
+            u.setUsers(userss);
 
             //request.getRequestDispatcher("view").forward(request, response);
 

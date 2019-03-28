@@ -16,7 +16,7 @@ public class ViewServlet extends AbstractServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try (Connection connection = getConnection(req.getServletContext())) {
-            req.setAttribute("assignment", AssignmentUtil.getAssignmentsList(connection));
+            req.setAttribute("assignment", AssignmentUtil.getAssId(connection));
         } catch (SQLException ex) {
             ex.getMessage();
         }

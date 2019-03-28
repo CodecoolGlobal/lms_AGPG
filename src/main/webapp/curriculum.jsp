@@ -24,7 +24,6 @@
       <a href="curriculum-view-assignment.html">View Assignment</a>
       <a href="curriculum-user-list.jsp">User List</a><br>
       <a href="add_assignment.html">View Assignment</a>
-
     </div>
   </div>
   </header>
