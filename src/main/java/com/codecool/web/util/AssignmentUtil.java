@@ -37,12 +37,12 @@ public class AssignmentUtil {
         return assignmentList;
     }
 
-    public static void addAssignment(Connection connection, int assId, boolean published, Date date, String question,
+    public static void addAssignment(Connection connection, boolean published, Date date, String question,
                                      int max_point, int mentor_id) throws SQLException {
 
         String sql = "INSERT INTO assignments\n" +
             "(assignment_id, published, assignment_date, question, max_point, mentor_id)\n" +
-            "VALUES(" + assId + ", " + published + ", NULL , '" + question + "', " + max_point + ", " + mentor_id + ");";
+            "VALUES(" + ", " + published + ", NULL , '" + question + "', " + max_point + ", " + mentor_id + ");";
 
 
         try (Statement statement = connection.createStatement()) {
