@@ -36,30 +36,3 @@
 
     </body>
 </html>
-<style media="screen">
-
-.navbar {
-  width: 100%;
-  overflow: auto;
-}
-
-.navbar a {
-  float: left;
-  padding: 12px;
-  color: white;
-  text-decoration: none;
-  width: auto;
-  font-size: 17px;
-}
-
-.navbar a:hover {
-  background-color: #1a8cff;
-}
-
-@media screen and (max-width: 500px) {
-  .navbar a {
-    float: none;
-    display: block;
-  }
-}
-</style>
