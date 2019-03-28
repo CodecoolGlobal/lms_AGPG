@@ -23,6 +23,7 @@
             <a href="#">View page</a>
             <a href="userlist">List users</a>
           </div>
+          <h1>Users</h1>
     <table border="1">
         <tr>
             <th>ID</th>

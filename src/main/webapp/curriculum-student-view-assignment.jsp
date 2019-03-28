@@ -20,7 +20,7 @@
         <br>
         <h1>Assignment View</h1>
         <div class="assignments">
-            <h2>Assignments</h2>
+            <h1>Assignments</h1>
             <table border="1" border-color="white">
                 <tr>
                     <th>id</th>

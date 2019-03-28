@@ -22,10 +22,6 @@ padding: 0;
   background-color: #1a8cff;
 }
 
-.active {
-  background-color: #4CAF50;
-}
-
 @media screen and (max-width: 500px) {
   .navbar a {
     float: none;
@@ -40,12 +36,12 @@ h1.header{
     font-variant: small-caps;
     vertical-align: top;
     text-align: center;
-    
+
 }
 body,input{
   font-family:'Open sans',sans-serif;
   font-size:18px;
-  color:#4c4c4c;
+  color: white;
 }
 body{
   background-color:#292931;

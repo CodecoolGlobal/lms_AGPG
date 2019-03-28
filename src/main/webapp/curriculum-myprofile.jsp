@@ -17,6 +17,7 @@
           <a href="#">View page</a>
           <a href="userlist">List users</a>
         </div>
+          <h1>My Profile</h1>
           <br>
       <form class="modify" method="post" action="showname">
         <input type="text" placeholder="Full name" id="username" name="fullname" pattern="[A-Za-z ]{0,32}">
@@ -32,13 +33,10 @@
 
       </form>
 
-
        <%! LoggedInUser usr = new LoggedInUser();  %>
 
        <h2><% out.print(usr.getLoggedInUserName()); %></h2>
 
-
-      <a href="curriculum.jsp" >Back to menu</a>
     </body>
 </html>
 <style media="screen">
