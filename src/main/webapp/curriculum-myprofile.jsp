@@ -8,6 +8,16 @@
         <title>My Profile</title>
     </head>
     <body>
+        <div class="navbar">
+          <a href="showname">My profile</a>
+          <a href="index.jsp">Mentor</a>
+          <a href="#">Modify assignments</a>
+          <a href="view">Mentor View Asgn.</a>
+          <a href="#">Student View Asgn.</a>
+          <a href="#">View page</a>
+          <a href="userlist">List users</a>
+        </div>
+          <br>
       <form class="modify" method="post" action="showname">
         <input type="text" placeholder="Full name" id="username" name="fullname" pattern="[A-Za-z ]{0,32}">
         <input type="password" placeholder="Password" id="password" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
@@ -31,3 +41,30 @@
       <a href="curriculum.jsp" >Back to menu</a>
     </body>
 </html>
+<style media="screen">
+
+.navbar {
+  width: 100%;
+  overflow: auto;
+}
+
+.navbar a {
+  float: left;
+  padding: 12px;
+  color: white;
+  text-decoration: none;
+  width: auto;
+  font-size: 17px;
+}
+
+.navbar a:hover {
+  background-color: #1a8cff;
+}
+
+@media screen and (max-width: 500px) {
+  .navbar a {
+    float: none;
+    display: block;
+  }
+}
+</style>
