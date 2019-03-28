@@ -14,10 +14,9 @@
           <a href="showname">My profile</a>
           <a href="index.jsp">Mentor</a>
           <a href="#">Modify assignments</a>
-          <a href="view">Mentor View Asgn.</a>
-          <a href="#">Student View Asgn.</a>
-          <a href="#">View page</a>
+          <a href="view">View Asgn.</a>
           <a href="userlist">List users</a>
+          <a href="login">Logout</a>
         <br>
         <h1>Assignment View</h1>
         <div class="assignments">
@@ -29,14 +28,14 @@
                     <th>Date</th>
                     <th>Max points</th>
                 </tr>
-                    <c:forEach var="t" items="${view}">
-                        <tr>
+                <c:forEach var="t" items="${assignment}">
+                    <tr>
                         <td>${t.getAssignmentId()}"</td>
                         <td>${t.getQuestion()}"</td>
                         <td>${t.getDate().toString()}</td>
-                        <td>${t.getMaxPoints}</td>
-                        </tr>
-                    </c:forEach>
+                        <td>${t.getMaxPoints()}</td>
+                    </tr>
+                </c:forEach>
             </table>
 
     </body>

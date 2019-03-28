@@ -9,13 +9,12 @@
     </head>
     <body>
         <div class="navbar">
-          <a href="showname">My profile</a>
-          <a href="index.jsp">Mentor</a>
-          <a href="#">Modify assignments</a>
-          <a href="view">Mentor View Asgn.</a>
-          <a href="#">Student View Asgn.</a>
-          <a href="#">View page</a>
-          <a href="userlist">List users</a>
+            <a href="showname">My profile</a>
+            <a href="index.jsp">Mentor</a>
+            <a href="#">Modify assignments</a>
+            <a href="view">View Asgn.</a>
+            <a href="userlist">List users</a>
+            <a href="login">Logout</a>
         </div>
         <br>
         <h1>My Profile</h1>
