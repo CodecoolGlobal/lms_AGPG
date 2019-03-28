@@ -1,13 +1,10 @@
 package com.codecool.web.servlet;
 
-import com.codecool.web.dao.Dao;
-import com.codecool.web.model.Assignment;
 import com.codecool.web.model.LoggedInUser;
 import com.codecool.web.model.User;
 import com.codecool.web.model.Users;
 import com.codecool.web.service.ServletHelper;
 import com.codecool.web.service.XMLparser;
-import com.codecool.web.util.AssignmentUtil;
 import com.codecool.web.util.UserUtil;
 
 import javax.servlet.ServletException;
@@ -62,13 +59,13 @@ public class LoginServlet extends AbstractServlet {
 
             response.sendRedirect("view");
         } else {
-            response.sendRedirect("login.html");
+            response.sendRedirect("login.jsp");
         }
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("login.html").forward(req, resp);
+        req.getRequestDispatcher("login.jsp").forward(req, resp);
 
     }
 }

@@ -1,3 +1,4 @@
+<%@ page import="java.util.*" %>
 <!doctype html>
 <html lang="en">
 <head>
@@ -14,6 +15,22 @@
     <form class="login" method="post" action="login">
       <label id="icon" for="username"><i class="fa fa-user"></i></label>
       <input type="text" placeholder="Email address" id="username" name="email" required>
+      <%
+      List<String> emails = (List<String>) session.getAttribute("emailsList");
+      if (emails == null) {
+        emails = new ArrayList<String>();
+        session.setAttribute("emailsList", emails);
+      }
+      String email = request.getParameter("email");
+      if (email != null) {
+        emails.add(email);
+      }
+      %>
+      <!--
+        for (String i : emails) {
+            out.println("<li>" + i + "</li>");
+        }
+      -->
       <label id="icon" for="password"><i class="fa fa-key"></i></label>
       <input type="password" placeholder="Password" id="password" name="psw" required>
       <input type="submit" value="Sign In">
