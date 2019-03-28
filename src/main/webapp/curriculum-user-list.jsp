@@ -15,13 +15,13 @@
 <html lang="en">
     <body>
         <div class="navbar">
-          <a href="curriculum-myprofile.jsp">My profile</a>
-          <a href="index.jsp">Mentor</a>
-          <a href="#">Modify assignments</a>
-          <a href="view">Mentor View Asgn.</a>
-          <a href="#">Student View Asgn.</a>
-          <a href="#">View page</a>
-          <a href="userlist">List users</a>
+            <a href="curriculum-myprofile.jsp">My profile</a>
+            <a href="index.jsp">Mentor</a>
+            <a href="#">Modify assignments</a>
+            <a href="view">Mentor View Asgn.</a>
+            <a href="#">Student View Asgn.</a>
+            <a href="#">View page</a>
+            <a href="userlist">List users</a>
           </div>
     <table border="1">
         <tr>

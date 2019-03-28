@@ -10,13 +10,13 @@
     </head>
     <body>
       <div class="navbar">
-        <a href="curriculum-myprofile.jsp">My profile</a>
-        <a href="index.jsp">Mentor</a>
-        <a href="curriculum-mentor-modify-assignment.html">Modify assignments</a>
-        <a href="curriculum-mentor-view-assignment.jsp">Mentor View Asgn.</a>
-        <a href="curriculum-student-view-assignment.jsp">Student View Asgn.</a>
-        <a href="#">View page</a>
-        <a href="userlist">List users</a>
+          <a href="curriculum-myprofile.jsp">My profile</a>
+          <a href="index.jsp">Mentor</a>
+          <a href="#">Modify assignments</a>
+          <a href="view">Mentor View Asgn.</a>
+          <a href="#">Student View Asgn.</a>
+          <a href="#">View page</a>
+          <a href="userlist">List users</a>
         <br>
         <h1>Assignment View</h1>
         <div class="assignments">
