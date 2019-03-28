@@ -77,4 +77,31 @@ public class UserUtil {
             return new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getBoolean(5));
         }
     }
+
+    public static void Update(Connection connection, User user, String columnName, String newValue) throws SQLException {
+
+        String sql = "UPDATE users SET "+  columnName +" = ? WHERE email = ?;";
+        try (PreparedStatement statement = connection.prepareStatement(sql)
+        ) {
+            statement.setString(1, newValue);
+            statement.setString(2, user.getEmail());
+
+            statement.executeUpdate();
+
+        }
+    }
+
+    //Method overload
+    public static void Update(Connection connection, User user, String columnName, boolean newValue) throws SQLException {
+
+        String sql = "UPDATE users SET "+  columnName +" = ? WHERE email = ?;";
+        try (PreparedStatement statement = connection.prepareStatement(sql)
+        ) {
+            statement.setBoolean(1, newValue);
+            statement.setString(2, user.getEmail());
+
+            statement.executeUpdate();
+
+        }
+    }
 }
