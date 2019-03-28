@@ -15,7 +15,7 @@
 <html lang="en">
     <body>
         <div class="navbar">
-            <a href="curriculum-myprofile.jsp">My profile</a>
+            <a href="showname">My profile</a>
             <a href="index.jsp">Mentor</a>
             <a href="#">Modify assignments</a>
             <a href="view">Mentor View Asgn.</a>
