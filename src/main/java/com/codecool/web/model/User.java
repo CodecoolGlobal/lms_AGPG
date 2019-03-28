@@ -38,4 +38,8 @@ public class User {
     public boolean isMentor() {
         return isMentor;
     }
+    
+    public int getId() {
+        return id;
+    }
 }
