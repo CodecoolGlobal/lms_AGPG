@@ -40,8 +40,7 @@ h1.header{
     font-variant: small-caps;
     vertical-align: top;
     text-align: center;
-    background: transparent;
-
+    
 }
 body,input{
   font-family:'Open sans',sans-serif;
