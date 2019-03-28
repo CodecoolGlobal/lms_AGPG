@@ -23,6 +23,14 @@ public class User {
         this.isMentor = isMentor;
     }
 
+    public void setfName(String fName) {
+        this.fName = fName;
+    }
+
+    public void setMentor(boolean mentor) {
+        isMentor = mentor;
+    }
+
     public String getfName() {
         return fName;
     }
