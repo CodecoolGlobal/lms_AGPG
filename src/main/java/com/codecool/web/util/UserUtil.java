@@ -2,10 +2,7 @@ package com.codecool.web.util;
 
 import com.codecool.web.model.User;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,5 +25,56 @@ public class UserUtil {
             }
         }
         return users;
+    }
+
+    public static void createUser(Connection connection, User user) throws SQLException {
+
+        String sql = "INSERT INTO users " +
+            "(user_name, email, user_password, ismentor) " +
+            "VALUES(?, ?, ?, ?); ";
+
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setString(1, user.getfName());
+            statement.setString(2, user.getEmail());
+            statement.setString(3, user.getPw());
+            statement.setBoolean(4, user.isMentor());
+            statement.executeUpdate();
+        }
+    }
+
+    public static boolean isEmailUsed(Connection connection, String email) throws SQLException {
+        String sql = "SELECT email FROM users WHERE email = ?";
+        try (PreparedStatement statement = connection.prepareStatement(sql)
+        ) {
+            statement.setString(1, email);
+            ResultSet resultSet = statement.executeQuery();
+            return resultSet.next();
+        }
+    }
+
+    public static boolean isRegistrated(Connection connection, String email, String password) throws SQLException {
+        String sql = "SELECT email FROM users WHERE email = ? AND user_password = ?";
+        try (PreparedStatement statement = connection.prepareStatement(sql)
+        ) {
+            statement.setString(1, email);
+            statement.setString(2, password);
+            ResultSet resultSet = statement.executeQuery();
+            return resultSet.next();
+        }
+    }
+
+
+    public static User findUserByEmail(Connection connection, String email) throws SQLException {
+
+        String sql = "SELECT * FROM users WHERE email = ?;";
+        try (PreparedStatement statement = connection.prepareStatement(sql)
+        ) {
+            statement.setString(1, email);
+            ResultSet rs = statement.executeQuery();
+            rs.next();
+
+            //User(int id, String fName, String email, String pw, boolean isMentor) {
+            return new User(rs.getInt(0), rs.getString(1), rs.getString(2), rs.getString(3), rs.getBoolean(4));
+        }
     }
 }

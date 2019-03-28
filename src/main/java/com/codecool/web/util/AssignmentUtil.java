@@ -6,21 +6,23 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+
 public class AssignmentUtil {
-    
-    public static List<Assignment> getAssignmentsList(Connection connection) throws SQLException {
-        String sql = "SELECT * FROM assignments";
+    //Inserts Name to users table
+    public static List<Assignment> getAssId(Connection connection) throws SQLException {
         List<Assignment> assignmentList = new ArrayList<>();
-        
-        try (Statement statement = connection.createStatement()
-        ) {
+        String sql = "SELECT COUNT(assignment_id) FROM assignment";
+        String s = "";
+        try (Statement statement = connection.createStatement()) {
+
             statement.executeQuery(sql);
             ResultSet resultSet = statement.executeQuery(sql);
-            
+
             while (resultSet.next()) {
                 String id = resultSet.getString("assignment_id");
                 String mentorId = resultSet.getString("mentor_id");
@@ -29,11 +31,25 @@ public class AssignmentUtil {
                 String maxPoints = resultSet.getString("max_point");
                 String date = resultSet.getString("assignment_date");
                 String published = resultSet.getString("published");
-                
+
                 assignmentList.add(new Assignment(Integer.parseInt(id), Integer.parseInt(mentorId),
-                    null,Boolean.parseBoolean(published),question, Integer.parseInt(maxPoints)));
+                    null, Boolean.parseBoolean(published), question, Integer.parseInt(maxPoints)));
             }
         }
         return assignmentList;
+    }
+
+    public static void addAssignment(Connection connection, boolean published, Date date, String question,
+                                     int max_point, int mentor_id) throws SQLException {
+
+        String sql = "INSERT INTO assignments\n" +
+            "(assignment_id, published, assignment_date, question, max_point, mentor_id)\n" +
+            "VALUES(" + ", " + published + ", NULL , '" + question + "', " + max_point + ", " + mentor_id + ");";
+
+
+        try (Statement statement = connection.createStatement()) {
+            statement.execute(sql);
+        }
+
     }
 }

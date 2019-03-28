@@ -2,9 +2,6 @@ package com.codecool.web.servlet;
 
 import com.codecool.web.model.LoggedInUser;
 import com.codecool.web.model.User;
-import com.codecool.web.model.Users;
-import com.codecool.web.service.ServletHelper;
-import com.codecool.web.service.XMLparser;
 import com.codecool.web.util.UserUtil;
 
 import javax.servlet.ServletException;
@@ -24,48 +21,36 @@ public class LoginServlet extends AbstractServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        //mycode starts
-        try (Connection connection = getConnection(request.getServletContext())) {
 
+        String user_email = request.getParameter("email");
+        String user_pass = request.getParameter("psw");
+
+
+        String redirectUrl = "";
+
+        try (Connection connection = getConnection(request.getServletContext())) {
             List<User> users = UserUtil.getUsers(connection);
+
+            if (UserUtil.isRegistrated(connection, user_email, user_pass)) {
+                redirectUrl="view";
+                LoggedInUser.setLoggedInUser(UserUtil.findUserByEmail(connection, user_email));
+            }
+            else {
+                redirectUrl="login";
+            }
+
         } catch (SQLException ex) {
             //throw new ServletException(ex);
         } /*catch (ServiceException ex) {
             request.setAttribute("error", ex.getMessage());
         }*/
 
-
-        //mycode ends
-
-        String asd = request.getServletContext().getRealPath("data.xml");
-
-        String user_email = request.getParameter("email");
-        String user_pass = request.getParameter("psw");
-
-        if (ServletHelper.isRegistered(user_email, user_pass, asd)) {
-            LoggedInUser loggedInUser = new LoggedInUser();
-            loggedInUser.setEmailAddress(user_email);
-
-            request.setAttribute("name", ServletHelper.showUserName(user_email, asd));
-
-            String name = ServletHelper.showUserName(user_email, asd);
-            LoggedInUser.setLoggedInUserName(name);
-
-            User[] userss = XMLparser.read(asd);
-            Users u = new Users();
-            Users.setUsers(userss);
-
-            //request.getRequestDispatcher("view").forward(request, response);
-
-            response.sendRedirect("view");
-        } else {
-            response.sendRedirect("login.jsp");
-        }
+        response.sendRedirect(redirectUrl);
     }
+
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("login.jsp").forward(req, resp);
-
+        resp.sendRedirect("login.jsp");
     }
 }
