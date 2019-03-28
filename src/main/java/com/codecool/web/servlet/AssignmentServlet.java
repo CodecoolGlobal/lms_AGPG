@@ -1,5 +1,6 @@
 package com.codecool.web.servlet;
 
+import com.codecool.web.model.LoggedInUser;
 import com.codecool.web.util.AssignmentUtil;
 
 import javax.servlet.ServletException;
@@ -39,10 +40,10 @@ public class AssignmentServlet extends AbstractServlet {
             boolean published = Boolean.valueOf(request.getParameter("published")); //gomb
             String question = request.getParameter("question");
             int maxPoint = Integer.valueOf(request.getParameter("maxpoints")); //legördülő menu 1-5
-            int mentorID = Integer.valueOf(request.getParameter("mentorid"));//userid session?
+            int mentor_id = LoggedInUser.getLoggedInUser().getId();
 
             try (Connection connection = getConnection(request.getServletContext())) {
-                AssignmentUtil.addAssignment(connection, published, datee, question, maxPoint, mentorID);
+                AssignmentUtil.addAssignment(connection, published, datee, question, maxPoint, mentor_id);
 
             } catch (SQLException ex) {
                 ex.printStackTrace();
