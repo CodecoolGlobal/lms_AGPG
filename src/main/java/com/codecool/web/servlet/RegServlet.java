@@ -34,7 +34,7 @@ public class RegServlet extends HttpServlet {
         if(ServletHelper.isValidEmail(user_email, asd)){
             User u = new User(1, user_name, user_email, user_pass, position);
             XMLparser.write(u, asd);
-            response.sendRedirect("login.html");
+            response.sendRedirect("login.jsp");
         }
         else {
             response.sendRedirect("registration.html");
