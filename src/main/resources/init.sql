@@ -4,7 +4,7 @@ DROP TABLE IF EXISTS answers CASCADE;
 DROP TABLE IF EXISTS textpage CASCADE;
 
 CREATE TABLE assignments (
-    assignment_id INTEGER NOT NULL,
+    assignment_id SERIAL PRIMARY KEY,
     published boolean NOT NULL,
     assignment_date date ,
 	question varchar NOT NULL,
@@ -13,7 +13,7 @@ CREATE TABLE assignments (
 );
 
 CREATE TABLE users (
-    user_id INTEGER,
+    user_id SERIAL PRIMARY KEY,
     user_name TEXT NOT NULL,
     email varchar NOT null,
     user_password varchar NOT null,
@@ -33,28 +33,25 @@ CREATE TABLE textpage (
     date_created date
 );
 
-INSERT INTO users (user_id, user_name, email, user_password, isMentor) VALUES
-	(1, 'Balogh Joli','user1@user1', 'user1', true), -- 1
-	(2, 'Kovács Pilu','user2@user2', 'user2', false), -- 2
-	(3, 'Kalács Ede', 'user3@user3', 'user3', false),
-    (4, 'Zombori Gizi', 'user4@user4', 'user4', false),
-    (5, 'Puma Ottó', 'user5@user5', 'user5', true),
-    (6, 'Ali Baba', 'user6@user6', 'user6', false),
-    (7, 'Kanalas Etelka', 'user7@user7', 'user7', false); -- 3
+INSERT INTO users (user_name, email, user_password, isMentor) VALUES
+	('Balogh Joli','user1@user1', 'user1', true), -- 1
+	('Kovács Pilu','user2@user2', 'user2', false), -- 2
+	('Kalács Ede', 'user3@user3', 'user3', false),
+    ('Zombori Gizi', 'user4@user4', 'user4', false),
+    ('Puma Ottó', 'user5@user5', 'user5', true),
+    ('Ali Baba', 'user6@user6', 'user6', false),
+    ('Kanalas Etelka', 'user7@user7', 'user7', false); -- 3
 
-INSERT INTO assignments (assignment_id, published, assignment_date, question, max_point, mentor_id) VALUES
-	(1,true, null, 'Hogy vagy?', 5, 1),
-    (2,true, null, 'Éhes vagy?', 5, 1),
-    (3,true, null, 'Fáradt vagy?', 5, 1); -- 1
+INSERT INTO assignments (published, assignment_date, question, max_point, mentor_id) VALUES
+	(true, null, 'Hogy vagy?', 5, 1),
+    (true, null, 'Éhes vagy?', 5, 1),
+    (true, null, 'Fáradt vagy?', 5, 1); -- 1
 
 INSERT INTO answers (assignment_id, student_id, answer, grade) VALUES
 	(1, 2, 'Nem jól', 5),
 	(2, 2, 'Nagyon', 5),
 	(3, 7,'Mindig', 5);
-ALTER TABLE users
-    ADD CONSTRAINT user_id PRIMARY KEY (user_id);
-ALTER TABLE assignments
-    ADD CONSTRAINT assignment_id PRIMARY KEY (assignment_id);
+
 ALTER TABLE assignments
     ADD CONSTRAINT mentor_id FOREIGN KEY (mentor_id) REFERENCES users;
 ALTER TABLE answers
