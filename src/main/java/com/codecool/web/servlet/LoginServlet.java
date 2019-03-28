@@ -33,6 +33,7 @@ public class LoginServlet extends AbstractServlet {
                 redirectUrl = "view";
                 LoggedInUser.setLoggedInUser(UserUtil.findUserByEmail(connection, user_email));
             } else {
+                session.invalidate();
                 redirectUrl = "login";
             }
         } catch (SQLException ex) {
