@@ -2,7 +2,6 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ page import="java.util.List" %>
 <%@ page import="com.codecool.web.model.Assignment" %>
-<%@ page import="com.codecool.web.model.Users" %>
 <%@ page import="java.util.Arrays" %>
 
 <!DOCTYPE html>
