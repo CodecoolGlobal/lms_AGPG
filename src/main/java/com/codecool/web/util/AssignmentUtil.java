@@ -1,11 +1,9 @@
 package com.codecool.web.util;
 
 import com.codecool.web.model.Assignment;
+import com.codecool.web.model.User;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -14,26 +12,23 @@ import java.util.List;
 
 public class AssignmentUtil {
     //Inserts Name to users table
-    public static List<Assignment> getAssId(Connection connection) throws SQLException {
+    public static List<Assignment> getAssignments(Connection connection) throws SQLException {
         List<Assignment> assignmentList = new ArrayList<>();
-        String sql = "SELECT COUNT(assignment_id) FROM assignment";
-        String s = "";
+        String sql = "SELECT * FROM assignments";
         try (Statement statement = connection.createStatement()) {
 
             statement.executeQuery(sql);
             ResultSet resultSet = statement.executeQuery(sql);
 
             while (resultSet.next()) {
-                String id = resultSet.getString("assignment_id");
-                String mentorId = resultSet.getString("mentor_id");
-                String assignmentDate = resultSet.getString("assignment_id");
+                int id = resultSet.getInt("assignment_id");
+                boolean published = resultSet.getBoolean("published");
+                Date assignmentDate = resultSet.getDate("assignment_date");
                 String question = resultSet.getString("question");
-                String maxPoints = resultSet.getString("max_point");
-                String date = resultSet.getString("assignment_date");
-                String published = resultSet.getString("published");
-
-                assignmentList.add(new Assignment(Integer.parseInt(id), Integer.parseInt(mentorId),
-                    null, Boolean.parseBoolean(published), question, Integer.parseInt(maxPoints)));
+                int maxPoints = resultSet.getInt("max_point");
+                int mentorId = resultSet.getInt("mentor_id");
+                //    public Assignment(int assignmentId, boolean published, Date date, String question, int maxPoints,int mentorID) {
+                assignmentList.add(new Assignment(id,published,assignmentDate,question,maxPoints,mentorId));
             }
         }
         return assignmentList;
@@ -50,6 +45,5 @@ public class AssignmentUtil {
         try (Statement statement = connection.createStatement()) {
             statement.execute(sql);
         }
-
     }
 }
