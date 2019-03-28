@@ -9,7 +9,7 @@
     </head>
     <body>
         <div class="navbar">
-            <a href="showname">My profile</a>
+            <a href="myprofile">My profile</a>
             <a href="index.jsp">Mentor</a>
             <a href="#">Modify assignments</a>
             <a href="view">View Asgn.</a>
@@ -19,8 +19,8 @@
         <br>
         <h1>My Profile</h1>
       <form class="modify" method="post" action="myprofile">
-            <input type="text" name="email" value="${email}" readonly>
-            <input type="text" placeholder="Full name" id="username" name="fullname" pattern="[A-Za-z ]{0,32}">
+            <input type="text" name="email" placeholder="${email}" readonly>
+            <input type="text" placeholder="Type new name here" id="username" name="fullname" pattern="[A-Za-z ]{0,32}">
             <input type="radio" name="position" value="mentor" id="radio2">
             <label for="mentor" name=rbutton>Mentor</label>
             <input type="radio" name="position" value="student" id="radio1">
