@@ -11,7 +11,7 @@
     </head>
     <body>
       <div class="navbar">
-          <a href="showname">My profile</a>
+          <a href="myprofile">My profile</a>
           <a href="index.jsp">Mentor</a>
           <a href="#">Modify assignments</a>
           <a href="view">View Asgn.</a>
