@@ -22,10 +22,6 @@ import java.util.Locale;
 @WebServlet({"/assignment"})
 public class AssignmentServlet extends AbstractServlet {
 
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-    }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -51,6 +47,8 @@ public class AssignmentServlet extends AbstractServlet {
             } catch (Exception e) {
                 pw.println(e);
             }
+
+            response.sendRedirect("view");
 
         } catch (ParseException e) {
             e.printStackTrace();
