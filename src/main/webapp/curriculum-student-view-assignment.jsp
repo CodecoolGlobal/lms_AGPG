@@ -11,7 +11,7 @@
     </head>
     <body>
       <div class="navbar">
-          <a href="showname">My profile</a>
+          <a href="myprofile">My profile</a>
           <a href="index.jsp">Mentor</a>
           <a href="#">Modify assignments</a>
           <a href="view">View Asgn.</a>
@@ -19,6 +19,7 @@
           <a href="login">Logout</a>
         <br>
         <h1>Assignment View</h1>
+        <h1>Logged in with: ${email} </h1>
         <div class="assignments">
             <h1>Assignments</h1>
             <table border="1" border-color="white">

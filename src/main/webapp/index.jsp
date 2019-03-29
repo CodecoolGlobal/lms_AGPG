@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" href="login.css">
   </head>
   <body>
-    <h1>My First Heading ${email} </h1>
+    <h1>Logged in with: ${email} </h1>
     <div align="center">
     <form class="userprof" action="profile" method="post">
         <div class="userprof"><a href="userprofile.jsp">List users
