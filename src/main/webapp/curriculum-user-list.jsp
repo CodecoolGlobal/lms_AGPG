@@ -22,6 +22,7 @@
             <a href="login">Logout</a>
         </div>
       <br>
+      <h1>Logged in with: ${email} </h1>
       <h1>Users</h1>
     <table border="1">
         <tr>

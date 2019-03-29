@@ -21,6 +21,7 @@
             <a href="login">Logout</a>
         </div>
         <br>
+        <h1>Logged in with: ${email} </h1>
         <h1>Assignments</h1>
         <div class="assignments">
 

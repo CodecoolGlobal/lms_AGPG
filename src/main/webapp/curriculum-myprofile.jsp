@@ -17,6 +17,7 @@
             <a href="login">Logout</a>
         </div>
         <br>
+        <h1>Logged in with: ${email} </h1>
         <h1>My Profile</h1>
       <form class="modify" method="post" action="myprofile">
             <input type="text" name="email" placeholder="${email}" readonly>

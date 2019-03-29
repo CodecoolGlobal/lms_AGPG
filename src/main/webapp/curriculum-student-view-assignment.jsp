@@ -19,6 +19,7 @@
           <a href="login">Logout</a>
         <br>
         <h1>Assignment View</h1>
+        <h1>Logged in with: ${email} </h1>
         <div class="assignments">
             <h1>Assignments</h1>
             <table border="1" border-color="white">
