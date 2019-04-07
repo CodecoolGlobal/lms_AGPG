@@ -17,13 +17,13 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet implementation class AddTextPage
  */
 @WebServlet("/addtextpage")
-public class AddTextPage extends HttpServlet {
+public class AddTextPageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AddTextPage() {
+    public AddTextPageServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
