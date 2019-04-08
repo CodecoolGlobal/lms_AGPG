@@ -2,9 +2,7 @@ package com.codecool.web.servlet;
 
 import com.codecool.web.model.LoggedInUser;
 import com.codecool.web.model.User;
-import com.codecool.web.model.Users;
-import com.codecool.web.service.ServletHelper;
-import com.codecool.web.service.XMLparser;
+import com.codecool.web.util.UserUtil;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,56 +10,53 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.List;
 
-@WebServlet("/showname")
-public class ProfileServlet extends HttpServlet {
+@WebServlet("/myprofile")
+public class ProfileServlet extends AbstractServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String asd = request.getServletContext().getRealPath("data.xml");
+        request.setAttribute("email", LoggedInUser.getLoggedInUser().getEmail());
 
-        String user_name = request.getParameter("fullname");
-        String user_pass = request.getParameter("psw");
-        String user_roleS = request.getParameter("position");
-        LoggedInUser.setIsMentor(ServletHelper.isMenorold(LoggedInUser.getEmailAddress(), asd)); // old role
-        Boolean role = LoggedInUser.getIsMentor();
-        String oldName = LoggedInUser.getLoggedInUserName();
-
-        if (user_roleS != null){
-            role = user_roleS.equals("mentor") ? true : false;
+        boolean currentPosition = LoggedInUser.getLoggedInUser().isMentor();
+        String newName = request.getParameter("fullname");
+        //String newPosition = request.getParameter("position");
+        boolean isPositionGiven = false;
+        boolean newPosition = false;
+        if (request.getParameter("position") != null) {
+            isPositionGiven = true;
+            newPosition = request.getParameter("position").equals("mentor");
 
         }
 
+        try (Connection connection = getConnection(request.getServletContext())) {
 
+            if (newName.length() > 0) {
+                UserUtil.Update(connection, LoggedInUser.getLoggedInUser(), "user_name", newName);
+                LoggedInUser.getLoggedInUser().setfName(newName);
+            }
 
-        if (user_pass.length() == 0) {
-            LoggedInUser.setOldPassw(ServletHelper.getOldPw(LoggedInUser.getEmailAddress(), asd));
-            user_pass = LoggedInUser.getOldPassw();
+            if (isPositionGiven && currentPosition != newPosition) {
+                    UserUtil.Update(connection, LoggedInUser.getLoggedInUser(), "ismentor", newPosition);
+                    LoggedInUser.getLoggedInUser().setMentor(newPosition);
+            }
+
+        } catch (SQLException ex) {
+            //throw new ServletException(ex);
         }
-
-        if (user_name.length() == 0){
-            user_name = LoggedInUser.getLoggedInUserName();
-        }
-
-        LoggedInUser.setLoggedInUserName(user_name);
-
-        XMLparser.update(asd, oldName, user_name, user_pass, role);
-        response.sendRedirect("curriculum-myprofile.jsp");
-
-        Users.setUsers(XMLparser.read(asd));
-
+        response.sendRedirect("myprofile");
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String asd = req.getServletContext().getRealPath("data.xml");
-
-        req.setAttribute("name", ServletHelper.showUserName(LoggedInUser.getEmailAddress(), asd));
-
-        req.getRequestDispatcher("curriculum-myprofile.jsp").forward(req, resp);
-
+        req.setAttribute("email", LoggedInUser.getLoggedInUser().getEmail());
+        resp.sendRedirect("curriculum-myprofile.jsp");
     }
 
 }
+
 

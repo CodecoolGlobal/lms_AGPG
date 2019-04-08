@@ -1,5 +1,8 @@
 package com.codecool.web.listener;
 
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.jdbc.datasource.init.ScriptUtils;
+
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -16,7 +19,9 @@ public final class WebappContextListener implements ServletContextListener {
     @Override
     public void contextInitialized(ServletContextEvent sce) {
         registerCharacterEncodingFilter(sce);
-        putDataSourceToServletContext(sce);
+        DataSource dataSource = putDataSourceToServletContext(sce);
+
+        runDatabaseInitScript(dataSource, "/init.sql");
     }
 
     private void registerCharacterEncodingFilter(ServletContextEvent sce) {
@@ -28,7 +33,7 @@ public final class WebappContextListener implements ServletContextListener {
         sce.getServletContext().addFilter("SetCharacterEncodingFilter", "org.apache.catalina.filters.SetCharacterEncodingFilter");
     }
 
-    private void putDataSourceToServletContext(ServletContextEvent sce) {
+    private DataSource putDataSourceToServletContext(ServletContextEvent sce) {
         try {
             /*
                 Here we're looking up the resource defined in the web.xml
@@ -39,13 +44,27 @@ public final class WebappContextListener implements ServletContextListener {
             */
             Context initCtx = new InitialContext();
             Context envCtx = (Context) initCtx.lookup("java:comp/env");
-            DataSource dataSource = (DataSource) envCtx.lookup("jdbc/testmydb");
+            DataSource dataSource = (DataSource) envCtx.lookup("jdbc/lms_agpg");
             ServletContext servletCtx = sce.getServletContext();
             servletCtx.setAttribute("dataSource", dataSource);
-           // return dataSource;
+            return dataSource;
         } catch (NamingException ex) {
             ex.printStackTrace();
             throw new IllegalStateException(ex);
+        }
+    }
+    private void runDatabaseInitScript(DataSource dataSource, String resource) {
+        /*
+            A new Connection is obtained to the database to run the initialization
+            script on startup. Because of the try-with-resource construct the
+            database connection is automatically closed at the end of the try-catch
+            block.
+        */
+        try (Connection connection = dataSource.getConnection()) {
+            ScriptUtils.executeSqlScript(connection, new ClassPathResource(resource));
+        } catch (Throwable t) {
+            t.printStackTrace();
+            throw new IllegalStateException(t);
         }
     }
 

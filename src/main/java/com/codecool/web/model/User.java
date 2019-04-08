@@ -15,6 +15,22 @@ public class User {
         //id = user table length + 1;
     }
 
+    public User(int id, String fName, String email, String pw, boolean isMentor) {
+        this.id = id;
+        this.fName = fName;
+        this.email = email;
+        this.pw = pw;
+        this.isMentor = isMentor;
+    }
+
+    public void setfName(String fName) {
+        this.fName = fName;
+    }
+
+    public void setMentor(boolean mentor) {
+        isMentor = mentor;
+    }
+
     public String getfName() {
         return fName;
     }
@@ -29,5 +45,9 @@ public class User {
 
     public boolean isMentor() {
         return isMentor;
+    }
+    
+    public int getId() {
+        return id;
     }
 }

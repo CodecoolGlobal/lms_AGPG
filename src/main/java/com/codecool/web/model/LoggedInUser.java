@@ -1,41 +1,20 @@
 package com.codecool.web.model;
 
-public class LoggedInUser{
-    private static String emailAddress;
-    private static String oldPassw;
-    private static Boolean isMentor;
+public class LoggedInUser extends User{
 
-    public static String getLoggedInUserName() {
-        return LoggedInUserName;
+    private static User loggedInUser;
+
+
+    public LoggedInUser(String fName, String email, String pw, boolean isMentor) {
+        super(fName,email,pw,isMentor);
     }
 
-    public static String getOldPassw() {
-        return oldPassw;
+    public static User getLoggedInUser() {
+        return loggedInUser;
     }
 
-    public static void setOldPassw(String oldPassw) {
-        LoggedInUser.oldPassw = oldPassw;
+    public static void setLoggedInUser(User user) {
+        loggedInUser = user;
     }
 
-    public static Boolean getIsMentor() {
-        return isMentor;
-    }
-
-    public static void setIsMentor(Boolean isMentor) {
-        LoggedInUser.isMentor = isMentor;
-    }
-
-    public static void setLoggedInUserName(String loggedInUserName) {
-        LoggedInUserName = loggedInUserName;
-    }
-
-    private static String LoggedInUserName;
-
-    public static String getEmailAddress() {
-        return emailAddress;
-    }
-
-    public void setEmailAddress(String emailAddress) {
-        this.emailAddress = emailAddress;
-    }
 }

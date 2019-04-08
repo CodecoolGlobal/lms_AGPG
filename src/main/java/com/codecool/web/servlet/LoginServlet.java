@@ -1,108 +1,51 @@
 package com.codecool.web.servlet;
 
-import com.codecool.web.dao.Dao;
-import com.codecool.web.exception.ServiceException;
 import com.codecool.web.model.LoggedInUser;
 import com.codecool.web.model.User;
-import com.codecool.web.model.Users;
-import com.codecool.web.service.ServletHelper;
-import com.codecool.web.service.XMLparser;
+import com.codecool.web.util.UserUtil;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.SQLException;
+import java.util.List;
 
-import static java.sql.DriverManager.getConnection;
-
-@WebServlet({"","/login"})
+@WebServlet({"", "/login"})
 public class LoginServlet extends AbstractServlet {
-
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        //mycode starts
-            try (Connection connection = getConnection(request.getServletContext())) {
-            /*CouponDao couponDao = new DatabaseCouponDao(connection);
-
-            ShopDao shopDao = new DatabaseShopDao(connection);
-            CouponService couponService = new SimpleCouponService(couponDao, shopDao);*/
-               String ans =  Dao.getDao(connection);
-               String z = "u";
-            } catch (SQLException ex) {
-            throw new ServletException(ex);
+        String user_email = request.getParameter("email");
+        String user_pass = request.getParameter("psw");
+        HttpSession session = request.getSession(false);
+        session.setAttribute("email", user_email);
+        user_email = (String) session.getAttribute("email");
+        String redirectUrl = "";
+        try (Connection connection = getConnection(request.getServletContext())) {
+            List<User> users = UserUtil.getUsers(connection);
+            if (UserUtil.isRegistrated(connection, user_email, user_pass)) {
+                redirectUrl = "view";
+                LoggedInUser.setLoggedInUser(UserUtil.findUserByEmail(connection, user_email));
+            } else {
+                session.invalidate();
+                redirectUrl = "login";
+            }
+        } catch (SQLException ex) {
+            //throw new ServletException(ex);
         } /*catch (ServiceException ex) {
             request.setAttribute("error", ex.getMessage());
         }*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        //mycode ends
-
-        String asd = request.getServletContext().getRealPath("data.xml");
-
-        String user_email = request.getParameter("email");
-        String user_pass = request.getParameter("psw");
-
-        User[] users = XMLparser.read(asd);
-
-        if (ServletHelper.isRegistered(user_email, user_pass, asd)) {
-            LoggedInUser loggedInUser = new LoggedInUser();
-            loggedInUser.setEmailAddress(user_email);
-
-            request.setAttribute("name", ServletHelper.showUserName(user_email,asd));
-
-            String name = ServletHelper.showUserName(user_email,asd);
-            LoggedInUser.setLoggedInUserName(name);
-
-            User[] userss = XMLparser.read(asd);
-            Users u = new Users();
-            u.setUsers(userss);
-
-            request.getRequestDispatcher("curriculum.jsp").forward(request, response);
-
-            //response.sendRedirect("index.jsp");
-        } else {
-            response.sendRedirect("login.html");
-        }
+        response.sendRedirect(redirectUrl);
     }
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("login.html").forward(req, resp);
-
+        resp.sendRedirect("login.jsp");
     }
 }

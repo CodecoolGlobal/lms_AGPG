@@ -20,8 +20,10 @@
 
       <a href="curriculum-mentor-modify-assignment.html">Mentor Modify</a><br>
       <a href="curriculum-myprofile.jsp" methods="get" action="showname" >My Profile</a><br>
-      <a href="curriculum-user-list.jsp">User List</a><br>
+      <a href="userlist">User List</a><br>
       <a href="curriculum-view-assignment.html">View Assignment</a>
+      <a href="curriculum-user-list.jsp">User List</a><br>
+      <a href="add_assignment.html">View Assignment</a>
     </div>
   </div>
   </header>

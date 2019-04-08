@@ -1,41 +1,57 @@
 package com.codecool.web.model;
 
-public class TextPage{
+import java.util.Date;
 
-	private String title;
-	private String textContent;
-	private int dateCreated;
-	  
-	public TextPage(String title, String textContent, int dateCreated) {
-		super();
-		this.title = title;
-		this.textContent = textContent;
-		this.dateCreated = dateCreated;
-	}
-	
-	public String getTitle() {
-		return title;
-	}
-	public void setTitle(String title) {
-		this.title = title;
-	}
-	public String getTextContent() {
-		return textContent;
-	}
-	public void setTextContent(String textContent) {
-		this.textContent = textContent;
-	}
-	public int getDateCreated() {
-		return dateCreated;
-	}
-	public void setDateCreated(int dateCreated) {
-		this.dateCreated = dateCreated;
-	}
+public class TextPage {
 
-	@Override
-	public String toString() {
-		return "TextPage [title=" + title + ", textContent=" + textContent + ", dateCreated=" + dateCreated + "]";
-	}
+    private String title;
+    private String textContent;
+    private Date dateCreated;
+    private boolean isPublished;
 
-	
+    public TextPage(String title, String textContent, Date dateCreated, boolean isPublished) {
+        super();
+        this.title = title;
+        this.textContent = textContent;
+        this.dateCreated = dateCreated;
+        this.isPublished = isPublished;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getTextContent() {
+        return textContent;
+    }
+
+    public void setTextContent(String textContent) {
+        this.textContent = textContent;
+    }
+
+    public Date getDateCreated() {
+        return dateCreated;
+    }
+
+    public void setDateCreated(Date dateCreated) {
+        this.dateCreated = dateCreated;
+    }
+
+    public boolean isPublished() {
+        return isPublished;
+    }
+
+    @Override
+    public String toString() {
+        return "TextPage{" +
+            "title='" + title + '\'' +
+            ", textContent='" + textContent + '\'' +
+            ", dateCreated=" + dateCreated +
+            ", isPublished=" + isPublished +
+            '}';
+    }
 }
