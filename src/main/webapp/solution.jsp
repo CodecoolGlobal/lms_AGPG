@@ -18,7 +18,16 @@
     <br>
     <h1>Solution View</h1>
     <h1>Logged in with: ${email} </h1>
-    <h2>${assignment}</h2>
+    <h2>Id: ${assignment.assignmentId}</h2>
+    <h2>${assignment.question}</h2>
+    <form action="valami" method="post">
+        Please enter your solution:
+        <br>
+        <input type="hidden" name="id" value="${t.assignmentId}">
+        <textarea name="textarea1" rows="5"></textarea>
+        <br>
+        <input type="SUBMIT" value="Submit">
+    </form>
 </div>
 </body>
 
