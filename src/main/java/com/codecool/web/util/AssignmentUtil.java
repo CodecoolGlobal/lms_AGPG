@@ -35,6 +35,28 @@ public class AssignmentUtil {
         return assignmentList;
     }
 
+    public static Assignment getAssignmentById(Connection connection, int id) throws SQLException {
+        Assignment assignment = null;
+        String sql = "SELECT * FROM assignments WHERE assignment_id = " + id;
+        try (Statement statement = connection.createStatement()) {
+            statement.executeQuery(sql);
+            ResultSet resultSet = statement.executeQuery(sql);
+            while (resultSet.next()) {
+                int id2 = resultSet.getInt("assignment_id");
+                boolean published = resultSet.getBoolean("published");
+                Date assignmentDate = resultSet.getDate("assignment_date");
+                String question = resultSet.getString("question");
+                int maxPoints = resultSet.getInt("max_point");
+                int mentorId = resultSet.getInt("mentor_id");
+                assignment = new Assignment(id2, published, assignmentDate, question, maxPoints, mentorId);
+            }
+        }
+        if (assignment == null) {
+            throw new SQLException("if u see this, something really bad happened");
+        }
+        return assignment;
+    }
+
 
     public static void addAssignment(Connection connection, boolean published, Date date, String question,
                                      int max_point, int mentor_id) throws SQLException {
