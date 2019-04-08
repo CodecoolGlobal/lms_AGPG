@@ -37,7 +37,7 @@
                         <td>${t.getMaxPoints()}</td>
                         <td>
                        <form class="" action="assignment-page" method="post">
-                           <input name="id" value="${t.assignmentId}">
+                           <input type="hidden" name="id" value="${t.assignmentId}">
                            <input type="submit">
                        </form>
                         </td>

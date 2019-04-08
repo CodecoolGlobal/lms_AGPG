@@ -16,9 +16,9 @@
     <a href="userlist">List users</a>
     <a href="login">Logout</a>
     <br>
-    <h1>Assignment View</h1>
+    <h1>Solution View</h1>
     <h1>Logged in with: ${email} </h1>
-    <h2>out(assignment)</h2>
+    <h2>${assignment}</h2>
 </div>
 </body>
 

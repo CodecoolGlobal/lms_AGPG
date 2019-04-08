@@ -15,8 +15,8 @@ public class AssignmentPageServlet extends AbstractServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try (Connection connection = getConnection(req.getServletContext())) {
-            String id = (String)req.getAttribute("id");
-            req.setAttribute("assignment", AssignmentUtil.getAssignmentById(connection, id));
+            String id = req.getParameter("id");
+            req.setAttribute("assignment", AssignmentUtil.getAssignmentById(connection, Integer.valueOf(id)));
         } catch (SQLException ex) {
             ex.getMessage();
         }

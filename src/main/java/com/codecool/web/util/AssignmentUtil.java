@@ -35,7 +35,7 @@ public class AssignmentUtil {
         return assignmentList;
     }
 
-    public static Assignment getAssignmentById(Connection connection, String id) throws SQLException {
+    public static Assignment getAssignmentById(Connection connection, int id) throws SQLException {
         Assignment assignment = null;
         String sql = "SELECT * FROM assignments WHERE assignment_id = " + id;
         try (Statement statement = connection.createStatement()) {
