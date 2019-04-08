@@ -63,4 +63,16 @@ public class Assignment {
     public void setMaxPoints(int maxPoints) {
         this.maxPoints = maxPoints;
     }
+    
+    @Override
+    public String toString() {
+        return "Assignment{" +
+            "assignmentId=" + assignmentId +
+            ", mentorID=" + mentorID +
+            ", date=" + date +
+            ", published=" + published +
+            ", question='" + question + '\'' +
+            ", maxPoints=" + maxPoints +
+            '}';
+    }
 }

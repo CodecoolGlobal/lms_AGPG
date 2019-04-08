@@ -15,10 +15,11 @@ public class AssignmentPageServlet extends AbstractServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try (Connection connection = getConnection(req.getServletContext())) {
-            req.setAttribute("assignment", AssignmentUtil.getAssignments(connection));
+            String id = (String)req.getAttribute("id");
+            req.setAttribute("assignment", AssignmentUtil.getAssignmentById(connection, id));
         } catch (SQLException ex) {
             ex.getMessage();
         }
-//        req.getRequestDispatcher("curriculum-user-list.jsp ").forward(req, resp);
+        req.getRequestDispatcher("solution.jsp").forward(req, resp);
     }
 }
