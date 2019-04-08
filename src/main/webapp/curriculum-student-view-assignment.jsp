@@ -1,5 +1,4 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page import="com.codecool.web.model.Assignment" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
 
 <!DOCTYPE html>
@@ -28,16 +27,24 @@
                     <th>Question</th>
                     <th>Date</th>
                     <th>Max points</th>
+                    <th>View Assignment</th>
                 </tr>
                 <c:forEach var="t" items="${assignment}">
                     <tr>
-                        <td>${t.getAssignmentId()}"</td>
-                        <td>${t.getQuestion()}"</td>
+                        <td>${t.getAssignmentId()}</td>
+                        <td>${t.getQuestion()}</td>
                         <td>${t.getDate().toString()}</td>
                         <td>${t.getMaxPoints()}</td>
+                        <td>
+                       <form class="" action="assignment-page" method="post">
+                           <input type="hidden" name="id" value="${t.assignmentId}">
+                           <input type="submit">
+                       </form>
+                        </td>
                     </tr>
                 </c:forEach>
             </table>
-
+        </div>
+      </div>
     </body>
   </html>
