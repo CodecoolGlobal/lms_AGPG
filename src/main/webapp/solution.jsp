@@ -23,8 +23,8 @@
     <form action="answer" method="post">
         Please enter your solution:
         <br>
-        <input type="hidden" name="id" value="${t.assignmentId}">
-        <textarea name="answer" rows="5"></textarea>
+        <input type="hidden" name="id" value="${assignment.assignmentId}">
+            <textarea type="text" name="answer" rows="5" cols="30"></textarea>
         <br>
         <input type="SUBMIT" value="Submit">
     </form>

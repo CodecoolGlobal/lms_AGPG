@@ -22,11 +22,12 @@ public class AnswerUtil {
     }
     
     public static void addAnswer(Connection connection, int assignmentId, int studentId, String answer) throws  SQLException {
-        String sql = "INSERT INTO answers (assignment_id, student_id, answer) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO answers (assignment_id, student_id, answer, grade) VALUES (?, ?, ?, ?);";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setInt(1, assignmentId);
             statement.setInt(2, studentId);
             statement.setString(3, answer);
+            statement.setInt(4, 0);
             statement.executeUpdate();
         }
     }

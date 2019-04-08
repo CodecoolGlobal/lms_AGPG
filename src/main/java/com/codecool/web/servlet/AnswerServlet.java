@@ -19,12 +19,12 @@ public class AnswerServlet extends AbstractServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html");
         PrintWriter pw = response.getWriter();
-        int assignmentId = Integer.valueOf(request.getParameter("id"));
+        String assignmentId = request.getParameter("id");
         String textValue = request.getParameter("answer");
         int id = LoggedInUser.getLoggedInUser().getId();
         
         try (Connection connection = getConnection(request.getServletContext())) {
-            AnswerUtil.addAnswer(connection, assignmentId, id, textValue);
+            AnswerUtil.addAnswer(connection, Integer.valueOf(assignmentId), id, textValue);
             
         } catch (SQLException ex) {
             ex.printStackTrace();
