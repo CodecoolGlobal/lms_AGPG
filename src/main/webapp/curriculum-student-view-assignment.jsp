@@ -38,7 +38,8 @@
                         <td>${t.getMaxPoints()}</td>
                         <td>
                        <form class="" action="assignment-page" method="post">
-                         <a href="assignment-page">click here</a>
+                           <input name="id" value="${t.assignmentId}">
+                           <input type="submit">
                        </form>
                         </td>
                     </tr>
