@@ -32,11 +32,15 @@
                 </tr>
                 <c:forEach var="t" items="${assignment}">
                     <tr>
-                        <td>${t.getAssignmentId()}"</td>
-                        <td>${t.getQuestion()}"</td>
+                        <td>${t.getAssignmentId()}</td>
+                        <td>${t.getQuestion()}</td>
                         <td>${t.getDate().toString()}</td>
                         <td>${t.getMaxPoints()}</td>
-                        <td><a href="assignment-page">click here</a></td>
+                        <td>
+                       <form class="" action="assignment-page" method="post">
+                         <a href="assignment-page">click here</a>
+                       </form>
+                        </td>
                     </tr>
                 </c:forEach>
             </table>
