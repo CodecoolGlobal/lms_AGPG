@@ -28,6 +28,7 @@
                     <th>Question</th>
                     <th>Date</th>
                     <th>Max points</th>
+                    <th>View Assignment</th>
                 </tr>
                 <c:forEach var="t" items="${assignment}">
                     <tr>
@@ -35,6 +36,7 @@
                         <td>${t.getQuestion()}"</td>
                         <td>${t.getDate().toString()}</td>
                         <td>${t.getMaxPoints()}</td>
+                        <td><a href="assignment-page">click here</a></td>
                     </tr>
                 </c:forEach>
             </table>
