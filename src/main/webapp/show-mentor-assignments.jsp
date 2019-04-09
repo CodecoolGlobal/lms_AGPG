@@ -44,6 +44,16 @@
                         <td>${t.getDate().toString()}</td>
                         <td>${t.isPublished()}</td>
                         <td>${t.getMaxPoints()}</td>
+                        <td>
+                        <form action="answer" method="post">
+                            Please enter your solution:
+                            <br>
+                            <input type="hidden" name="id" value="${assignment.assignmentId}">
+                                <textarea type="text" name="answer" rows="5" cols="30"></textarea>
+                            <br>
+                            <input type="SUBMIT" value="Submit">
+                        </form>
+                      </td>
                         </tr>
                     </c:forEach>
             </table>

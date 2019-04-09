@@ -1,8 +1,8 @@
 package com.codecool.web.util;
 
+import com.codecool.web.model.Answer;
+
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
 
 public class AnswerUtil {
 
@@ -29,6 +29,25 @@ public class AnswerUtil {
             statement.setString(3, answer);
             statement.setInt(4, 0);
             statement.executeUpdate();
+        }
+    }
+
+    public static void grade(Connection connection, int assignmentId, int grade) throws SQLException {
+        String sql = "UPDATE answers SET grade = " + grade + "WHERE assignment_id = ?";
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setInt(1, assignmentId);
+            statement.executeUpdate();
+        }
+    }
+
+    public static Answer getAnswerByStudentId(Connection connection, int studentId) throws SQLException {
+        String sql = "SELECT * FROM answers WHERE studentId = ?";
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setInt(1, studentId);
+            statement.executeQuery(sql);
+            ResultSet rs = statement.executeQuery();
+            rs.next();
+            return new Answer(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4));
         }
     }
 }
