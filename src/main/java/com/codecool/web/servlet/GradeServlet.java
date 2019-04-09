@@ -18,11 +18,12 @@ public class GradeServlet extends AbstractServlet {
         try (Connection connection = getConnection(req.getServletContext())) {
             PrintWriter pw = resp.getWriter();
             String assignmentId = req.getParameter("id");
+            String grade = req.getParameter("grade");
             int studentId = AnswerUtil.getStudentIdByAssignmentId(connection, Integer.valueOf(assignmentId));
-            AnswerUtil.grade(connection, Integer.valueOf(assignmentId), studentId);
+            AnswerUtil.grade(connection, Integer.valueOf(assignmentId), studentId, Integer.valueOf(grade));
         } catch (SQLException ex) {
             ex.getMessage();
         }
-        req.getRequestDispatcher("show-mentor-assignments.jsp").forward(req, resp);
+        req.getRequestDispatcher("show-answers.jsp").forward(req, resp);
     }
 }
