@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css-login.css">
+    <link rel="stylesheet" type="text/css" href="css-style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <title>Log-In</title>
 </head>
@@ -20,8 +20,8 @@
       <input type="submit" value="Sign In">
     </form>
     <hr>
-    <form class="createacc" action="registration.html" method="get">
-        <div class="crtacc"><a href="registration.html">Create Account</a></div>
+    <form class="createacc" action="page-registration.html" method="get">
+        <div class="crtacc"><a href="page-registration.html">Create Account</a></div>
     </form>
 
   </div>
