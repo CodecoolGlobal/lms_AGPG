@@ -4,14 +4,14 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="css-style.css">
         <meta charset="UTF-8">
         <title>View Assignment</title>
     </head>
     <body>
       <div class="navbar">
           <a href="myprofile">My profile</a>
-          <a href="index.jsp">Mentor</a>
+          <a href="show-mentor-page.jsp">Mentor</a>
           <a href="#">Modify assignments</a>
           <a href="view">View Asgn.</a>
           <a href="userlist">List users</a>

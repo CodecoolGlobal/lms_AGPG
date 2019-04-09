@@ -20,6 +20,6 @@ public class AssignmentPageServlet extends AbstractServlet {
         } catch (SQLException ex) {
             ex.getMessage();
         }
-        req.getRequestDispatcher("solution.jsp").forward(req, resp);
+        req.getRequestDispatcher("add-solution.jsp").forward(req, resp);
     }
 }

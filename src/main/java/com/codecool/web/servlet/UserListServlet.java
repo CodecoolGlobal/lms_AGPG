@@ -1,6 +1,5 @@
 package com.codecool.web.servlet;
 
-import com.codecool.web.util.AssignmentUtil;
 import com.codecool.web.util.UserUtil;
 
 import javax.servlet.ServletException;
@@ -20,6 +19,6 @@ public class UserListServlet extends AbstractServlet {
         } catch (SQLException ex) {
             ex.getMessage();
         }
-        req.getRequestDispatcher("curriculum-user-list.jsp").forward(req, resp);
+        req.getRequestDispatcher("show-users.jsp").forward(req, resp);
     }
 }

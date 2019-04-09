@@ -53,7 +53,7 @@ public class TextPageServlet extends AbstractServlet {
         }
 
         try {
-            request.getRequestDispatcher("curriculum-view-textpages.jsp").forward(request, response);
+            request.getRequestDispatcher("show-textpages.jsp").forward(request, response);
         } catch (ServletException e) {
             e.printStackTrace();
         }

@@ -36,9 +36,9 @@ public class RegServlet extends AbstractServlet {
                 HttpSession userSession = request.getSession(false);
                 session.setAttribute("user", user);
                 UserUtil.createUser(connection, user);
-                redirectUrl = "login.jsp";
+                redirectUrl = "page-login.jsp";
             } else {
-                redirectUrl = "registration.html";
+                redirectUrl = "page-registration.html";
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
