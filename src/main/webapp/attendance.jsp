@@ -27,6 +27,16 @@
                             ${user.fName}<br>
                         </td>
                         <td>
+                        <c:choose>
+                            <c:when test="${param.enter=='1'}">
+                                pizza.
+                                <br />
+                            </c:when>
+                            <c:otherwise>
+                                pizzas.
+                                <br />
+                            </c:otherwise>
+                        </c:choose>
                             <input type="checkbox" name="attendance" value="${user.id}"><br>
                         </td>
 

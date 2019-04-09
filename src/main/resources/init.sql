@@ -15,7 +15,8 @@ CREATE TABLE assignments (
 
 CREATE TABLE attendance (
     user_id INTEGER,
-    date_att date
+    date_att date,
+    ispresent boolean
 );
 
 CREATE TABLE users (
