@@ -1,23 +1,25 @@
 package com.codecool.web.util;
 
-import com.codecool.web.model.User;
 
 import java.sql.*;
 
 
 public class AttendanceUntil {
 
-    public static boolean isDateUsed(Connection connection, Date date) throws SQLException {
+    public static boolean isPresent(Connection connection, Date date, int userId) throws SQLException {
 
-        String sql = "SELECT * FROM attendance WHERE date_att = ? GROUP BY date_att";
-
+        String sql = "SELECT * FROM attendance WHERE user_id = ? AND date_att = ?";
 
         try (PreparedStatement statement = connection.prepareStatement(sql)
         ) {
-            statement.setDate(1, date);
+            statement.setInt(1, userId);
+            statement.setDate(2, date);
 
             ResultSet resultSet = statement.executeQuery();
-            return resultSet.next();
+            resultSet.next();
+            return resultSet.getBoolean(3);
         }
     }
+
+
 }
