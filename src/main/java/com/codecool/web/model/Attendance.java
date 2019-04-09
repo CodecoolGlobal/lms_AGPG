@@ -1,5 +1,7 @@
 package com.codecool.web.model;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Attendance {
@@ -18,4 +20,6 @@ public class Attendance {
     public Date getDate() {
         return date;
     }
+
+
 }

@@ -1,8 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
-<%@ page import="java.util.List" %>
-<%@ page import="com.codecool.web.model.Assignment" %>
-<%@ page import="java.util.Arrays" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -35,15 +32,23 @@
                     <th>Date</th>
                     <th>Published</th>
                     <th>Max points</th>
+                    <th>Grade</th>
                 </tr>
                     <c:forEach var="t" items="${assignment}">
                         <tr>
-                        <td>${t.getAssignmentId()}</td>
-                        <td>${t.getMentorID()}</td>
-                        <td>${t.getQuestion()}</td>
-                        <td>${t.getDate().toString()}</td>
-                        <td>${t.isPublished()}</td>
-                        <td>${t.getMaxPoints()}</td>
+                            <td>${t.getAssignmentId()}</td>
+                            <td>${t.getMentorID()}</td>
+                            <td>${t.getQuestion()}</td>
+                            <td>${t.getDate().toString()}</td>
+                            <td>${t.isPublished()}</td>
+                            <td>${t.getMaxPoints()}</td>
+                            <td>
+                                <form action="grade" method="post">
+                                    <input type="">
+                                    <input type="hidden" name="id" value="${t.assignmentId}">
+                                    <input type="SUBMIT" value="Submit">
+                                </form>
+                            </td>
                         </tr>
                     </c:forEach>
             </table>
