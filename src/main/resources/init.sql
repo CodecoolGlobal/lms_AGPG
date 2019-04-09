@@ -15,8 +15,7 @@ CREATE TABLE assignments (
 
 CREATE TABLE attendance (
     user_id INTEGER,
-    date_att date,
-    ispresent boolean
+    date_att date
 );
 
 CREATE TABLE users (
@@ -65,6 +64,12 @@ INSERT INTO answers (assignment_id, student_id, answer, grade) VALUES
 
 INSERT INTO textpage (textpage_title, textpage_value, date_created, ispublished) VALUES
 	('asd', 'asdasdd', NULL, true);
+
+
+INSERT INTO attendance (user_id, date_att) VALUES
+    (1,'2019-04-09'),
+    (2,'2019-04-09'),
+    (3,'2019-04-09');
 
 ALTER TABLE assignments
     ADD CONSTRAINT mentor_id FOREIGN KEY (mentor_id) REFERENCES users;
