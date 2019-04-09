@@ -12,14 +12,18 @@ import java.sql.SQLException;
 
 @WebServlet("/list-answers")
 public class ListAnswersServlet extends AbstractServlet {
+    
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String id = "";
         try (Connection connection = getConnection(req.getServletContext())) {
-            String id = req.getParameter("id");
+            id = req.getParameter("id");
             req.setAttribute("answerList", AnswerUtil.getAnswerList(connection, Integer.valueOf(id)));
         } catch (SQLException ex) {
             ex.getMessage();
         }
+        req.setAttribute("id", id);
         req.getRequestDispatcher("show-answers.jsp").forward(req, resp);
     }
 }
+

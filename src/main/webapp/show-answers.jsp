@@ -20,7 +20,7 @@
 </div>
 <br>
 <h1>Logged in with: ${email} </h1>
-<h1>Users</h1>
+<h1>Answers</h1>
 <table border="1">
     <tr>
         <th>Answer</th>
@@ -37,7 +37,7 @@
             </td>
             <td>
                <form action="grade" method="post">
-                   <input type="number" value="grade">
+                   <input type="number" min="1" max="5" alue="grade">
                    <input type="submit" value="Submit">
                </form>
             </td>
