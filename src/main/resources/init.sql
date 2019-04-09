@@ -34,9 +34,11 @@ CREATE TABLE answers (
 );
 
 CREATE TABLE textpage (
+    textpage_id SERIAL NOT NULL,
     textpage_title varchar,
     textpage_value text,
-    date_created date
+    date_created date,
+    ispublished boolean NOT NULL
 );
 
 
@@ -59,6 +61,9 @@ INSERT INTO answers (assignment_id, student_id, answer, grade) VALUES
 	(1, 2, 'Nem jól', 5),
 	(2, 2, 'Nagyon', 5),
 	(3, 7,'Mindig', 5);
+
+INSERT INTO textpage (textpage_title, textpage_value, date_created, ispublished) VALUES
+	('asd', 'asdasdd', NULL, true);
 
 ALTER TABLE assignments
     ADD CONSTRAINT mentor_id FOREIGN KEY (mentor_id) REFERENCES users;

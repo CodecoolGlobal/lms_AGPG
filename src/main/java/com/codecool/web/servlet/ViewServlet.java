@@ -2,7 +2,6 @@ package com.codecool.web.servlet;
 
 import com.codecool.web.model.Assignment;
 import com.codecool.web.model.LoggedInUser;
-
 import com.codecool.web.util.AssignmentUtil;
 
 import javax.servlet.ServletException;
@@ -21,14 +20,14 @@ public class ViewServlet extends AbstractServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        //req.getRequestDispatcher("curriculum-student-view-assignment.jsp").forward(req, resp);
+        //req.getRequestDispatcher("show-student-assignments.jsp").forward(req, resp);
         if (LoggedInUser.getLoggedInUser().isMentor()) {
             try (Connection connection = getConnection(req.getServletContext())) {
                 req.setAttribute("assignment", AssignmentUtil.getAssignments(connection));
             } catch (SQLException ex) {
                 ex.getMessage();
             }
-            req.getRequestDispatcher("curriculum-mentor-view-assignment.jsp").forward(req, resp);
+            req.getRequestDispatcher("show-mentor-assignments.jsp").forward(req, resp);
         } else {
             List<Assignment> publishedAsgn = new ArrayList<>();
 
@@ -42,7 +41,7 @@ public class ViewServlet extends AbstractServlet {
             } catch (SQLException ex) {
                 ex.getMessage();
             }
-            req.getRequestDispatcher("curriculum-student-view-assignment.jsp").forward(req, resp);
+            req.getRequestDispatcher("show-student-assignments.jsp").forward(req, resp);
         }
 
     }
