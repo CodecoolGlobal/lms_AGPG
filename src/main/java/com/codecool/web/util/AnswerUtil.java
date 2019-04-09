@@ -59,5 +59,6 @@ public class AnswerUtil {
             ResultSet rs = statement.executeQuery();
             rs.next();
             return rs.getInt(2);
+        }
     }
 }
