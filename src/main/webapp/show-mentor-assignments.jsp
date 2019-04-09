@@ -38,9 +38,9 @@
                 </tr>
                     <c:forEach var="t" items="${assignment}">
                         <tr>
-                        <td>${t.getAssignmentId()}"</td>
+                        <td>${t.getAssignmentId()}</td>
                         <td>${t.getMentorID()}</td>
-                        <td>${t.getQuestion()}"</td>
+                        <td>${t.getQuestion()}</td>
                         <td>${t.getDate().toString()}</td>
                         <td>${t.isPublished()}</td>
                         <td>${t.getMaxPoints()}</td>
