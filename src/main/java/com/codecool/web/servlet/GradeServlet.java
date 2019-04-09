@@ -18,8 +18,8 @@ public class GradeServlet extends AbstractServlet {
         try (Connection connection = getConnection(req.getServletContext())) {
             PrintWriter pw = resp.getWriter();
             String assignmentId = req.getParameter("id");
-            String studentId = AnswerUtil.
-            req.setAttribute("grade", AnswerUtil.grade(connection, assignmentId,);
+            int studentId = AnswerUtil.getStudentIdByAssignmentId(connection, Integer.valueOf(assignmentId));
+            req.setAttribute("grade", AnswerUtil.grade(connection, Integer.valueOf(assignmentId), studentId);
         } catch (SQLException ex) {
             ex.getMessage();
         }

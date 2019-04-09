@@ -50,4 +50,14 @@ public class AnswerUtil {
             return new Answer(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4));
         }
     }
+    
+    public static int getStudentIdByAssignmentId(Connection connection, int assignmentId) throws  SQLException{
+        String sql = "SELECT student_id FROM answers WHERE assignmentId = ?";
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setInt(1, assignmentId);
+            statement.executeQuery(sql);
+            ResultSet rs = statement.executeQuery();
+            rs.next();
+            return rs.getInt(2);
+    }
 }
