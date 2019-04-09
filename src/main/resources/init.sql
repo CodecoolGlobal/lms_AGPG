@@ -2,6 +2,7 @@ DROP TABLE IF EXISTS assignments CASCADE;
 DROP TABLE IF EXISTS users CASCADE;
 DROP TABLE IF EXISTS answers CASCADE;
 DROP TABLE IF EXISTS textpage CASCADE;
+DROP TABLE IF EXISTS attendance CASCADE;
 
 CREATE TABLE assignments (
     assignment_id SERIAL PRIMARY KEY,
@@ -10,6 +11,11 @@ CREATE TABLE assignments (
 	question varchar NOT NULL,
 	max_point INTEGER NOT NULL,
     mentor_id INTEGER NOT NULL
+);
+
+CREATE TABLE attendance (
+    user_id INTEGER,
+    date_att date
 );
 
 CREATE TABLE users (
@@ -32,6 +38,8 @@ CREATE TABLE textpage (
     textpage_value text,
     date_created date
 );
+
+
 
 INSERT INTO users (user_name, email, user_password, isMentor) VALUES
 	('Balogh Joli','user1@user1', 'user1', true), -- 1
@@ -58,3 +66,5 @@ ALTER TABLE answers
     ADD CONSTRAINT assignment_id FOREIGN KEY (assignment_id) REFERENCES assignments;
 ALTER TABLE answers
     ADD CONSTRAINT student_id FOREIGN KEY (student_id) REFERENCES users;
+ALTER TABLE attendance
+    ADD CONSTRAINT user_id FOREIGN KEY (user_id) REFERENCES users;
