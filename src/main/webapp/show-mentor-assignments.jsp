@@ -43,7 +43,7 @@
                             <td>${t.isPublished()}</td>
                             <td>${t.getMaxPoints()}</td>
                             <td>
-                                <form action="grade" method="post">
+                                <form action="list-answers" method="post">
                                     <input type="">
                                     <input type="hidden" name="id" value="${t.assignmentId}">
                                     <input type="SUBMIT" value="Submit">

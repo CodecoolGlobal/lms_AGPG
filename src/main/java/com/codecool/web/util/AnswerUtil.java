@@ -3,6 +3,8 @@ package com.codecool.web.util;
 import com.codecool.web.model.Answer;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class AnswerUtil {
 
@@ -37,6 +39,20 @@ public class AnswerUtil {
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setInt(1, assignmentId);
             statement.executeUpdate();
+        }
+    }
+
+    public static List<Answer> getAnswerList(Connection connection, int assignmentId) throws SQLException {
+        List<Answer> answerList = new ArrayList<>();
+        String sql = "SELECT * FROM answers WHERE assignment_id = ?";
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setInt(1, assignmentId);
+            statement.executeQuery(sql);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                answerList.add(new Answer(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4)));
+            }
+            return answerList;
         }
     }
 
