@@ -36,8 +36,8 @@
                     ${a.grade}<br>
             </td>
             <td>
-               <form action="grade" method="post">
-                   <input type="number" min="1" max="5" alue="grade">
+               <form action="grade" method="get">
+                   <input type="number" name="grade "min="1" max="5" value="grade">
                    <input type="submit" value="Submit">
                </form>
             </td>

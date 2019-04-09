@@ -34,7 +34,7 @@ public class AnswerUtil {
         }
     }
 
-    public static void grade(Connection connection, int assignmentId, int StudentId , int grade) throws SQLException {
+    public static void grade(Connection connection, int assignmentId, int studentId, int grade) throws SQLException {
         String sql = "UPDATE answers SET grade = " + grade + "WHERE assignment_id = ?";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setInt(1, assignmentId);
