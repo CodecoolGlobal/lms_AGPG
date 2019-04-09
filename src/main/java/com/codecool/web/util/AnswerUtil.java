@@ -9,7 +9,7 @@ public class AnswerUtil {
     //Inserts Name to users table
     public static void insertName(Connection connection) throws SQLException {
         //String sql = "SELECT * FROM cities";
-        String sql = "INSERT INTO users (user_id, user_name, email, user_password, isMentor) VALUES "+
+        String sql = "INSERT INTO users (user_id, user_name, email, user_password, isMentor) VALUES " +
             "(123, 'Test Elemes','hmm@article13', 'what', true);";
         String s = "";
         try (Statement statement = connection.createStatement()) {
@@ -20,8 +20,8 @@ public class AnswerUtil {
             }*/
         }
     }
-    
-    public static void addAnswer(Connection connection, int assignmentId, int studentId, String answer) throws  SQLException {
+
+    public static void addAnswer(Connection connection, int assignmentId, int studentId, String answer) throws SQLException {
         String sql = "INSERT INTO answers (assignment_id, student_id, answer, grade) VALUES (?, ?, ?, ?);";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setInt(1, assignmentId);
@@ -50,8 +50,8 @@ public class AnswerUtil {
             return new Answer(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4));
         }
     }
-    
-    public static int getStudentIdByAssignmentId(Connection connection, int assignmentId) throws  SQLException{
+
+    public static int getStudentIdByAssignmentId(Connection connection, int assignmentId) throws SQLException {
         String sql = "SELECT student_id FROM answers WHERE assignmentId = ?";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setInt(1, assignmentId);
@@ -59,5 +59,6 @@ public class AnswerUtil {
             ResultSet rs = statement.executeQuery();
             rs.next();
             return rs.getInt(2);
+        }
     }
 }
