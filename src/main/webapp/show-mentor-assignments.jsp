@@ -1,4 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="com.codecool.web.service.AttendanceService" %>
+
 <%@ page contentType="text/html; charset=UTF-8" %>
 
 <!DOCTYPE html>
@@ -17,6 +19,7 @@
             <a href="userlist">List users</a>
             <a href="add-textpage.html">Add Text Page</a>
             <a href="addtextpage">View Text Pages</a>
+            <a href="attendance?date=${AttendanceService.getCurrentDate()}">Attendance</a>
             <a href="login">Logout</a>
         </div>
         <br>
