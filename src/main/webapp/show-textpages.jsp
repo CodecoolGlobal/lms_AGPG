@@ -22,7 +22,7 @@
         <h1>Text Pages</h1>
         <div class="textpage">
 
-            <table border="1" border-color="white">
+            <table class="list" border="1" border-color="white">
                 <tr>
                     <th>Text Title</th>
                     <th>Text Content</th>

@@ -21,7 +21,7 @@
         <h1>Mentor Assignments</h1>
         <div class="assignments">
 
-            <table border="1" border-color="white">
+            <table class="list" border="1" border-color="white">
                 <tr>
                     <th>id</th>
                     <th>Mentor id</th>

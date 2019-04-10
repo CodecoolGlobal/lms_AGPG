@@ -18,7 +18,7 @@
       <input type="text" placeholder="Email address" id="username" name="email" required>
       <label id="icon" for="password"><i class="fa fa-key"></i></label>
       <input type="password" placeholder="Password" id="password" name="psw" required>
-      <input type="submit" value="Sign In">
+      <input class="login "type="submit" value="Sign In">
     </form>
     <hr>
     <form class="createacc" action="page-registration.html" method="get">
