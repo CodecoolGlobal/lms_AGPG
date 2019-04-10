@@ -8,6 +8,7 @@
 <body>
 <form class="" action="assignment" method="post">
     <h1>Add an assignment</h1>
+    <h1>Logged in with: ${email} </h1>
     <input size="50" type="text" name="question" value="" placeholder="What's the question?">
     <br>
     <select name="maxpoints" size="1" style="width: 195px !important; min-width: 195px; max-width: 195px;">

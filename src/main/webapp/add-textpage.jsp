@@ -5,9 +5,18 @@
     <title>Add new assignment for the students!</title>
 </head>
 <body>
+<h1>Logged in with: ${email} </h1>
+<div class="navbar">
+    <jsp:include page='header-mentor.jsp'>
+        <jsp:param name="" value=""/>
+    </jsp:include>
+</div>
 <form class="" action="addtextpage" method="post">
     <input type="text" name="textpage_title" value="" placeholder="What's the title of this text page?">
+    <br>
+    <br>
     <textarea rows="5" cols="80" id="textpage" placeholder="Write your things here!" name="textpage_value"></textarea>
+    <br>
     <select name="published" size="2">
         <option value="true">published</option>
         <option value="false">unpublished</option>

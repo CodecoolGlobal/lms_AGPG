@@ -49,5 +49,9 @@
                     </c:forEach>
             </table>
         </div>
+        <br>
+        <form action="assignment" method="post">
+            <input type="SUBMIT" value="Add Assignment">
+        </form>
     </body>
   </html>

@@ -13,10 +13,15 @@
         <link rel="stylesheet" type="text/css" href="css-login.css">
     </head>
     <body>
+    <div class="navbar">
+        <jsp:include page='header-mentor.jsp'>
+            <jsp:param name="" value=""/>
+        </jsp:include>
+    </div>
         <div align="center">
             <h2>${middleDate}</h2>
             <form class="userprof" action="attendance" method="post">
-                <table border="1">
+                <table class="list" border="1">
                     <tr>
                         <th>User</th>
                         <th>Present</th>
@@ -39,6 +44,7 @@
                         </tr>
                     </c:forEach>
                 </table>
+                <br>
                 <input type="submit" name="submit" value="Submit">
             </form>
         </div>

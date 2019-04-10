@@ -16,7 +16,7 @@
         <a href="#">Modify assignments</a>
         <a href="view">View Asgn.</a>
         <a href="userlist">List users</a>
-        <a href="add-textpage.html">Add Text Page</a>
+        <a href="add-textpage.jsp">Add Text Page</a>
         <a href="addtextpage">View Text Pages</a>
         <a href="attendance?date=${AttendanceService.getCurrentDate()}">Attendance</a>
         <a href="login">Logout</a>
