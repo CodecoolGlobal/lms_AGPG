@@ -17,10 +17,9 @@
           <a href="userlist">List users</a>
           <a href="login">Logout</a>
         <br>
-        <h1>Assignment View</h1>
         <h1>Logged in with: ${email} </h1>
+          <h1>Student Assignments</h1>
         <div class="assignments">
-            <h1>Assignments</h1>
             <table border="1" border-color="white">
                 <tr>
                     <th>id</th>

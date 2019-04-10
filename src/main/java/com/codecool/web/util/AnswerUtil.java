@@ -34,10 +34,11 @@ public class AnswerUtil {
         }
     }
 
-    public static void grade(Connection connection, int assignmentId, int studentId, int grade) throws SQLException {
-        String sql = "UPDATE answers SET grade = " + grade + "WHERE assignment_id = ?";
+    public static void grade(Connection connection, int assignmentId, int StudentId , int grade) throws SQLException {
+        String sql = "UPDATE answers SET grade = ? WHERE answers.assignment_id = ?";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
-            statement.setInt(1, assignmentId);
+            statement.setInt(1, grade);
+            statement.setInt(2, assignmentId);
             statement.executeUpdate();
         }
     }
@@ -56,7 +57,7 @@ public class AnswerUtil {
     }
 
     public static Answer getAnswerByStudentId(Connection connection, int studentId) throws SQLException {
-        String sql = "SELECT * FROM answers WHERE studentId = ?";
+        String sql = "SELECT * FROM answers WHERE student_id = ?";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setInt(1, studentId);
             ResultSet rs = statement.executeQuery();
@@ -66,12 +67,12 @@ public class AnswerUtil {
     }
 
     public static int getStudentIdByAssignmentId(Connection connection, int assignmentId) throws SQLException {
-        String sql = "SELECT student_id FROM answers WHERE assignmentId = ?";
+        String sql = "SELECT student_id FROM answers WHERE answers.assignment_id = ?";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setInt(1, assignmentId);
             ResultSet rs = statement.executeQuery();
             rs.next();
-            return rs.getInt(2);
+            return rs.getInt(1);
         }
     }
 }

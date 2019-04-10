@@ -3,6 +3,7 @@ package com.codecool.web.servlet;
 import com.codecool.web.model.LoggedInUser;
 import com.codecool.web.util.AnswerUtil;
 
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -32,6 +33,35 @@ public class AnswerServlet extends AbstractServlet {
         } catch (Exception e) {
             pw.println(e);
         }
-        response.sendRedirect("view");
+        try {
+            request.setAttribute("testId", assignmentId);
+            request.getRequestDispatcher("grade").forward(request, response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        response.setContentType("text/html");
+        PrintWriter pw = response.getWriter();
+        String assignmentId = request.getParameter("id");
+        String textValue = request.getParameter("answer");
+        int id = LoggedInUser.getLoggedInUser().getId();
+    
+        try (Connection connection = getConnection(request.getServletContext())) {
+            AnswerUtil.addAnswer(connection, Integer.valueOf(assignmentId), id, textValue);
+        
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        
+        } catch (Exception e) {
+            pw.println(e);
+        }
+        try {
+            request.setAttribute("testId", assignmentId);
+            request.getRequestDispatcher("grade").forward(request, response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        }
     }
 }

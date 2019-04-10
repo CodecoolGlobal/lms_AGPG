@@ -18,7 +18,7 @@
         </div>
         <br>
         <h1>Logged in with: ${email} </h1>
-        <h1>Assignments</h1>
+        <h1>Mentor Assignments</h1>
         <div class="assignments">
 
             <table border="1" border-color="white">
@@ -29,7 +29,7 @@
                     <th>Date</th>
                     <th>Published</th>
                     <th>Max points</th>
-                    <th>Grade</th>
+                    <th>Do grade</th>
                 </tr>
                     <c:forEach var="t" items="${assignment}">
                         <tr>
