@@ -4,6 +4,8 @@
 <%@ page import="java.util.Arrays" %>
 <%@ page import="java.util.List" %>
 <%@ page import="com.codecool.web.servlet.AttendanceServlet" %>
+<%@ page import="com.codecool.web.service.AttendanceService" %>
+
 
 
 
@@ -34,6 +36,9 @@
                     </td>
                     <td>
                         <h2>${middleDate}</h2>
+                    </td>
+                    <td>
+                        <a href="attendance?date=${AttendanceService.getCurrentDate()}">Back to Current Date</a>
                     </td>
                 </tr>
 
