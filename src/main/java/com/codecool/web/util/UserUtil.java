@@ -33,6 +33,10 @@ public class UserUtil {
             "(user_name, email, user_password, ismentor) " +
             "VALUES(?, ?, ?, ?); ";
 
+        /*String sql = "INSERT INTO users " +
+            "(user_name, email, user_password, ismentor) " +
+            "VALUES(?, ?, crypt(?, gen_salt('bf', 9)) , ?); ";*/
+
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setString(1, user.getfName());
             statement.setString(2, user.getEmail());
@@ -53,7 +57,11 @@ public class UserUtil {
     }
 
     public static boolean isRegistrated(Connection connection, String email, String password) throws SQLException {
+
         String sql = "SELECT email FROM users WHERE email = ? AND user_password = ?";
+
+        //String sql = "SELECT email FROM users WHERE email = ? AND user_password = crypt(?,user_password) ;";
+
         try (PreparedStatement statement = connection.prepareStatement(sql)
         ) {
             statement.setString(1, email);

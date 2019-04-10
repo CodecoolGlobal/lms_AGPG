@@ -34,11 +34,12 @@ public class AnswerUtil {
         }
     }
 
-    public static void grade(Connection connection, int assignmentId, int StudentId , int grade) throws SQLException {
-        String sql = "UPDATE answers SET grade = ? WHERE answers.assignment_id = ?";
+    public static void grade(Connection connection, int assignmentId, int studentId , int grade) throws SQLException {
+        String sql = "UPDATE answers SET grade = ? WHERE answers.assignment_id = ? AND student_id = ?";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setInt(1, grade);
             statement.setInt(2, assignmentId);
+            statement.setInt(3, studentId);
             statement.executeUpdate();
         }
     }
@@ -75,4 +76,15 @@ public class AnswerUtil {
             return rs.getInt(1);
         }
     }
+    
+    public static boolean isAnswered(Connection connection, int assignmentId, int studentId) throws SQLException {
+        String sql = "SELECT assignment_id, student_id FROM answers WHERE assignment_id = ? AND student_id = ?;";
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setInt(1, assignmentId);
+            statement.setInt(2, studentId);
+            ResultSet rs = statement.executeQuery();
+            return rs.next();
+        }
+    }
 }
+
