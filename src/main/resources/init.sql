@@ -58,9 +58,9 @@ INSERT INTO assignments (published, assignment_date, question, max_point, mentor
     (true, null, 'Fáradt vagy?', 5, 1); -- 1
 
 INSERT INTO answers (assignment_id, student_id, answer, grade) VALUES
-	(1, 2, 'Nem jól vagyok mert látom ezt a szöveget', 5),
-	(2, 2, 'Nagyon', 5),
-	(3, 7,'Mindig', 5);
+	(1, 2, 'Nem jól vagyok mert látom ezt a szöveget', 0),
+	(2, 2, 'Nagyon', 0),
+	(3, 7,'Mindig', 0);
 
 INSERT INTO textpage (textpage_title, textpage_value, date_created, ispublished) VALUES
 	('asd', 'asdasdd', NULL, true);
