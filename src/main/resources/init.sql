@@ -60,6 +60,7 @@ INSERT INTO assignments (published, assignment_date, question, max_point, mentor
 
 INSERT INTO answers (assignment_id, student_id, answer, grade) VALUES
 	(1, 2, 'Nem jól vagyok mert látom ezt a szöveget', 0),
+    (1, 7, 'Ez egy másik válasz', 0),
 	(2, 2, 'Nagyon', 0),
 	(3, 7,'Mindig', 0);
 

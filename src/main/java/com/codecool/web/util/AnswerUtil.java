@@ -34,11 +34,12 @@ public class AnswerUtil {
         }
     }
 
-    public static void grade(Connection connection, int assignmentId, int StudentId , int grade) throws SQLException {
-        String sql = "UPDATE answers SET grade = ? WHERE answers.assignment_id = ?";
+    public static void grade(Connection connection, int assignmentId, int studentId , int grade) throws SQLException {
+        String sql = "UPDATE answers SET grade = ? WHERE answers.assignment_id = ? AND student_id = ?";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setInt(1, grade);
             statement.setInt(2, assignmentId);
+            statement.setInt(3, studentId);
             statement.executeUpdate();
         }
     }
