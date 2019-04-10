@@ -3,6 +3,8 @@ package com.codecool.web.util;
 import com.codecool.web.model.Answer;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class AnswerUtil {
 
@@ -32,7 +34,7 @@ public class AnswerUtil {
         }
     }
 
-    public static void grade(Connection connection, int assignmentId, int grade) throws SQLException {
+    public static void grade(Connection connection, int assignmentId, int studentId, int grade) throws SQLException {
         String sql = "UPDATE answers SET grade = " + grade + "WHERE assignment_id = ?";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setInt(1, assignmentId);
@@ -40,11 +42,23 @@ public class AnswerUtil {
         }
     }
 
+    public static List<Answer> getAnswerList(Connection connection, int assignmentId) throws SQLException {
+        List<Answer> answerList = new ArrayList<>();
+        String sql = "SELECT * FROM answers WHERE assignment_id = ?";
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setInt(1, assignmentId);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                answerList.add(new Answer(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4)));
+            }
+            return answerList;
+        }
+    }
+
     public static Answer getAnswerByStudentId(Connection connection, int studentId) throws SQLException {
         String sql = "SELECT * FROM answers WHERE studentId = ?";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setInt(1, studentId);
-            statement.executeQuery(sql);
             ResultSet rs = statement.executeQuery();
             rs.next();
             return new Answer(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4));
@@ -55,7 +69,6 @@ public class AnswerUtil {
         String sql = "SELECT student_id FROM answers WHERE assignmentId = ?";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setInt(1, assignmentId);
-            statement.executeQuery(sql);
             ResultSet rs = statement.executeQuery();
             rs.next();
             return rs.getInt(2);

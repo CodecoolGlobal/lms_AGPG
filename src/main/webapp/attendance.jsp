@@ -9,43 +9,38 @@
 
 <!DOCTYPE html>
 <html>
-  <head>
-    <link rel="stylesheet" type="text/css" href="css-login.css">
-  </head>
-  <body>
-    <div align="center">
-    <form class="userprof" action="attendance" method="post">
-           <input type="date" name="date"><br>
-        <table border="1">
-            <tr>
-                <th>User</th>
-                <th>Present</th>
-            </tr>
-                <c:forEach items="${userList}" var="user">
+    <head>
+        <link rel="stylesheet" type="text/css" href="css-login.css">
+    </head>
+    <body>
+        <div align="center">
+            <h2>${middleDate}</h2>
+            <form class="userprof" action="attendance" method="post">
+                <table border="1">
                     <tr>
-                        <td>
-                            ${user.fName}<br>
-                        </td>
-                        <td>
-                        <c:choose>
-                            <c:when test="${param.enter=='1'}">
-                                pizza.
-                                <br />
-                            </c:when>
-                            <c:otherwise>
-                                pizzas.
-                                <br />
-                            </c:otherwise>
-                        </c:choose>
-                            <input type="checkbox" name="attendance" value="${user.id}"><br>
-                        </td>
-
+                        <th>User</th>
+                        <th>Present</th>
                     </tr>
-                </c:forEach>
-            </table>
-                   <input type="submit" name="submit" value="Submit">
-
-    </form>
-  </div>
-  </body>
+                    <c:forEach items="${userList}" var="user">
+                        <tr>
+                            <td>
+                                ${user.fName}<br>
+                            </td>
+                            <td>
+                            <c:choose>
+                                <c:when test="${user.isPresent()}">
+                                    <input type="checkbox" name="attendance" value="${user.id}" checked><br>
+                                </c:when>
+                                <c:otherwise>
+                                    <input type="checkbox" name="attendance" value="${user.id}"><br>
+                                </c:otherwise>
+                            </c:choose>
+                            </td>
+                        </tr>
+                    </c:forEach>
+                </table>
+                <input type="submit" name="submit" value="Submit">
+            </form>
+        </div>
+    </body>
 </html>

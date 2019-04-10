@@ -3,9 +3,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" type="text/css" href="css-login.css">
+    <link rel="stylesheet" type="text/css" href="css-style.css">
   </head>
   <body>
+    <jsp:include page='header-mentor.jsp'>
+        <jsp:param name="" value=""/>
+    </jsp:include>
     <h1>Logged in with: ${email} </h1>
     <div align="center">
     <form class="userprof" action="profile" method="post">

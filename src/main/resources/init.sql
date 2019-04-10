@@ -15,8 +15,7 @@ CREATE TABLE assignments (
 
 CREATE TABLE attendance (
     user_id INTEGER,
-    date_att date,
-    ispresent boolean
+    date_att date
 );
 
 CREATE TABLE users (
@@ -59,12 +58,18 @@ INSERT INTO assignments (published, assignment_date, question, max_point, mentor
     (true, null, 'Fáradt vagy?', 5, 1); -- 1
 
 INSERT INTO answers (assignment_id, student_id, answer, grade) VALUES
-	(1, 2, 'Nem jól', 5),
+	(1, 2, 'Nem jól vagyok mert látom ezt a szöveget', 5),
 	(2, 2, 'Nagyon', 5),
 	(3, 7,'Mindig', 5);
 
 INSERT INTO textpage (textpage_title, textpage_value, date_created, ispublished) VALUES
 	('asd', 'asdasdd', NULL, true);
+
+
+INSERT INTO attendance (user_id, date_att) VALUES
+    (1,'2019-04-09'),
+    (2,'2019-04-09'),
+    (3,'2019-04-09');
 
 ALTER TABLE assignments
     ADD CONSTRAINT mentor_id FOREIGN KEY (mentor_id) REFERENCES users;
