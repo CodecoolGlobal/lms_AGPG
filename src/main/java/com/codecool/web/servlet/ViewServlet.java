@@ -43,6 +43,5 @@ public class ViewServlet extends AbstractServlet {
             }
             req.getRequestDispatcher("show-student-assignments.jsp").forward(req, resp);
         }
-
     }
 }

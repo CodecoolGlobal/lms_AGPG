@@ -54,7 +54,8 @@ INSERT INTO users (user_name, email, user_password, isMentor) VALUES
 
 INSERT INTO assignments (published, assignment_date, question, max_point, mentor_id) VALUES
 	(true, null, 'Hogy vagy?', 5, 1),
-    (false, null, 'Éhes vagy?', 5, 1),
+    (true, null, 'Éhes vagy?', 5, 5),
+    (false, null, 'Szőrős vagy?', 5, 1),
     (true, null, 'Fáradt vagy?', 5, 1); -- 1
 
 INSERT INTO answers (assignment_id, student_id, answer, grade) VALUES
