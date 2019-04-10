@@ -111,8 +111,8 @@ input{
   border:none;
 }
 
-input.add-assignment-button {
-  margin: auto;
+.add-assignment-button {
+  padding:auto;
 }
 
 a{
