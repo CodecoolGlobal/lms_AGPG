@@ -14,6 +14,7 @@
           <a href="show-mentor-page.jsp">Mentor</a>
           <a href="#">Modify assignments</a>
           <a href="view">View Asgn.</a>
+          <a href="addtextpage">View Text Pages</a>
           <a href="userlist">List users</a>
           <a href="login">Logout</a>
         <br>

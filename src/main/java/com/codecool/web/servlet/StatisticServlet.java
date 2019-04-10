@@ -1,7 +1,10 @@
 package com.codecool.web.servlet;
 
+import com.codecool.web.model.LoggedInUser;
 import com.codecool.web.model.TextPage;
+import com.codecool.web.util.AnswerUtil;
 import com.codecool.web.util.TextPageUtil;
+import com.codecool.web.util.UserUtil;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,9 +16,8 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 
-
-@WebServlet({"/addtextpage"})
-public class TextPageServlet extends AbstractServlet {
+@WebServlet({"/viewstatistics"})
+public class StatisticServlet extends AbstractServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -43,16 +45,12 @@ public class TextPageServlet extends AbstractServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException{
         try (Connection connection = getConnection(request.getServletContext())) {
-            List<TextPage> textPageList = TextPageUtil.getTextPages(connection);
-            request.setAttribute("textpages", textPageList);
+            request.setAttribute("fullName", LoggedInUser.getLoggedInUser().getfName());
+            request.setAttribute("userId", LoggedInUser.getLoggedInUser().getId());
+            request.setAttribute("grade", );
         } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-
-        try {
-            request.getRequestDispatcher("show-textpages.jsp").forward(request, response);
-        } catch (ServletException e) {
-            e.printStackTrace();
+            ex.getMessage();
         }
     }
 }
+
