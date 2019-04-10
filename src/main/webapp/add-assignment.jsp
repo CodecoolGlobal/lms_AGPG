@@ -6,8 +6,14 @@
     <link rel="stylesheet" type="text/css" href="css-style.css">
 </head>
 <body>
+<div class="navbar">
+    <jsp:include page='header-mentor.jsp'>
+        <jsp:param name="" value=""/>
+    </jsp:include>
+</div>
+<h1>Add an assignment</h1>
+<h1>Logged in with: ${email} </h1>
 <form class="" action="assignment" method="post">
-    <h1>Add an assignment</h1>
     <input size="50" type="text" name="question" value="" placeholder="What's the question?">
     <br>
     <select name="maxpoints" size="1" style="width: 195px !important; min-width: 195px; max-width: 195px;">

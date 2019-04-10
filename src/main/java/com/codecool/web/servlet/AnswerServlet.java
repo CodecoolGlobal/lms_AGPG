@@ -33,12 +33,9 @@ public class AnswerServlet extends AbstractServlet {
         } catch (Exception e) {
             pw.println(e);
         }
-        try {
+     
             request.setAttribute("testId", assignmentId);
-            request.getRequestDispatcher("grade").forward(request, response);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        }
+            response.sendRedirect("view");
     }
     
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -57,11 +54,7 @@ public class AnswerServlet extends AbstractServlet {
         } catch (Exception e) {
             pw.println(e);
         }
-        try {
-            request.setAttribute("testId", assignmentId);
-            request.getRequestDispatcher("grade").forward(request, response);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        }
+        request.setAttribute("testId", assignmentId);
+        response.sendRedirect("view");
     }
 }

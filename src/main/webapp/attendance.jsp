@@ -13,6 +13,13 @@
         <link rel="stylesheet" type="text/css" href="css-login.css">
     </head>
     <body>
+    <div class="navbar">
+        <jsp:include page='header-mentor.jsp'>
+            <jsp:param name="" value=""/>
+        </jsp:include>
+    </div>
+    <h1>Logged in with: ${email} </h1>
+    <h1>Attendance</h1>
         <div align="center">
             <table>
                 <tr>
@@ -56,6 +63,7 @@
                         </tr>
                     </c:forEach>
                 </table>
+                <br>
                 <input type="submit" name="submit" value="Submit">
             </form>
         </div>

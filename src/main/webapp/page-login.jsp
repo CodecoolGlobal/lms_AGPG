@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css-style.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
     <title>Log-In</title>
 </head>
 <body>
@@ -17,7 +18,7 @@
       <input type="text" placeholder="Email address" id="username" name="email" required>
       <label id="icon" for="password"><i class="fa fa-key"></i></label>
       <input type="password" placeholder="Password" id="password" name="psw" required>
-      <input type="submit" value="Sign In">
+      <input class="login "type="submit" value="Sign In">
     </form>
     <hr>
     <form class="createacc" action="page-registration.html" method="get">

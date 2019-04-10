@@ -17,12 +17,12 @@
                 <jsp:param name="" value=""/>
             </jsp:include>
         </div>
-        <br>
         <h1>Logged in with: ${email} </h1>
         <h1>Text Pages</h1>
+        <br>
         <div class="textpage">
 
-            <table border="1" border-color="white">
+            <table class="list" border="1" border-color="white">
                 <tr>
                     <th>Text Title</th>
                     <th>Text Content</th>

@@ -16,12 +16,11 @@
                 <jsp:param name="" value=""/>
             </jsp:include>
         </div>
-        <br>
         <h1>Logged in with: ${email} </h1>
         <h1>Mentor Assignments</h1>
+        <br>
         <div class="assignments">
-
-            <table border="1" border-color="white">
+            <table class="list" border="1" border-color="white">
                 <tr>
                     <th>id</th>
                     <th>Mentor id</th>
@@ -48,6 +47,12 @@
                         </tr>
                     </c:forEach>
             </table>
+        </div>
+        <br>
+        <div class="add-assignment-button">
+            <form action="assignment" method="post">
+                <input type="SUBMIT" value="Add Assignment">
+            </form>
         </div>
     </body>
   </html>

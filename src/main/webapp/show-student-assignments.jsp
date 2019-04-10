@@ -16,11 +16,12 @@
           <a href="view">View Asgn.</a>
           <a href="userlist">List users</a>
           <a href="login">Logout</a>
-        <br>
-        <h1>Logged in with: ${email} </h1>
-          <h1>Student Assignments</h1>
+      </div>
+      <h1>Logged in with: ${email} </h1>
+      <h1>Student Assignments</h1>
+      <br>
         <div class="assignments">
-            <table border="1" border-color="white">
+            <table class="list" border="1" border-color="white">
                 <tr>
                     <th>id</th>
                     <th>Question</th>
@@ -43,7 +44,6 @@
                     </tr>
                 </c:forEach>
             </table>
-        </div>
       </div>
     </body>
   </html>

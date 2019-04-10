@@ -5,7 +5,7 @@
 <head>
     <link rel="stylesheet" type="text/css" href="css-style.css">
     <meta charset="UTF-8">
-    <title>View Assignment</title>
+    <title>Add solution</title>
 </head>
 <body>
 <div class="navbar">
@@ -16,8 +16,8 @@
     <a href="userlist">List users</a>
     <a href="login">Logout</a>
     <br>
-    <h1>Solution View</h1>
     <h1>Logged in with: ${email} </h1>
+    <h1>Solution View</h1>
     <h2>Id: ${assignment.assignmentId}</h2>
     <h2>${assignment.question}</h2>
     <form action="answer" method="post">
