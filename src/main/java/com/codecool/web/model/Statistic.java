@@ -5,22 +5,28 @@ import java.util.List;
 
 public class Statistic {
 
-    private String fullName;
-    private int userId;
+    private List<Integer> assignmentIdList;
+    private List<String> questionsList;
+    private List<String> answersList;
     private List<Integer> gradesList;
 
-    public Statistic(String fullName, int userId, List<Integer> gradesList) {
-        this.fullName = fullName;
-        this.userId = userId;
-        this.gradesList = new ArrayList<>();
+    public Statistic(List<Integer> assignmentIdList, List<String> questionsList, List<String> answersList, List<Integer> gradesList) {
+        this.assignmentIdList = assignmentIdList;
+        this.questionsList = questionsList;
+        this.answersList = answersList;
+        this.gradesList = gradesList;
     }
 
-    public String getFullName() {
-        return fullName;
+    public List<Integer> getAssignmentIdList() {
+        return assignmentIdList;
     }
 
-    public int getUserId() {
-        return userId;
+    public List<String> getQuestionsList() {
+        return questionsList;
+    }
+
+    public List<String> getAnswersList() {
+        return answersList;
     }
 
     public List<Integer> getGradesList() {
