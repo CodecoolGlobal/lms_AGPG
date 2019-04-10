@@ -14,8 +14,25 @@
     </head>
     <body>
         <div align="center">
-            <h2>${middleDate}</h2>
+            <table>
+                <tr>
+                    <td>
+                        <a href="attendance?date=${backInTimeMonth}">Back one Month</a>
+                    </td>
+                    <td>
+                        <a href="attendance?date=${backInTimeWeek}">Back one Week</a>
+                    </td>
+                    <td>
+                        <a href="attendance?date=${backInTimeDay}">Back one Day</a>
+                    </td>
+                    <td>
+                        <h2>${middleDate}</h2>
+                    </td>
+                </tr>
+
+            </table>
             <form class="userprof" action="attendance" method="post">
+                <input type="hidden" name="hiddenDate" value="${middleDate}">
                 <table border="1">
                     <tr>
                         <th>User</th>
