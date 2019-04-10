@@ -2,15 +2,16 @@
 <html lang="en" dir="ltr">
 <head>
     <meta charset="utf-8">
-    <title>Add new assignment for the students!</title>
+    <title>Add new text page!</title>
 </head>
 <body>
-<h1>Logged in with: ${email} </h1>
 <div class="navbar">
     <jsp:include page='header-mentor.jsp'>
         <jsp:param name="" value=""/>
     </jsp:include>
 </div>
+<h1>Logged in with: ${email} </h1>
+<h1>Add new text page</h1>
 <form class="" action="addtextpage" method="post">
     <input type="text" name="textpage_title" value="" placeholder="What's the title of this text page?">
     <br>

@@ -18,6 +18,8 @@
             <jsp:param name="" value=""/>
         </jsp:include>
     </div>
+    <h1>Logged in with: ${email} </h1>
+    <h1>Attendance</h1>
         <div align="center">
             <h2>${middleDate}</h2>
             <form class="userprof" action="attendance" method="post">

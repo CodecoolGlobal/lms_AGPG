@@ -110,6 +110,11 @@ form{
 input{
   border:none;
 }
+
+input.add-assignment-button {
+  margin: auto;
+}
+
 a{
     text-decoration: none;
     color: rgb(255, 255, 255);

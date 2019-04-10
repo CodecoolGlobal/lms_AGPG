@@ -12,7 +12,6 @@
 <body>
 <div class="navbar">
         <a href="myprofile">My profile</a>
-        <a href="show-mentor-page.jsp">Mentor</a>
         <a href="#">Modify assignments</a>
         <a href="view">View Asgn.</a>
         <a href="userlist">List users</a>

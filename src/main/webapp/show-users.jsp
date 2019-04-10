@@ -21,9 +21,9 @@
             <a href="userlist">List users</a>
             <a href="login">Logout</a>
         </div>
-      <br>
       <h1>Logged in with: ${email} </h1>
       <h1>Users</h1>
+        <br>
     <table class="list" border="1">
         <tr>
             <th>ID</th>
