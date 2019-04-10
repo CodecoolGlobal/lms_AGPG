@@ -48,5 +48,54 @@ public class AttendanceUntil {
         return users;
     }
 
+    public static List<User> ModifyUsersPresent(List<User> users, String[] presentIds) throws SQLException {
+        if (presentIds == null){
+            return users;
+        }
+        for (User user : users) {
+            for (String id : presentIds){
+                if (user.getId() == Integer.parseInt(id)){
+                    user.setPresent(true);
+                    break;
+                }
+            }
+        }
+        return users;
+    }
 
+    public static boolean isUserPresentwithDate(Connection connection, Date sqlDate, int userId) throws SQLException {
+        String sql = "SELECT * FROM attendance WHERE date_att = ? AND user_id = ?";
+        try (PreparedStatement statement = connection.prepareStatement(sql)
+        ) {
+            statement.setDate(1, sqlDate);
+            statement.setInt(2, userId);
+            ResultSet resultSet = statement.executeQuery();
+            return resultSet.next();
+        }
+    }
+
+    public static void addAttendance(Connection connection, Date date, int userID) throws SQLException {
+
+        String sql = "INSERT INTO attendance " +
+            "(user_id, date_att) " +
+            "VALUES(?, ?); ";
+
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setInt(1, userID);
+            statement.setDate(2, date);
+            statement.executeUpdate();
+        }
+    }
+
+    public static void removeAttendance(Connection connection, Date date, int userID) throws SQLException {
+
+        String sql = "DELETE FROM attendance " +
+            "WHERE user_id = ? AND date_att = ?; ";
+
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setInt(1, userID);
+            statement.setDate(2, date);
+            statement.executeUpdate();
+        }
+    }
 }
