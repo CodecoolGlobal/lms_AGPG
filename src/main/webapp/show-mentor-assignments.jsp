@@ -58,10 +58,5 @@
     </table>
 </div>
 <br>
-<div class="add-assignment-button">
-    <form action="assignment" method="post">
-        <input type="SUBMIT" value="Add Assignment">
-    </form>
-</div>
 </body>
 </html>
