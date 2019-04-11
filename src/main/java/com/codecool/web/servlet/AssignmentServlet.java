@@ -28,31 +28,23 @@ public class AssignmentServlet extends AbstractServlet {
         response.setContentType("text/html");
         PrintWriter pw = response.getWriter();
 
-        try {
-            String str_date = request.getParameter("date"); //aznapi kellene
-            DateFormat format = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
-            Date datee = (Date) format.parse(str_date);
+        boolean published = Boolean.valueOf(request.getParameter("published")); //gomb
+        String question = request.getParameter("question");
+        int maxPoint = Integer.valueOf(request.getParameter("maxpoints")); //legördülő menu 1-5
+        int mentor_id = LoggedInUser.getLoggedInUser().getId();
 
-            boolean published = Boolean.valueOf(request.getParameter("published")); //gomb
-            String question = request.getParameter("question");
-            int maxPoint = Integer.valueOf(request.getParameter("maxpoints")); //legördülő menu 1-5
-            int mentor_id = LoggedInUser.getLoggedInUser().getId();
+        try (Connection connection = getConnection(request.getServletContext())) {
+            AssignmentUtil.addAssignment(connection, published, question, maxPoint, mentor_id);
 
-            try (Connection connection = getConnection(request.getServletContext())) {
-                AssignmentUtil.addAssignment(connection, published, datee, question, maxPoint, mentor_id);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
 
-            } catch (SQLException ex) {
-                ex.printStackTrace();
-
-            } catch (Exception e) {
-                pw.println(e);
-            }
-
-            response.sendRedirect("view");
-
-        } catch (ParseException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            pw.println(e);
         }
+
+        response.sendRedirect("view");
+
     }
 }
 

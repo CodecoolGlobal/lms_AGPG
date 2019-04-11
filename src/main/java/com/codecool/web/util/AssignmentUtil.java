@@ -2,10 +2,7 @@ package com.codecool.web.util;
 
 import com.codecool.web.model.Assignment;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -58,14 +55,20 @@ public class AssignmentUtil {
     }
 
 
-    public static void addAssignment(Connection connection, boolean published, Date date, String question,
+    public static void addAssignment(Connection connection, boolean published, String question,
                                      int max_point, int mentor_id) throws SQLException {
 
-        String sql = "INSERT INTO assignments (published, assignment_date, question, max_point, mentor_id) VALUES(" + published + ", NULL , '" + question + "', " + max_point + ", " + mentor_id + ");";
+        String sql = "INSERT INTO assignments " +
+            "(published, question, max_point, mentor_id) " +
+            "VALUES(?, ?, ?, ?); ";
 
 
-        try (Statement statement = connection.createStatement()) {
-            statement.execute(sql);
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setBoolean(1, published);
+            statement.setString(2, question);
+            statement.setInt(3, max_point);
+            statement.setInt(4, mentor_id);
+            statement.executeUpdate();
         }
     }
 }
