@@ -26,12 +26,21 @@
                 <tr>
                     <th>Text Title</th>
                     <th>Published?</th>
+                    <th>Link</th>
+
 
                 </tr>
                     <c:forEach var="t" items="${textpages}">
                         <tr>
                         <td>${t.getTitle()}</td>
                         <td>${t.isPublished()}</td>
+                        <td>
+                            <form action="show-textcontent" method="get">
+                            <input type="hidden" name="text-title" value="${t.getTitle()}">
+                            <input type="hidden" name="text-content" value="${t.getTextContent()}">
+                            <input type="submit" value="Submit">
+                            </form>
+                        </td>
                         </tr>
                     </c:forEach>
             </table>
