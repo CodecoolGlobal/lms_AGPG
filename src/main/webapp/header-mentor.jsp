@@ -1,7 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ page import="com.codecool.web.service.AttendanceService" %>
-
 <!DOCTYPE>
 <html>
 <head>
@@ -12,7 +11,7 @@
 <body>
 <div class="navbar">
         <a href="myprofile">My profile</a>
-        <a href="#">Modify assignments</a>
+        <a href="add-assignment.jsp">Modify assignments</a>
         <a href="view">View Asgn.</a>
         <a href="userlist">List users</a>
         <a href="add-textpage.jsp">Add Text Page</a>

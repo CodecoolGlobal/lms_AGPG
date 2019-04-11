@@ -33,9 +33,9 @@ public class UserUtil {
             "(user_name, email, user_password, ismentor) " +
             "VALUES(?, ?, ?, ?); ";
 
-        /*String sql = "INSERT INTO users " +
-            "(user_name, email, user_password, ismentor) " +
-            "VALUES(?, ?, crypt(?, gen_salt('bf', 9)) , ?); ";*/
+//        String sql = "INSERT INTO users " +
+//            "(user_name, email, user_password, ismentor) " +
+//            "VALUES(?, ?, crypt(?, gen_salt('bf', 9)) , ?); ";
 
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setString(1, user.getfName());
@@ -60,7 +60,7 @@ public class UserUtil {
 
         String sql = "SELECT email FROM users WHERE email = ? AND user_password = ?";
 
-        //String sql = "SELECT email FROM users WHERE email = ? AND user_password = crypt(?,user_password) ;";
+//        String sql = "SELECT email FROM users WHERE email = ? AND user_password = crypt(?,user_password) ;";
 
         try (PreparedStatement statement = connection.prepareStatement(sql)
         ) {
