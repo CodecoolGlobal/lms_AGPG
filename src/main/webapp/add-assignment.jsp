@@ -29,8 +29,6 @@
         <option value="false">unpublished</option>
     </select>
     <br>
-    <input type="date" name="date">
-    <br>
     <input type="submit" name="submit" value="Submit" style="width: 195px !important; min-width: 195px; max-width: 195px;">
 </form>
 </body>
