@@ -10,7 +10,7 @@
         <jsp:param name="" value=""/>
     </jsp:include>
 </div>
-<h1>Logged in with: ${email} </h1>
+
 <h1>Add new text page</h1>
 <form class="" action="addtextpage" method="post">
     <input type="text" name="textpage_title" value="" placeholder="What's the title of this text page?">

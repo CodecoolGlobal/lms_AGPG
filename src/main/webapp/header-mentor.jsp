@@ -20,5 +20,6 @@
         <a href="login">Logout</a>
     <br>
 </div>
+<h1>Logged in with: ${email} </h1>
 </body>
 </html>

@@ -16,7 +16,6 @@
     </jsp:include>
 </div>
 <br>
-<h1>Logged in with: ${email} </h1>
 <h1>Answers</h1>
 <table class="list" border="1">
     <tr>

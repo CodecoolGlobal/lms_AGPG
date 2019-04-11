@@ -17,7 +17,6 @@
                 <jsp:param name="" value=""/>
             </jsp:include>
         </div>
-        <h1>Logged in with: ${email} </h1>
         <h1>Study Content</h1>
         <br>
         <div class="wrapper">
