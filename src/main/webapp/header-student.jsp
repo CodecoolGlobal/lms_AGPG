@@ -13,6 +13,7 @@
         <a href="view">View Assignments.</a>
         <a href="addtextpage">View Text Pages</a>
         <a href="viewstatistics">View Statistics</a>
+        <a href="chart">View Chart</a>
         <a href="login">Logout</a>!
     <br>
 </div>
