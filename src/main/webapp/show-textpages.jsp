@@ -9,7 +9,7 @@
     <head>
         <link rel="stylesheet" type="text/css" href="css-style.css">
         <meta charset="UTF-8">
-        <title>View Assignment</title>
+        <title>View Study Material</title>
     </head>
     <body>
         <div class="navbar">
@@ -18,7 +18,7 @@
             </jsp:include>
         </div>
         <h1>Logged in with: ${email} </h1>
-        <h1>Text Pages</h1>
+        <h1>Material</h1>
         <br>
         <div class="textpage">
 
@@ -38,7 +38,7 @@
                             <form action="show-textcontent" method="get">
                             <input type="hidden" name="text-title" value="${t.getTitle()}">
                             <input type="hidden" name="text-content" value="${t.getTextContent()}">
-                            <input type="submit" value="Submit">
+                            <input type="submit" value="Redirect">
                             </form>
                         </td>
                         </tr>
