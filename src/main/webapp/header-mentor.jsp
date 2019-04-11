@@ -12,7 +12,7 @@
 <body>
 <div class="navbar" align="center">
     <a href="myprofile">My profile</a>
-    <a href="add-assignment.jsp">Modify assignments</a>
+    <a href="add-assignment.jsp">Add assignments</a>
     <a href="view">View Assignments</a>
     <a href="userlist">List users</a>
     <a href="add-textpage.jsp">Add Text Page</a>
