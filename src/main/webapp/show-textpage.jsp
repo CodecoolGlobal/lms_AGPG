@@ -1,8 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
-<%@ page import="java.util.List;" %>
-<%@ page import="com.codecool.web.model.TextPage;" %>
-<%@ page import="java.util.Arrays;" %>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,10 +18,11 @@
         <h1>Logged in with: ${email} </h1>
         <h1>Study Content</h1>
         <br>
-        <div class="wrapper">
-            <div class="container">
-                <h2>${text-title}</h2>
-                <p>${text-content}</p>
+        <div class="wrapper-text">
+            <div class="container-text">
+                <h2 class="text-title"><%= request.getParameter("text-title")%></h2>
+                <br>
+                <p><%= request.getParameter("text-content")%></p>
             </div>
         </div>
     </body>

@@ -7,6 +7,7 @@ padding: 0;
 .navbar {
   width: 100%;
   overflow: auto;
+  background-color: lightseagreen;
 }
 
 .navbar a {
@@ -20,6 +21,8 @@ padding: 0;
 
 .navbar a:hover {
   background-color: #1a8cff;
+  text-decoration: none;
+  color: white;
 }
 
 @media screen and (max-width: 500px) {
@@ -47,7 +50,7 @@ h1.header{
 body,input{
   font-family:'Open sans',sans-serif;
   font-size:18px;
-  color: black;
+  color: white;
 }
 
 body{
@@ -59,11 +62,14 @@ body{
   background-size: cover;
 }
 
+h2.text-title {
+  text-align: center;
+  margin: auto;
+}
+
 p {
-  color: orange;
-  text-align: left center justify;
-  font-size: 50px;
-  text-decoration: underline;
+  color: black;
+  font-size: 18px;
 }
 
 table.list{
@@ -83,6 +89,28 @@ th, td {
   font-size: 20px;
   color: white;
     height: auto;
+  
+}
+
+.wrapper-text {
+  
+  background-color: rgba(245,245,245,0.5) ;
+  width: 80%;
+  height: auto;
+  margin: auto;
+  border: #333333;
+  border-radius: 20px;
+  padding: 40px 20px 40px 20px;
+}
+
+.container-text{
+  background-color: rgb(245,245,245);
+  border: #333333;
+  border-radius: 20px;
+  margin: auto;
+  width: 90%;
+  padding: 50px 20px 50px 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   
 }
 

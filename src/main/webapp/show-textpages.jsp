@@ -1,8 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
-<%@ page import="java.util.List" %>
-<%@ page import="com.codecool.web.model.TextPage" %>
-<%@ page import="java.util.Arrays" %>
 
 <!DOCTYPE html>
 <html lang="en">
