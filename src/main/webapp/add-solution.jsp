@@ -9,12 +9,9 @@
 </head>
 <body>
 <div class="navbar">
-    <a href="myprofile">My profile</a>
-    <a href="show-mentor-page.jsp">Mentor</a>
-    <a href="#">Modify assignments</a>
-    <a href="view">View Asgn.</a>
-    <a href="userlist">List users</a>
-    <a href="login">Logout</a>
+    <jsp:include page='header-student.jsp'>
+        <jsp:param name="" value=""/>
+     </jsp:include>
     <br>
     <h1>Logged in with: ${email} </h1>
     <h1>Solution View</h1>
