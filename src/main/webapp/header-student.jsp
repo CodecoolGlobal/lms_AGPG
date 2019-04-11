@@ -1,5 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page import="com.codecool.web.model.LoggedInUser" %>
 <!DOCTYPE>
 <html>
 <head>
@@ -13,8 +14,8 @@
         <a href="view">View Assignments.</a>
         <a href="addtextpage">View Text Pages</a>
         <a href="viewstatistics">View Statistics</a>
-        <a href="chart">View Chart</a>
-        <a href="login">Logout</a>!
+        <!-- <a href="chart">View Chart</a> -->
+        <a href="login">Logout</a>
     <br>
 </div>
 <h1>Logged in with: ${email} </h1>

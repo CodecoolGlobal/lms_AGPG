@@ -1,5 +1,6 @@
 <%@ page import="com.codecool.web.model.LoggedInUser" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="com.codecool.web.model.LoggedInUser" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>

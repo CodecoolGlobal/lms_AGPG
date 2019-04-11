@@ -3,8 +3,8 @@
 <%@ page import="com.codecool.web.model.User" %>
 <%@ page import="java.util.Arrays" %>
 <%@ page import="java.util.List" %>
+<%@ page import="com.codecool.web.model.LoggedInUser" %>
 <%@ page import="com.codecool.web.servlet.AttendanceServlet" %>
-<%@ page import="com.codecool.web.service.AttendanceService" %>
 <!DOCTYPE html>
 <html>
     <head>
