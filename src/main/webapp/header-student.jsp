@@ -10,7 +10,7 @@
 <body>
 <div class="navbar">
         <a href="myprofile">My profile</a>
-        <a href="view">View Asgn.</a>
+        <a href="view">View Assignments.</a>
         <a href="addtextpage">View Text Pages</a>
         <a href="login">Logout</a>
     <br>
