@@ -11,12 +11,20 @@
 <html lang="en">
 <body>
 <div class="navbar">
-    <jsp:include page='header-mentor.jsp'>
-        <jsp:param name="" value=""/>
-    </jsp:include>
+    <c:choose>
+                    <c:when test="${LoggedInUser.getLoggedInUser().isMentor()}">
+                        <jsp:include page='header-mentor.jsp'>
+                            <jsp:param name="" value=""/>
+                        </jsp:include>
+                    </c:when>
+                    <c:otherwise>
+                        <jsp:include page='header-student.jsp'>
+                            <jsp:param name="" value=""/>
+                        </jsp:include>
+                    </c:otherwise>
+                </c:choose>
 </div>
 <br>
-<h1>Logged in with: ${email} </h1>
 <h1>Answers</h1>
 <table class="list" border="1">
     <tr>

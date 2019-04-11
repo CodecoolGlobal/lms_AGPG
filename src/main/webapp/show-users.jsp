@@ -27,7 +27,6 @@
                                             </c:otherwise>
                                         </c:choose>
         </div>
-      <h1>Logged in with: ${email} </h1>
       <h1>Users</h1>
         <br>
     <table class="list" border="1">

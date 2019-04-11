@@ -3,7 +3,6 @@ package com.codecool.web.servlet;
 import com.codecool.web.model.TextPage;
 import com.codecool.web.util.TextPageUtil;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,17 +18,19 @@ public class ShowOneTextPageServlet extends AbstractServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException{
-        try  {
+        try{
+
             String textTitle = request.getParameter("text-title");
             String textContent = request.getParameter("text-content");
+
             request.setAttribute("text-title", textTitle);
             request.setAttribute("text-content", textContent);
-    
-            RequestDispatcher rd = request.getRequestDispatcher("show-textpage.jsp");
-            rd.include(request, response);
-            rd.forward(request,response);
-        } catch (ServletException e) {
-            e.printStackTrace();
+
+            request.getRequestDispatcher("show-textpage.jsp").forward(request, response);
+
+        } catch (ServletException ex) {
+            ex.printStackTrace();
         }
+
     }
 }

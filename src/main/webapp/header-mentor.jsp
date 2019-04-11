@@ -17,8 +17,10 @@
         <a href="add-textpage.jsp">Add Text Page</a>
         <a href="addtextpage">View Text Pages</a>
         <a href="attendance?date=${AttendanceService.getCurrentDate()}">Attendance</a>
+        <a href="chart">View Chart</a>
         <a href="login">Logout</a>
     <br>
 </div>
+<h1>Logged in with: ${email} </h1>
 </body>
 </html>
