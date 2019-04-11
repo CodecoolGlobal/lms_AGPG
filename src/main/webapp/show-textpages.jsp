@@ -26,15 +26,12 @@
 
 <h1>Material</h1>
 <br>
-<div class="textpage">
-
-    <table class="list" border="1" border-color="white">
+<div class="table-wrapper">
+    <table class="table-container">
         <tr>
             <th>Text Title</th>
             <th>Published?</th>
             <th>Link</th>
-
-
         </tr>
         <c:forEach var="t" items="${textpages}">
             <tr>

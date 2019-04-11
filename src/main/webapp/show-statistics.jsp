@@ -26,18 +26,15 @@
         </jsp:include>
     </c:otherwise>
 </c:choose>
-
-<br>
 <h1>Statistics</h1>
-<div class="textpage">
-
-    <table class="list" border="1" border-color="white">
+<br>
+<div class="table-wrapper">
+    <table class="table-container">
         <tr>
             <th>Question</th>
             <th>Answer</th>
             <th>Grade</th>
         </tr>
-
         <c:forEach var="question" items="${questions}" varStatus="status">
             <tr>
                 <td>${question}</td>

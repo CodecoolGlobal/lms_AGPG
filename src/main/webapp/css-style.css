@@ -98,13 +98,14 @@ p {
 .table-container{
     text-decoration-color: black;
     margin: auto;
+    min-width: 85%;
     width: auto;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     
 }
 
-.table-container tr:nth-child(even){background-color: #f2f2f2;}
-.table-container tr:hover {background-color: #ddd;}
+.table-container tr:nth-child(even){background-color: #e8e8e8;}
+.table-container tr:hover {background-color: #c9c9c9;}
 
 table.list {
     border: 1px solid #ddd;
@@ -116,6 +117,10 @@ table.list {
 
 th {
     background-color: #1B9CFC;
+    text-align: left;
+    font-size: 18px;
+    padding: 5px 10px 5px 10px;
+    height: 50px;
 }
 
 /*
@@ -144,7 +149,7 @@ th, td {
 
 .wrapper-text {
     
-    background-color: rgba(245, 245, 245, 0.8);
+    background-color: whitesmoke;
     width: 80%;
     height: auto;
     margin: auto;
@@ -206,13 +211,13 @@ input {
 a {
     text-decoration: none;
     color: rgb(255, 255, 255);
+    padding: 10px 10px 10px 10px;
     
 }
 
 a:hover {
-    color: rgba(255, 152, 0, 0.79);
-    text-decoration: underline;
-    
+    background-color: #1B9CFC;
+    color: white;
 }
 
 input[type=text], input[type=password] {

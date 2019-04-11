@@ -14,7 +14,6 @@
 
 <html lang="en">
 <body>
-
 <c:choose>
     <c:when test="${LoggedInUser.getLoggedInUser().isMentor()}">
         <jsp:include page='header-mentor.jsp'>
@@ -30,29 +29,31 @@
 
 <h1>Users</h1>
 <br>
-<table class="list" border="1">
-    <tr>
-        <th>ID</th>
-        <th>User</th>
-        <th>Email</th>
-        <th>isMentor</th>
-    </tr>
-    <c:forEach items="${userList}" var="user">
+<div class="table-wrapper">
+    <table class="table-container">
         <tr>
-            <td>
-                    ${user.id}<br>
-            </td>
-            <td>
-                    ${user.fName}<br>
-            </td>
-            <td>
-                    ${user.email}<br>
-            </td>
-            <td>
-                    ${user.mentor}<br>
-            </td>
+            <th>ID</th>
+            <th>User</th>
+            <th>Email</th>
+            <th>isMentor</th>
         </tr>
-    </c:forEach>
-</table>
+        <c:forEach items="${userList}" var="user">
+            <tr>
+                <td>
+                        ${user.id}<br>
+                </td>
+                <td>
+                        ${user.fName}<br>
+                </td>
+                <td>
+                        ${user.email}<br>
+                </td>
+                <td>
+                        ${user.mentor}<br>
+                </td>
+            </tr>
+        </c:forEach>
+    </table>
+</div>
 </body>
 </html>

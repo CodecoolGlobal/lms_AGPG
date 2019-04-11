@@ -28,8 +28,8 @@
 
 <h1>Mentor Assignments</h1>
 <br>
-<div class="assignments">
-    <table class="list" border="1" border-color="white">
+<div class="table-wrapper">
+    <table class="table-container">
         <tr>
             <th>id</th>
             <th>Mentor id</th>

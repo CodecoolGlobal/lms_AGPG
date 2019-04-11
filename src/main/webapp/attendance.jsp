@@ -29,9 +29,7 @@
 
 <h1>Attendance</h1>
 <div align="center">
-    <br>
     <h1>${middleDate}</h1>
-    <br>
     <table>
         <tr>
             <td>
@@ -51,29 +49,31 @@
     </table>
     <form class="userprof" action="attendance" method="post">
         <input type="hidden" name="hiddenDate" value="${middleDate}">
-        <table border="1">
-            <tr>
-                <th>User</th>
-                <th>Present</th>
-            </tr>
-            <c:forEach items="${userList}" var="user">
+        <div class="table-wrapper">
+            <table class="table-container">
                 <tr>
-                    <td>
-                            ${user.fName}<br>
-                    </td>
-                    <td>
-                        <c:choose>
-                            <c:when test="${user.isPresent()}">
-                                <input type="checkbox" name="attendance" value="${user.id}" checked><br>
-                            </c:when>
-                            <c:otherwise>
-                                <input type="checkbox" name="attendance" value="${user.id}"><br>
-                            </c:otherwise>
-                        </c:choose>
-                    </td>
+                    <th>User</th>
+                    <th>Present</th>
                 </tr>
-            </c:forEach>
-        </table>
+                <c:forEach items="${userList}" var="user">
+                    <tr>
+                        <td>
+                                ${user.fName}<br>
+                        </td>
+                        <td>
+                            <c:choose>
+                                <c:when test="${user.isPresent()}">
+                                    <input type="checkbox" name="attendance" value="${user.id}" checked><br>
+                                </c:when>
+                                <c:otherwise>
+                                    <input type="checkbox" name="attendance" value="${user.id}"><br>
+                                </c:otherwise>
+                            </c:choose>
+                        </td>
+                    </tr>
+                </c:forEach>
+            </table>
+        </div>
         <br>
         <input type="submit" name="submit" value="Submit">
     </form>
