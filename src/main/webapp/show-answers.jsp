@@ -28,7 +28,8 @@
 
 <h1>Answers</h1>
 <br>
-<table class="list" border="1">
+<div class="table-wrapper">
+<table class="list1">
     <tr>
         <th>Answer</th>
         <th>Grade</th>
@@ -60,5 +61,6 @@
         </tr>
     </c:forEach>
 </table>
+</div>
 </body>
 </html>
