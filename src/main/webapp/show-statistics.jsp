@@ -18,7 +18,6 @@
             </jsp:include>
         </div>
         <br>
-        <h1>Logged in with: ${email} </h1>
         <h1>Statistics</h1>
         <div class="textpage">
 

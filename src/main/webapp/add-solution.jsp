@@ -13,7 +13,7 @@
         <jsp:param name="" value=""/>
      </jsp:include>
     <br>
-    <h1>Logged in with: ${email} </h1>
+
     <h1>Solution View</h1>
     <h2>Id: ${assignment.assignmentId}</h2>
     <h2>${assignment.question}</h2>
