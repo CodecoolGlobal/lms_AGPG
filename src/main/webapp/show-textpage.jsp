@@ -1,10 +1,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
-<%@ page import="java.util.List;" %>
-<%@ page import="com.codecool.web.model.TextPage;" %>
-<%@ page import="java.util.Arrays;" %>
+<%@ page import="com.codecool.web.model.TextPage" %>
+
 
 <!DOCTYPE html>
+
 <html lang="en">
     <head>
         <link rel="stylesheet" type="text/css" href="css-style.css">
@@ -22,8 +22,8 @@
         <br>
         <div class="wrapper">
             <div class="container">
-                <h2>${text-title}</h2>
-                <p>${text-content}</p>
+                <h2><%= request.getParameter("text-title") %></h2>
+                <p><%= request.getParameter("text-content") %></p>
             </div>
         </div>
     </body>

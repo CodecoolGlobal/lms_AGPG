@@ -18,19 +18,19 @@ public class ShowOneTextPageServlet extends AbstractServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException{
-        try (Connection connection = getConnection(request.getServletContext())) {
+        try{
+
             String textTitle = request.getParameter("text-title");
             String textContent = request.getParameter("text-content");
+
             request.setAttribute("text-title", textTitle);
             request.setAttribute("text-content", textContent);
-        } catch (SQLException ex) {
+
+            request.getRequestDispatcher("show-textpage.jsp").forward(request, response);
+
+        } catch (ServletException ex) {
             ex.printStackTrace();
         }
 
-        try {
-            request.getRequestDispatcher("show-textpage.jsp").forward(request, response);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        }
     }
 }
