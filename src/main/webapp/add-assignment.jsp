@@ -22,7 +22,7 @@
     </c:otherwise>
 </c:choose>
 
-<h1>Add an assignment</h1>
+<h1>Add assignment</h1>
 <form class="" action="assignment" method="post">
     <input size="50" type="text" name="question" value="" placeholder="What's the question?">
     <br>
@@ -45,4 +45,3 @@
 </form>
 </body>
 </html>
-
