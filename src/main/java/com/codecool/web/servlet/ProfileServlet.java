@@ -16,9 +16,7 @@ public class ProfileServlet extends AbstractServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         request.setAttribute("email", LoggedInUser.getLoggedInUser().getEmail());
-
         boolean currentPosition = LoggedInUser.getLoggedInUser().isMentor();
         String newName = request.getParameter("fullname");
         //String newPosition = request.getParameter("position");
@@ -27,25 +25,21 @@ public class ProfileServlet extends AbstractServlet {
         if (request.getParameter("position") != null) {
             isPositionGiven = true;
             newPosition = request.getParameter("position").equals("mentor");
-
         }
-
         try (Connection connection = getConnection(request.getServletContext())) {
 
             if (newName.length() > 0) {
                 UserUtil.Update(connection, LoggedInUser.getLoggedInUser(), "user_name", newName);
                 LoggedInUser.getLoggedInUser().setfName(newName);
             }
-
             if (isPositionGiven && currentPosition != newPosition) {
-                    UserUtil.Update(connection, LoggedInUser.getLoggedInUser(), "ismentor", newPosition);
-                    LoggedInUser.getLoggedInUser().setMentor(newPosition);
+                UserUtil.Update(connection, LoggedInUser.getLoggedInUser(), "ismentor", newPosition);
+                LoggedInUser.getLoggedInUser().setMentor(newPosition);
             }
-
         } catch (SQLException ex) {
             //throw new ServletException(ex);
         }
-        response.sendRedirect("myprofile");
+        response.sendRedirect("show-profile.jsp");
     }
 
     @Override
@@ -53,7 +47,6 @@ public class ProfileServlet extends AbstractServlet {
         req.setAttribute("email", LoggedInUser.getLoggedInUser().getEmail());
         resp.sendRedirect("show-profile.jsp");
     }
-
 }
 
 

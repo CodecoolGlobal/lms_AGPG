@@ -12,11 +12,10 @@
 <div class="navbar">
         <a href="myprofile">My profile</a>
         <a href="add-assignment.jsp">Modify assignments</a>
-        <a href="view">View Asgn.</a>
+        <a href="view">View Assignments</a>
         <a href="userlist">List users</a>
         <a href="add-textpage.jsp">Add Text Page</a>
         <a href="addtextpage">View Text Pages</a>
-        <a href="viewstatistics">View Statistics</a>
         <a href="attendance?date=${AttendanceService.getCurrentDate()}">Attendance</a>
         <a href="login">Logout</a>
     <br>
