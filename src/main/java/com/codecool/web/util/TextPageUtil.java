@@ -18,10 +18,9 @@ public class TextPageUtil {
 
             while (resultSet.next()) {
                 boolean isPublished = resultSet.getBoolean("ispublished");
-                java.sql.Date textPageDate = resultSet.getDate("date_created");
                 String textTitle = resultSet.getString("textpage_title");
                 String textValue = resultSet.getString("textpage_value");
-                textPageList.add(new TextPage(textTitle, textValue, textPageDate, isPublished));
+                textPageList.add(new TextPage(textTitle, textValue, isPublished));
             }
         }
         return textPageList;
@@ -31,13 +30,12 @@ public class TextPageUtil {
 
         long time = System.currentTimeMillis();
         java.sql.Date textPageDate = new java.sql.Date(time);
-        String sql = "INSERT INTO textpage (textpage_title, textpage_value, date_created, ispublished) VALUES(?, ?, ?, ?);";
+        String sql = "INSERT INTO textpage (textpage_title, textpage_value, ispublished) VALUES(?, ?, ?);";
         try (PreparedStatement statement = connection.prepareStatement(sql)
         ) {
             statement.setString(1, textTitle);
             statement.setString(2, textValue);
-            statement.setDate(3, textPageDate);
-            statement.setBoolean(4, isPublished);
+            statement.setBoolean(3, isPublished);
             statement.executeUpdate();
         }
     }

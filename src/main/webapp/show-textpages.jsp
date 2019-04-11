@@ -33,15 +33,11 @@
             <table class="list" border="1" border-color="white">
                 <tr>
                     <th>Text Title</th>
-                    <th>Text Content</th>
-                    <th>Date Created</th>
                     <th>Published?</th>
                 </tr>
                     <c:forEach var="t" items="${textpages}">
                         <tr>
                         <td>${t.getTitle()}</td>
-                        <td>${t.getTextContent()}</td>
-                        <td>${t.getDateCreated()}</td>
                         <td>${t.isPublished()}</td>
                         </tr>
                     </c:forEach>

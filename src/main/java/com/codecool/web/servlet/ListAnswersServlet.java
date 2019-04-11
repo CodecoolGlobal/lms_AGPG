@@ -17,7 +17,7 @@ public class ListAnswersServlet extends AbstractServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String id;
         try (Connection connection = getConnection(req.getServletContext())) {
-            id = req.getParameter("id");
+            id = req.getParameter("testId");
             req.setAttribute("testId", id);
             req.setAttribute("answerList", AnswerUtil.getAnswerList(connection, Integer.valueOf(id)));
         } catch (SQLException ex) {
@@ -28,7 +28,11 @@ public class ListAnswersServlet extends AbstractServlet {
     
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp);
+        String grade = req.getParameter("gradings");
+        req.setAttribute("gradings", grade);
+        String assignmentId = req.getParameter("testId");
+        
+        req.getRequestDispatcher("show-answers.jsp").forward(req, resp);
     }
 }
 
