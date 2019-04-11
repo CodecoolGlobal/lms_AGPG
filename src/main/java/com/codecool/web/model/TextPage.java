@@ -6,14 +6,13 @@ public class TextPage {
 
     private String title;
     private String textContent;
-    private Date dateCreated;
     private boolean isPublished;
 
-    public TextPage(String title, String textContent, Date dateCreated, boolean isPublished) {
+    public TextPage(String title, String textContent, boolean isPublished) {
         super();
         this.title = title;
         this.textContent = textContent;
-        this.dateCreated = dateCreated;
+
         this.isPublished = isPublished;
     }
 
@@ -33,14 +32,6 @@ public class TextPage {
         this.textContent = textContent;
     }
 
-    public Date getDateCreated() {
-        return dateCreated;
-    }
-
-    public void setDateCreated(Date dateCreated) {
-        this.dateCreated = dateCreated;
-    }
-
     public boolean isPublished() {
         return isPublished;
     }
@@ -50,7 +41,6 @@ public class TextPage {
         return "TextPage{" +
             "title='" + title + '\'' +
             ", textContent='" + textContent + '\'' +
-            ", dateCreated=" + dateCreated +
             ", isPublished=" + isPublished +
             '}';
     }

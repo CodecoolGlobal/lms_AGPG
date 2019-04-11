@@ -37,7 +37,6 @@ CREATE TABLE textpage (
     textpage_id SERIAL NOT NULL,
     textpage_title varchar,
     textpage_value text,
-    date_created date,
     ispublished boolean NOT NULL
 );
 
@@ -64,8 +63,8 @@ INSERT INTO answers (assignment_id, student_id, answer, grade) VALUES
     (1, 7, 'Ez egy másik gyönyörűséges válasz', 2),
 	(3, 6,'Mindig', 1);
 
-INSERT INTO textpage (textpage_title, textpage_value, date_created, ispublished) VALUES
-	('asd', 'asdasdd', NULL, true);
+INSERT INTO textpage (textpage_title, textpage_value, ispublished) VALUES
+	('asd', 'asdasdd', true);
 
 
 INSERT INTO attendance (user_id, date_att) VALUES
