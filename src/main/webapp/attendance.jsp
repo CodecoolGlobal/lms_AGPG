@@ -5,6 +5,8 @@
 <%@ page import="java.util.List" %>
 <%@ page import="com.codecool.web.model.LoggedInUser" %>
 <%@ page import="com.codecool.web.servlet.AttendanceServlet" %>
+<%@ page import="com.codecool.web.service.AttendanceService" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,6 +29,9 @@
 
 <h1>Attendance</h1>
 <div align="center">
+    <br>
+    <h1>${middleDate}</h1>
+    <br>
     <table>
         <tr>
             <td>
@@ -37,9 +42,6 @@
             </td>
             <td>
                 <a href="attendance?date=${backInTimeDay}">Back one Day</a>
-            </td>
-            <td>
-                <h2>${middleDate}</h2>
             </td>
             <td>
                 <a href="attendance?date=${AttendanceService.getCurrentDate()}">Back to Current Date</a>
