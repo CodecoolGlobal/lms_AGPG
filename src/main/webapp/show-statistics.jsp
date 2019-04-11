@@ -13,7 +13,7 @@
     </head>
     <body>
         <div class="navbar">
-            <jsp:include page='header-mentor.jsp'>
+            <jsp:include page='header-student.jsp'>
                 <jsp:param name="" value=""/>
             </jsp:include>
         </div>

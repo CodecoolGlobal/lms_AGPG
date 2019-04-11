@@ -5,10 +5,6 @@
 <%@ page import="java.util.List" %>
 <%@ page import="com.codecool.web.servlet.AttendanceServlet" %>
 <%@ page import="com.codecool.web.service.AttendanceService" %>
-
-
-
-
 <!DOCTYPE html>
 <html>
     <head>

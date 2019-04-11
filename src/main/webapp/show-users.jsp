@@ -2,8 +2,8 @@
 <%@ page import="java.util.List" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page import="com.codecool.web.model.User" %>
+<%@ page import="com.codecool.web.model.LoggedInUser" %>
 <%@ page import="java.util.Arrays" %>
-
 <!DOCTYPE html>
  <head>
     <link rel="stylesheet" type="text/css" href="css-style.css">
@@ -14,9 +14,18 @@
 <html lang="en">
     <body>
         <div class="navbar">
-            <jsp:include page='header-mentor.jsp'>
-                <jsp:param name="" value=""/>
-            </jsp:include>
+<c:choose>
+                                            <c:when test="${LoggedInUser.getLoggedInUser().isMentor()}">
+                                                <jsp:include page='header-mentor.jsp'>
+                                                                            <jsp:param name="" value=""/>
+                                                                        </jsp:include>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <jsp:include page='header-student.jsp'>
+                                                                            <jsp:param name="" value=""/>
+                                                                        </jsp:include>
+                                            </c:otherwise>
+                                        </c:choose>
         </div>
       <h1>Logged in with: ${email} </h1>
       <h1>Users</h1>
