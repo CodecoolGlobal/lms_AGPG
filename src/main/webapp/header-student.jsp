@@ -10,13 +10,12 @@
 </head>
 <body>
 <div class="navbar">
-        <a href="myprofile">My profile</a>
-        <a href="view">View Assignments.</a>
-        <a href="addtextpage">View Text Pages</a>
-        <a href="viewstatistics">View Statistics</a>
-        <!-- <a href="chart">View Chart</a> -->
-        <a href="login">Logout</a>
-    <br>
+    <a href="myprofile">My profile</a>
+    <a href="view">View Assignments.</a>
+    <a href="addtextpage">View Text Pages</a>
+    <a href="viewstatistics">View Statistics</a>
+    <!-- <a href="chart">View Chart</a> -->
+    <a href="login">Logout</a>
 </div>
 <h1>Logged in with: ${email} </h1>
 </body>

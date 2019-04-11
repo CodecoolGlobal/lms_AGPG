@@ -11,22 +11,23 @@
 
 <html lang="en">
 <body>
-<div class="navbar">
-    <c:choose>
-                    <c:when test="${LoggedInUser.getLoggedInUser().isMentor()}">
-                        <jsp:include page='header-mentor.jsp'>
-                            <jsp:param name="" value=""/>
-                        </jsp:include>
-                    </c:when>
-                    <c:otherwise>
-                        <jsp:include page='header-student.jsp'>
-                            <jsp:param name="" value=""/>
-                        </jsp:include>
-                    </c:otherwise>
-                </c:choose>
-</div>
-<br>
+
+<c:choose>
+    <c:when test="${LoggedInUser.getLoggedInUser().isMentor()}">
+        <jsp:include page='header-mentor.jsp'>
+            <jsp:param name="" value=""/>
+        </jsp:include>
+    </c:when>
+    <c:otherwise>
+        <jsp:include page='header-student.jsp'>
+            <jsp:param name="" value=""/>
+        </jsp:include>
+    </c:otherwise>
+</c:choose>
+
+
 <h1>Answers</h1>
+<br>
 <table class="list" border="1">
     <tr>
         <th>Answer</th>
@@ -37,7 +38,7 @@
         <tr>
             <td class="answer">
                 <div class="textbox">
-                    ${a.answer}<br>
+                        ${a.answer}<br>
                 </div>
             </td>
             <td>

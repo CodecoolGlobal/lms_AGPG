@@ -9,33 +9,32 @@
     <title>Add solution</title>
 </head>
 <body>
-<div class="navbar">
-    <c:choose>
-                    <c:when test="${LoggedInUser.getLoggedInUser().isMentor()}">
-                        <jsp:include page='header-mentor.jsp'>
-                            <jsp:param name="" value=""/>
-                        </jsp:include>
-                    </c:when>
-                    <c:otherwise>
-                        <jsp:include page='header-student.jsp'>
-                            <jsp:param name="" value=""/>
-                        </jsp:include>
-                    </c:otherwise>
-                </c:choose>
-    <br>
+<c:choose>
+    <c:when test="${LoggedInUser.getLoggedInUser().isMentor()}">
+        <jsp:include page='header-mentor.jsp'>
+            <jsp:param name="" value=""/>
+        </jsp:include>
+    </c:when>
+    <c:otherwise>
+        <jsp:include page='header-student.jsp'>
+            <jsp:param name="" value=""/>
+        </jsp:include>
+    </c:otherwise>
+</c:choose>
+<br>
 
-    <h1>Solution View</h1>
-    <h2>Id: ${assignment.assignmentId}</h2>
-    <h2>${assignment.question}</h2>
-    <form action="answer" method="post">
-        Please enter your solution:
-        <br>
-        <input type="hidden" name="id" value="${assignment.assignmentId}">
-            <textarea type="text" name="answer" rows="5" cols="30"></textarea>
-        <br>
-        <input type="SUBMIT" value="Submit">
-    </form>
-</div>
+<h1>Solution View</h1>
+<h2>Id: ${assignment.assignmentId}</h2>
+<h2>${assignment.question}</h2>
+<form action="answer" method="post">
+    Please enter your solution:
+    <br>
+    <input type="hidden" name="id" value="${assignment.assignmentId}">
+    <textarea type="text" name="answer" rows="5" cols="30"></textarea>
+    <br>
+    <input type="SUBMIT" value="Submit">
+</form>
+
 </body>
 
 </html>
