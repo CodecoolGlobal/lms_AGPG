@@ -23,11 +23,11 @@
 </c:choose>
 
 <h1>Add assignment</h1>
-<form class="" action="assignment" method="post">
+<form class="" action="assignment" method="post" align="center">
     <input size="50" type="text" name="question" value="" placeholder="What's the question?">
     <br>
     <h4>Set max points</h4>
-    <select name="maxpoints" size="1" style="width: 195px !important; min-width: 195px; max-width: 195px;">
+    <select name="maxpoints" size="1">
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -35,7 +35,7 @@
         <option value="5">5</option>
     </select>
     <br>
-    <select name="published" size="1" style="width: 195px !important; min-width: 195px; max-width: 195px;">
+    <select name="published" size="1">
         <option value="true">published</option>
         <option value="false">unpublished</option>
     </select>

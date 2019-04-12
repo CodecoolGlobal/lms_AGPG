@@ -22,8 +22,8 @@
 
 
 <h1>Add new text page</h1>
-<form class="" action="addtextpage" method="post">
-    <input type="text" name="textpage_title" value="" placeholder="What's the title of this text page?">
+<form class="" action="addtextpage" method="post" align="center">
+    <input type="text" name="textpage_title" value="" placeholder="Title of Text Page">
     <br>
     <br>
     <textarea rows="5" cols="80" id="textpage" placeholder="Write your things here!" name="textpage_value"></textarea>

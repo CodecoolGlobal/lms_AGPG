@@ -53,7 +53,7 @@ INSERT INTO users (user_name, email, user_password, isMentor) VALUES
 
 INSERT INTO assignments (published, assignment_date, question, max_point, mentor_id) VALUES
 	(true, null, 'What is Inheritance?', 5, 1),
-    (true, null, 'WHat is Polymorphism?', 5, 5),
+    (true, null, 'What is Polymorphism?', 5, 5),
     (false, null, 'What is Abstraction?', 5, 1),
     (true, null, 'What is Encapsulation?', 5, 1);
 
