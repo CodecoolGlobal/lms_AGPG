@@ -21,7 +21,6 @@ public class ViewServlet extends AbstractServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        //req.getRequestDispatcher("show-student-assignments.jsp").forward(req, resp);
         if (LoggedInUser.getLoggedInUser().isMentor()) {
             try (Connection connection = getConnection(req.getServletContext())) {
                 req.setAttribute("assignment", AssignmentUtil.getAssignments(connection));

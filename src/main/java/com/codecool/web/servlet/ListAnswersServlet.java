@@ -30,8 +30,7 @@ public class ListAnswersServlet extends AbstractServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String grade = req.getParameter("gradings");
         req.setAttribute("gradings", grade);
-        String assignmentId = req.getParameter("testId");
-        
+
         req.getRequestDispatcher("show-answers.jsp").forward(req, resp);
     }
 }

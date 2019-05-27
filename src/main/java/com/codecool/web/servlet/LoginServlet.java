@@ -19,7 +19,7 @@ public class LoginServlet extends AbstractServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-        throws ServletException, IOException {
+        throws IOException {
         response.setContentType("text/html;charset=UTF-8");
         String user_email = request.getParameter("email");
         String user_pass = request.getParameter("psw");
@@ -28,7 +28,6 @@ public class LoginServlet extends AbstractServlet {
         user_email = (String) session.getAttribute("email");
         String redirectUrl = "";
         try (Connection connection = getConnection(request.getServletContext())) {
-            List<User> users = UserUtil.getUsers(connection);
             if (UserUtil.isRegistrated(connection, user_email, user_pass)) {
                 redirectUrl = "view";
                 LoggedInUser.setLoggedInUser(UserUtil.findUserByEmail(connection, user_email));
@@ -38,14 +37,12 @@ public class LoginServlet extends AbstractServlet {
             }
         } catch (SQLException ex) {
             //throw new ServletException(ex);
-        } /*catch (ServiceException ex) {
-            request.setAttribute("error", ex.getMessage());
-        }*/
+        }
         response.sendRedirect(redirectUrl);
     }
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         resp.sendRedirect("page-login.jsp");
     }
 }

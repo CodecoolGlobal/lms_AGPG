@@ -1,7 +1,5 @@
 package com.codecool.web.model;
 
-import java.util.Date;
-
 public class TextPage {
 
     private String title;

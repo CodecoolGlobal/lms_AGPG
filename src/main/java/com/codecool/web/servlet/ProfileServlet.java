@@ -19,7 +19,6 @@ public class ProfileServlet extends AbstractServlet {
         request.setAttribute("email", LoggedInUser.getLoggedInUser().getEmail());
         boolean currentPosition = LoggedInUser.getLoggedInUser().isMentor();
         String newName = request.getParameter("fullname");
-        //String newPosition = request.getParameter("position");
         boolean isPositionGiven = false;
         boolean newPosition = false;
         if (request.getParameter("position") != null) {

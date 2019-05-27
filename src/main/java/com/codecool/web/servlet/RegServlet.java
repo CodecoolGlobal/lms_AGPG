@@ -17,7 +17,7 @@ public class RegServlet extends AbstractServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-        throws ServletException, IOException {
+        throws IOException {
         response.setContentType("text/html;charset=UTF-8");
 
         String user_name = request.getParameter("fullname");
@@ -33,7 +33,6 @@ public class RegServlet extends AbstractServlet {
         try (Connection connection = getConnection(request.getServletContext())) {
             if (!UserUtil.isEmailUsed(connection, user_email)) {
                 User user = new User(user_name, user_email, user_pass, position);
-                HttpSession userSession = request.getSession(false);
                 session.setAttribute("user", user);
                 UserUtil.createUser(connection, user);
                 redirectUrl = "page-login.jsp";

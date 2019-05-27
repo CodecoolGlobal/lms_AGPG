@@ -29,7 +29,6 @@ public class TextPageUtil {
     public static void addTextPage(Connection connection, boolean isPublished, String textTitle, String textValue) throws SQLException {
 
         long time = System.currentTimeMillis();
-        java.sql.Date textPageDate = new java.sql.Date(time);
         String sql = "INSERT INTO textpage (textpage_title, textpage_value, ispublished) VALUES(?, ?, ?);";
         try (PreparedStatement statement = connection.prepareStatement(sql)
         ) {

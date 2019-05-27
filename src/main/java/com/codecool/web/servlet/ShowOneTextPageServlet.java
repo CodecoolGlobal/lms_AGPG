@@ -1,17 +1,10 @@
 package com.codecool.web.servlet;
 
-import com.codecool.web.model.TextPage;
-import com.codecool.web.util.TextPageUtil;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.util.List;
 
 @WebServlet({"/show-textcontent"})
 public class ShowOneTextPageServlet extends AbstractServlet {

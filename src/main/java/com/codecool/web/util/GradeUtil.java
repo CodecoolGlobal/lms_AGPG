@@ -1,11 +1,9 @@
 package com.codecool.web.util;
 
-import com.codecool.web.model.LoggedInUser;
 import com.codecool.web.model.Statistic;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class GradeUtil {

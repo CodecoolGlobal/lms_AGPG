@@ -16,7 +16,6 @@ public class GradeServlet extends AbstractServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try (Connection connection = getConnection(req.getServletContext())) {
-            PrintWriter pw = resp.getWriter();
             String assignmentId = req.getParameter("testId");
             String grade = req.getParameter("gradings");
             int studentId = AnswerUtil.getStudentIdByAssignmentId(connection, Integer.valueOf(assignmentId));

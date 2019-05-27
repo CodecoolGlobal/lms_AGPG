@@ -25,7 +25,6 @@ public class AssignmentUtil {
                 String question = resultSet.getString("question");
                 int maxPoints = resultSet.getInt("max_point");
                 int mentorId = resultSet.getInt("mentor_id");
-                //    public Assignment(int assignmentId, boolean published, Date date, String question, int maxPoints,int mentorID) {
                 assignmentList.add(new Assignment(id,published,assignmentDate,question,maxPoints,mentorId));
             }
         }
