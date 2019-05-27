@@ -29,10 +29,6 @@ public class UserUtil {
 
     public static void createUser(Connection connection, User user) throws SQLException {
 
-//        String sql = "INSERT INTO users " +
-//            "(user_name, email, user_password, ismentor) " +
-//            "VALUES(?, ?, ?, ?); ";
-
         String sql = "INSERT INTO users " +
             "(user_name, email, user_password, ismentor) " +
             "VALUES(?, ?, crypt(?, gen_salt('bf', 9)) , ?); ";
