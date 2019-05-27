@@ -4,27 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css-style.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+          integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <title>Registration</title>
 </head>
 <body>
-    <div class="wrapper animated bounce">
-      <h1>Codecool LMS Registration Form</h1>
-      <hr>
-      <form class="registration" method="post" action="reg">
+<div class="wrapper animated bounce">
+    <h1>Codecool LMS Registration Form</h1>
+    <hr>
+    <form class="registration" method="post" action="reg">
         <label id="icon" for="username"><i class="fa fa-user"></i></label>
         <input type="text" placeholder="Full name" id="username" name="fullname" pattern="[A-Za-z ]{1,32}" required>
         <label id="icon" for="inbox"><i class="fa fa-inbox"></i></label>
-        <input type="text" placeholder="Email address" id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+        <input type="text" placeholder="Email address" id="email" name="email"
+               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
         <label id="icon" for="password"><i class="fa fa-key"></i></label>
-        <input type="password" placeholder="Password" id="password" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+        <input type="password" placeholder="Password" id="password" name="psw"
+               pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
         <input type="radio" name="position" value="student" id="radio1" required>
         <label for="radio1" name=rbutton>Student</label>
         <input type="radio" name="position" value="mentor" id="radio2" required>
         <label for="radio2" name=rbutton>Mentor</label>
-          <a href="page-login.html"><input type="submit" value="Register"></a>
-      </form>
+        <a href="page-login.html"><input type="submit" value="Register"></a>
+    </form>
 
-    </div>
+</div>
 </body>
 </html>
